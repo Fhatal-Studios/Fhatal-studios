@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fhatal Studios</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -148,59 +149,59 @@
   <img src="img/F-A_white.png" alt="Fhatal Studios Logo">
 </header>
 
-<section class="hero">
+<section class="hero" data-aos="fade-up">
   <h1>Websites That Build Trust</h1>
   <p>Prototype-first digital studio helping brands grow with AI and precision</p>
   <a href="#contact"><button class="btn">Get Your Free Prototype</button></a>
 </section>
 
-<section id="services">
+<section id="services" data-aos="fade-up">
   <h2>What We Do</h2>
   <div class="three-col">
-    <div>
+    <div data-aos="fade-up" data-aos-delay="100">
       <h3>AI-Powered Design</h3>
       <p>Custom websites enhanced with smart tools like ChatGPT</p>
     </div>
-    <div>
+    <div data-aos="fade-up" data-aos-delay="200">
       <h3>Modern Tech</h3>
       <p>HTML, CSS, JS, React.js – built with future-proof standards</p>
     </div>
-    <div>
+    <div data-aos="fade-up" data-aos-delay="300">
       <h3>Startup Friendly</h3>
       <p>We prototype first, build trust, and grow with you</p>
     </div>
   </div>
 </section>
 
-<section id="why">
+<section id="why" data-aos="fade-up">
   <h2>Why Fhatal Studios</h2>
   <div class="three-col">
-    <div>
+    <div data-aos="zoom-in" data-aos-delay="100">
       <h3>Free Prototypes</h3>
       <p>See your site before paying a cent</p>
     </div>
-    <div>
+    <div data-aos="zoom-in" data-aos-delay="200">
       <h3>Collaboration Tools</h3>
       <p>We use Confluence, Trello & Discord for clear communication</p>
     </div>
-    <div>
+    <div data-aos="zoom-in" data-aos-delay="300">
       <h3>Efficiency</h3>
       <p>We keep it fast, smart, and scalable from day one</p>
     </div>
   </div>
 </section>
 
-<section class="showcase">
+<section class="showcase" data-aos="fade-up">
   <h2>Showcase</h2>
   <img src="img/F-A.png" alt="Sample work (replace with real screenshot)">
 </section>
 
-<section id="contact">
+<section id="contact" data-aos="fade-up">
   <h2>Let’s Talk</h2>
-  <form>
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <textarea rows="4" placeholder="Tell us what you need..."></textarea>
+  <form action="https://formspree.io/f/yourFormID" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="_replyto" placeholder="Your Email" required />
+    <textarea name="message" rows="4" placeholder="Tell us what you need..." required></textarea>
     <button class="btn">Send Message</button>
   </form>
 </section>
@@ -208,6 +209,15 @@
 <footer>
   &copy; 2025 Fhatal Studios. All rights reserved.
 </footer>
+
+<!-- AOS script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
 
 </body>
 </html>
