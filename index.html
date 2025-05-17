@@ -5,28 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fhatal Studios</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Add Google reCAPTCHA script -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
+    html, body {
       font-family: 'Inter', sans-serif;
-      background-color: #1e1e1e;
-      color: #f0f0f0;
+      background: linear-gradient(to bottom right, #1c1c1e, #2a2a2e);
+      color: #e5e7eb;
       scroll-behavior: smooth;
     }
 
+    body {
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #site-wrapper {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
     header {
-      padding: 20px 40px;
+      padding: 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      background-color: #121212;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      background-color: rgba(20, 25, 32, 0.95);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
     header img {
@@ -34,46 +54,46 @@
     }
 
     .hero {
-      height: 90vh;
+      padding: 120px 20px 80px 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(135deg, #1f1f1f 0%, #2a2a2a 100%);
-      padding: 20px;
     }
 
     .hero h1 {
       font-size: 3.2rem;
       font-weight: 700;
       margin-bottom: 1rem;
+      color: #ffffff;
     }
 
     .hero p {
       font-size: 1.2rem;
-      color: #ccc;
+      color: #cbd5e1;
       max-width: 600px;
       margin-bottom: 2rem;
     }
 
     .btn {
       background: #d4af37;
-      color: #121212;
+      color: #0f0f10;
       padding: 12px 30px;
       border: none;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease;
-      border-radius: 5px;
+      transition: 0.3s ease;
+      border-radius: 6px;
     }
 
     .btn:hover {
-      background: #b38e2f;
+      box-shadow: 0 0 20px #d4af37aa;
+      transform: translateY(-2px);
     }
 
     section {
-      padding: 80px 20px;
+      padding: 100px 20px;
       max-width: 1100px;
       margin: auto;
     }
@@ -83,6 +103,7 @@
       margin-bottom: 40px;
       font-size: 2rem;
       font-weight: 600;
+      color: #ffffff;
     }
 
     .three-col {
@@ -96,17 +117,19 @@
     .three-col div {
       flex: 1;
       min-width: 250px;
-      background: #2b2b2b;
+      background: #1a1a1a;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
     }
 
-    .showcase img {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    .three-col h3 {
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .three-col p {
+      color: #cbd5e1;
     }
 
     form {
@@ -115,26 +138,51 @@
       gap: 15px;
       max-width: 500px;
       margin: auto;
+      margin-bottom: 100px;
     }
 
     input, textarea {
       padding: 12px;
       border: none;
       border-radius: 6px;
-      background: #2a2a2a;
-      color: #fff;
+      background: #1f1f1f;
+      color: #ffffff;
     }
 
     input::placeholder, textarea::placeholder {
-      color: #888;
+      color: #9ca3af;
     }
 
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       font-size: 0.9rem;
-      color: #999;
-      background-color: #121212;
+      color: #9ca3af;
+      background-color: #141920;
+      border-top: 1px solid #2e2e2e;
+      margin-top: 60px;
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #d4af37;
+      color: #0f0f10;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+      font-weight: bold;
+      display: none;
+      z-index: 99;
+    }
+
+    .g-recaptcha {
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: center;
     }
 
     @media (max-width: 768px) {
@@ -143,81 +191,135 @@
     }
   </style>
 </head>
+
 <body>
+  <div id="particles-js"></div>
 
-<header>
-  <img src="img/F-A_white.png" alt="Fhatal Studios Logo">
-</header>
+  <div id="site-wrapper">
+    <header data-aos="fade-down">
+      <img src="img/F-A_white.png" alt="Fhatal Studios Logo">
+    </header>
 
-<section class="hero" data-aos="fade-up">
-  <h1>Websites That Build Trust</h1>
-  <p>Prototype-first digital studio helping brands grow with AI and precision</p>
-  <a href="#contact"><button class="btn">Get Your Free Prototype</button></a>
-</section>
+    <div class="hero" data-aos="fade-up">
+      <h1>Websites That Build Trust</h1>
+      <p>Prototype-first digital studio helping brands grow with AI and precision</p>
+      <a href="#contact"><button class="btn">Get Your Free Prototype</button></a>
+    </div>
 
-<section id="services" data-aos="fade-up">
-  <h2>What We Do</h2>
-  <div class="three-col">
-    <div data-aos="fade-up" data-aos-delay="100">
-      <h3>AI-Powered Design</h3>
-      <p>Custom websites enhanced with smart tools like ChatGPT</p>
-    </div>
-    <div data-aos="fade-up" data-aos-delay="200">
-      <h3>Modern Tech</h3>
-      <p>HTML, CSS, JS, React.js – built with future-proof standards</p>
-    </div>
-    <div data-aos="fade-up" data-aos-delay="300">
-      <h3>Startup Friendly</h3>
-      <p>We prototype first, build trust, and grow with you</p>
-    </div>
+    <section id="services" data-aos="fade-up">
+      <h2>What We Do</h2>
+      <div class="three-col">
+        <div data-aos="zoom-in" data-aos-delay="100">
+          <h3>AI-Enhanced Workflow</h3>
+          <p>We use ChatGPT behind the scenes to speed up edits, generate ideas, and deliver results faster — not in your site’s code.</p>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="200">
+          <h3>Modern Tech</h3>
+          <p>HTML, CSS, JS, React.js – built with future-proof standards</p>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="300">
+          <h3>Startup Friendly</h3>
+          <p>We prototype first, build trust, and grow with you</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" data-aos="fade-up">
+      <h2>About Us</h2>
+      <div class="three-col">
+        <div data-aos="zoom-in" data-aos-delay="100">
+          <img src="img/profile-placeholder.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
+          <h3>Jane Doe</h3>
+          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">Lead Designer</p>
+          <p>10+ years in UI/UX design. Ex-ABC Agency. Passionate about user-centric digital experiences.</p>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="200">
+          <img src="img/profile-placeholder.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
+          <h3>John Smith</h3>
+          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">Full Stack Developer</p>
+          <p>React.js & Node.js expert. Built scalable apps for startups and enterprises since 2015.</p>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="300">
+          <img src="img/profile-placeholder.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
+          <h3>Alex Lee</h3>
+          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">AI Specialist</p>
+          <p>PhD in AI. 7+ years in machine learning and automation for digital products.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+      <h2>Let’s Talk</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="_replyto" placeholder="Your Email" required />
+        <textarea name="message" rows="4" placeholder="Tell us what you need..." required></textarea>
+        <!-- Google reCAPTCHA widget -->
+        <div class="g-recaptcha" data-sitekey="6LcAST4rAAAAAOaYiXSb1V_p-4-gtWYTOSXyOk_h"></div>
+        <button class="btn">Send Message</button>
+      </form>
+    </section>
+
+    <footer data-aos="fade-up">
+      &copy; 2025 Fhatal Studios. All rights reserved.
+    </footer>
   </div>
-</section>
 
-<section id="why" data-aos="fade-up">
-  <h2>Why Fhatal Studios</h2>
-  <div class="three-col">
-    <div data-aos="zoom-in" data-aos-delay="100">
-      <h3>Free Prototypes</h3>
-      <p>See your site before paying a cent</p>
-    </div>
-    <div data-aos="zoom-in" data-aos-delay="200">
-      <h3>Collaboration Tools</h3>
-      <p>We use Confluence, Trello & Discord for clear communication</p>
-    </div>
-    <div data-aos="zoom-in" data-aos-delay="300">
-      <h3>Efficiency</h3>
-      <p>We keep it fast, smart, and scalable from day one</p>
-    </div>
-  </div>
-</section>
+  <button id="scrollTopBtn" title="Scroll to top">↑</button>
 
-<section class="showcase" data-aos="fade-up">
-  <h2>Showcase</h2>
-  <img src="img/F-A.png" alt="Sample work (replace with real screenshot)">
-</section>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-<section id="contact" data-aos="fade-up">
-  <h2>Let’s Talk</h2>
-  <form action="https://formspree.io/f/yourFormID" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="_replyto" placeholder="Your Email" required />
-    <textarea name="message" rows="4" placeholder="Tell us what you need..." required></textarea>
-    <button class="btn">Send Message</button>
-  </form>
-</section>
+  <script>
+    AOS.init({ duration: 1000, once: true });
 
-<footer>
-  &copy; 2025 Fhatal Studios. All rights reserved.
-</footer>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60 },
+        color: { value: "#d4af37" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#d4af37",
+          opacity: 0.2,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "grab"
+          },
+          onclick: {
+            enable: false
+          },
+          resize: true
+        },
+        modes: {
+          grab: {
+            distance: 180,
+            line_linked: {
+              opacity: 0.5
+            }
+          }
+        }
+      },
+      retina_detect: true
+    });
 
-<!-- AOS script -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000,
-    once: true
-  });
-</script>
-
+    const btn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => btn.style.display = (window.scrollY > 300) ? "block" : "none";
+    btn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  </script>
 </body>
 </html>
