@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fhatal Studios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0e0e;
+      color: #f2f2f2;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img {
+      height: 50px;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at center, #1a1a1a 0%, #0e0e0e 100%);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #aaa;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      background: #d4af37;
+      color: #0e0e0e;
+      padding: 12px 30px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      border-radius: 5px;
+    }
+    .btn:hover {
+      background: #b4932c;
+    }
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .three-col {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-around;
+      text-align: center;
+    }
+    .three-col div {
+      flex: 1;
+      min-width: 250px;
+      background: #1b1b1b;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    .showcase img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: #222;
+      color: #fff;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #888;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .three-col { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="pic/fhatal-studios-logo.png" alt="Fhatal Studios Logo">
+</header>
+
+<section class="hero">
+  <h1>Websites That Build Trust</h1>
+  <p>Prototype-first digital studio helping brands grow with AI and precision</p>
+  <a href="#contact"><button class="btn">Get Your Free Prototype</button></a>
+</section>
+
+<section id="services">
+  <h2 style="text-align:center; margin-bottom:40px;">What We Do</h2>
+  <div class="three-col">
+    <div>
+      <h3>AI-Powered Design</h3>
+      <p>Custom websites enhanced with smart tools like ChatGPT</p>
+    </div>
+    <div>
+      <h3>Modern Tech</h3>
+      <p>HTML, CSS, JS, React.js – built with future-proof standards</p>
+    </div>
+    <div>
+      <h3>Startup Friendly</h3>
+      <p>We prototype first, build trust, and grow with you</p>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <h2 style="text-align:center; margin-bottom:40px;">Why Fhatal Studios</h2>
+  <div class="three-col">
+    <div>
+      <h3>Free Prototypes</h3>
+      <p>See your site before paying a cent</p>
+    </div>
+    <div>
+      <h3>Collaboration Tools</h3>
+      <p>We use Confluence, Trello & Discord for clear communication</p>
+    </div>
+    <div>
+      <h3>Efficiency</h3>
+      <p>We keep it fast, smart, and scalable from day one</p>
+    </div>
+  </div>
+</section>
+
+<section class="showcase">
+  <h2 style="text-align:center; margin-bottom:40px;">Showcase</h2>
+  <img src="pic/sample-website-design.jpg" alt="Sample work">
+</section>
+
+<section id="contact">
+  <h2 style="text-align:center; margin-bottom:40px;">Let’s Talk</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea rows="4" placeholder="Tell us what you need..."></textarea>
+    <button class="btn">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 Fhatal Studios. All rights reserved.
+</footer>
+
+</body>
+</html>
