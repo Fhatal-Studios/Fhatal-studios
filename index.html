@@ -6,6 +6,8 @@
   <title>Fhatal Studios</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Add favicon -->
+  <link rel="icon" type="image/png" href="img/favicon.png">
   <!-- Add Google reCAPTCHA script -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
@@ -211,15 +213,15 @@
       <div class="three-col">
         <div data-aos="zoom-in" data-aos-delay="100">
           <h3>AI-Enhanced Workflow</h3>
-          <p>We use ChatGPT behind the scenes to speed up edits, generate ideas, and deliver results faster not in your site’s code.</p>
+          <p>We use ChatGPT and other AI-assisted tools behind the scenes to speed up development, streamline revisions, and boost idea generation. <br><br>This helps us deliver faster without sacrificing quality. <br><br>While AI helps us work smarter, your site is always coded and reviewed by real humans - no shortcuts, no auto-generated fluff.</p>
         </div>
         <div data-aos="zoom-in" data-aos-delay="200">
           <h3>Modern Tech</h3>
-          <p>HTML, CSS, JS, React.js - built with future-proof standards</p>
+          <p>We build using proven technologies like HTML, CSS, JavaScript, and React.js. <br><br>Our stack is flexible, lightweight, and scalable - perfect for small businesses aiming to grow. <br><br>Everything we develop is responsive, SEO-friendly, and made to last through updates, not just trends.</p>
         </div>
         <div data-aos="zoom-in" data-aos-delay="300">
           <h3>Startup Friendly</h3>
-          <p>We prototype first, build trust, and grow with you</p>
+          <p>We believe trust should be earned. <br><br>That’s why we offer a free website prototype before any commitment. <br><br>It lets you see the quality, give early feedback, and build what you actually need - without pressure, lock-in, or upfront costs.</p>
         </div>
       </div>
     </section>
@@ -230,19 +232,19 @@
         <div data-aos="zoom-in" data-aos-delay="100">
           <img src="img/veeti.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
           <h3>Veeti Pere</h3>
-          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">Chief Technology Officer & <br> Ai Specialist</p>
-          <p>10+ years in UI/UX design. Ex-ABC Agency. Passionate about user-centric digital experiences.</p>
+          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">CTO & Lead Software Engineer</p>
+          <p>Background in UX, infrastructure, and full-stack development. 7+ years in software and web projects, now integrating AI for faster, smarter workflows. Calm, precise, and focused on real-world solutions.</p>
         </div>
         <div data-aos="zoom-in" data-aos-delay="200">
           <img src="img/kimi.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
           <h3>Kimi Huhtala</h3>
-          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">Chief Executive Officer</p>
+          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">CEO & Technical Strategist</p>
           <p>React.js & Node.js expert. Built scalable apps for startups and enterprises since 2015.</p>
         </div>
         <div data-aos="zoom-in" data-aos-delay="300">
           <img src="img/arttu.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
           <h3>Arttu Aarnio-Wihuri</h3>
-          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">Chief Marketing Officer</p>
+          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">CMO & Growth Automation Specialist</p>
           <p>PhD in AI. 7+ years in machine learning and automation for digital products.</p>
         </div>
       </div>
@@ -250,7 +252,7 @@
 
     <section id="contact" data-aos="fade-up">
       <h2>Let’s Talk</h2>
-      <form action="https://formspree.io/f/xvgaldwv" method="POST">
+      <form action="https://formspree.io/f/xvgaldwv" method="POST" onsubmit="return validateRecaptcha();">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="_replyto" placeholder="Your Email" required />
         <textarea name="message" rows="4" placeholder="Tell us what you need..." required></textarea>
@@ -263,9 +265,9 @@
     <footer data-aos="fade-up">
       &copy; 2025 Fhatal Studios. All rights reserved.
       <div style="margin-top:24px;">
-        <a href="#" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Privacy Policy</a>
-        <a href="#" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Terms of Service</a>
-        <a href="#" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Client Agreement</a>
+        <a href="privacy.html" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Privacy Policy</a>
+        <a href="terms.html" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Terms of Service</a>
+        <a href="client-agreement.html" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Client Agreement</a>
       </div>
     </footer>
   </div>
@@ -325,6 +327,16 @@
     const btn = document.getElementById("scrollTopBtn");
     window.onscroll = () => btn.style.display = (window.scrollY > 300) ? "block" : "none";
     btn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // reCAPTCHA validation
+    function validateRecaptcha() {
+      var response = grecaptcha.getResponse();
+      if (response.length === 0) {
+        alert("Please complete the reCAPTCHA.");
+        return false;
+      }
+      return true;
+    }
   </script>
 </body>
 </html>
