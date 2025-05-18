@@ -139,6 +139,25 @@
       height: 48px;
     }
 
+    .lang-switcher {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      z-index: 200;
+      background: #222;
+      color: #d4af37;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .lang-switcher:hover {
+      background: #333;
+    }
+
     #particles-js {
       position: fixed;
       width: 100%;
@@ -272,14 +291,15 @@
 
   <header>
     <img src="img/F-A_white.png" alt="Fhatal Studios Logo">
+    <button class="lang-switcher" id="langSwitcher">Suomeksi</button>
   </header>
 
   <!-- Hero -->
   <section id="hero">
     <div class="hero-content" data-aos="fade-up">
-      <h1>Websites That Build Trust</h1>
-      <p>Prototype-first digital studio helping brands grow with AI and precision</p>
-      <a href="#contact"><button class="btn">Get Your Free Prototype</button></a>
+      <h1 id="hero-title">Websites That Build Trust</h1>
+      <p id="hero-desc">Prototype-first digital studio helping brands grow with AI and precision</p>
+      <a href="#contact"><button class="btn" id="hero-btn">Get Your Free Prototype</button></a>
     </div>
     <div class="scroll-arrow" id="scrollArrow">↓</div>
   </section>
@@ -287,55 +307,55 @@
   <!-- Services -->
   <section id="services">
     <div class="split" data-aos="fade-up">
- <div class="text">
-  <h2>What We Do</h2>
-
-  <p><strong>AI-Enhanced Workflow</strong><br>
-  At Fhatal Studios, we integrate tools like ChatGPT into our workflow not your website. This means faster turnarounds, smarter edits, and a more efficient development process from start to finish. Whether it's generating code snippets, drafting content, or exploring layout variations, our AI-enhanced workflow speeds things up without compromising quality. Every site is still designed, coded, and reviewed by real professionals. No bloated templates. No blind automation. Just smarter work, done better.</p><br>
-
-  <p><strong>Modern Tech</strong><br>
-  We build using modern web technologies such as HTML, CSS, JavaScript, and React.js. These tools let us create clean, scalable, and secure websites that load fast and adapt flawlessly to all screen sizes. Every build is responsive, SEO-ready, and crafted to evolve with your business not just serve you for the moment. Whether you need something simple or something more advanced, we deliver with future-proof structure and maintainable code.</p><br>
-
-  <p><strong>Startup Friendly</strong><br>
-  We understand what it’s like to start from zero. That’s why we offer free design prototypes up front before any commitments or invoices. You get a clear sense of direction, design style, and value before making a decision. It’s not a demo it’s a real start to your project. We believe this approach builds trust, reduces friction, and makes collaboration smoother from day one.</p>
-</div>
-
+      <div class="text">
+        <h2 id="services-title">What We Do</h2>
+        <p id="services-ai">
+          <strong>AI-Enhanced Workflow</strong><br>
+          At Fhatal Studios, we integrate tools like ChatGPT into our workflow not your website. This means faster turnarounds, smarter edits, and a more efficient development process from start to finish. Whether it's generating code snippets, drafting content, or exploring layout variations, our AI-enhanced workflow speeds things up without compromising quality. Every site is still designed, coded, and reviewed by real professionals. No bloated templates. No blind automation. Just smarter work, done better.
+        </p><br>
+        <p id="services-tech">
+          <strong>Modern Tech</strong><br>
+          We build using modern web technologies such as HTML, CSS, JavaScript, and React.js. These tools let us create clean, scalable, and secure websites that load fast and adapt flawlessly to all screen sizes. Every build is responsive, SEO-ready, and crafted to evolve with your business not just serve you for the moment. Whether you need something simple or something more advanced, we deliver with future-proof structure and maintainable code.
+        </p><br>
+        <p id="services-startup">
+          <strong>Startup Friendly</strong><br>
+          We understand what it’s like to start from zero. That’s why we offer free design prototypes up front before any commitments or invoices. You get a clear sense of direction, design style, and value before making a decision. It’s not a demo it’s a real start to your project. We believe this approach builds trust, reduces friction, and makes collaboration smoother from day one.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- About Us Placeholder Section -->
-<section id="about-us">
-  <div class="split" data-aos="fade-up">
-    <div class="text">
-      <h2>About Us</h2>
-      <p>
-        <strong>Fhatal Studios</strong> was built on a simple idea: modern web design should be accessible, fast, and honest. We saw too many startups and small businesses struggle with overpriced agencies, outdated tools, and templated results that didn’t reflect their real vision. So, we decided to change that.
-      </p><br>
-      <p>
-        It all started with three founders who brought together skills in <strong>software engineering</strong>, <strong>creative media</strong>, and <strong>business strategy</strong>. What began as a side project quickly grew into a full-service studio with a clear mission: to help small brands launch faster and smarter with clean code, clear design, and a human-first process.
-      </p><br>
-      <p>
-        Our approach is different by design. Every project begins with a <strong>free prototype</strong> so you can see the direction before you commit. We use <strong>AI tools like ChatGPT</strong> to support our workflow, giving us more speed and flexibility without ever replacing the value of real hands-on work. Every site is reviewed, improved, and delivered by real people.
-      </p><br>
-      <p>
-        We work with modern stacks like <strong>HTML, CSS, JavaScript, and React.js</strong> to build sites that load fast, look sharp, and scale with your business. Whether you’re launching your first page or redesigning something outdated, we build with the long term in mind.
-      </p><br>
-      <p>
-        <strong>Fhatal Studios</strong> is intentionally small and selectively scalable. That lets us stay fast, collaborative, and focused on <strong>quality over volume</strong>. When you work with us, you’re not just getting a site you’re getting a dedicated team that cares about building something that works and lasts.
-      </p>
+  <section id="about-us">
+    <div class="split" data-aos="fade-up">
+      <div class="text">
+        <h2 id="aboutus-title">About Us</h2>
+        <p id="aboutus-p1">
+          <strong>Fhatal Studios</strong> was built on a simple idea: modern web design should be accessible, fast, and honest. We saw too many startups and small businesses struggle with overpriced agencies, outdated tools, and templated results that didn’t reflect their real vision. So, we decided to change that.
+        </p><br>
+        <p id="aboutus-p2">
+          It all started with three founders who brought together skills in <strong>software engineering</strong>, <strong>creative media</strong>, and <strong>business strategy</strong>. What began as a side project quickly grew into a full-service studio with a clear mission: to help small brands launch faster and smarter with clean code, clear design, and a human-first process.
+        </p><br>
+        <p id="aboutus-p3">
+          Our approach is different by design. Every project begins with a <strong>free prototype</strong> so you can see the direction before you commit. We use <strong>AI tools like ChatGPT</strong> to support our workflow, giving us more speed and flexibility without ever replacing the value of real hands-on work. Every site is reviewed, improved, and delivered by real people.
+        </p><br>
+        <p id="aboutus-p4">
+          We work with modern stacks like <strong>HTML, CSS, JavaScript, and React.js</strong> to build sites that load fast, look sharp, and scale with your business. Whether you’re launching your first page or redesigning something outdated, we build with the long term in mind.
+        </p><br>
+        <p id="aboutus-p5">
+          <strong>Fhatal Studios</strong> is intentionally small and selectively scalable. That lets us stay fast, collaborative, and focused on <strong>quality over volume</strong>. When you work with us, you’re not just getting a site you’re getting a dedicated team that cares about building something that works and lasts.
+        </p>
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- About Sections -->
-  
-    <section id="about-kimi">
+  <section id="about-kimi">
     <div class="split" data-aos="fade-up">
       <div class="image"><img src="img/kimi.jpg" alt="Kimi Huhtala"></div>
       <div class="text">
-        <h2>Kimi Huhtala</h2>
-        <p><strong>Founder</strong><br>
+        <h2 id="kimi-title">Kimi Huhtala</h2>
+        <p id="kimi-role"><strong>Founder</strong><br>
         Founder of Fhatal Studios and ICT engineer. Oversees operations, assists in development, and integrates AI to streamline project delivery.</p>
       </div>
     </div>
@@ -345,8 +365,8 @@
     <div class="split" data-aos="fade-up">
       <div class="image"><img src="img/veeti.jpg" alt="Veeti Pere"></div>
       <div class="text">
-        <h2>Veeti Pere</h2>
-        <p><strong>Consultant <br> Lead Software Engineer</strong><br>
+        <h2 id="veeti-title">Veeti Pere</h2>
+        <p id="veeti-role"><strong>Consultant <br> Lead Software Engineer</strong><br>
         Background in UX, infrastructure, and full-stack development. 7+ years in software and web projects, now integrating AI for faster, smarter workflows.</p>
       </div>
     </div>
@@ -356,8 +376,8 @@
     <div class="split" data-aos="fade-up">
       <div class="image"><img src="img/arttu.jpg" alt="Arttu Aarnio-Wihuri"></div>
       <div class="text">
-        <h2>Arttu Aarnio-Wihuri</h2>
-        <p><strong>Consultant <br> Business Development Lead</strong><br>
+        <h2 id="arttu-title">Arttu Aarnio-Wihuri</h2>
+        <p id="arttu-role"><strong>Consultant <br> Business Development Lead</strong><br>
         Experienced in both IT and marketing. Has led and supported digital projects, with a broad view on business development and strategy.</p>
       </div>
     </div>
@@ -367,13 +387,13 @@
   <section id="contact">
     <div class="split" data-aos="fade-up">
       <div class="text">
-        <h2>Let’s Talk</h2>
+        <h2 id="contact-title">Let’s Talk</h2>
         <form action="https://formspree.io/f/xvgaldwv" method="POST" onsubmit="return validateRecaptcha();">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="_replyto" placeholder="Your Email" required />
-          <textarea name="message" rows="4" placeholder="Tell us what you need..." required></textarea>
+          <input type="text" name="name" id="contact-name" placeholder="Your Name" required />
+          <input type="email" name="_replyto" id="contact-email" placeholder="Your Email" required />
+          <textarea name="message" id="contact-message" rows="4" placeholder="Tell us what you need..." required></textarea>
           <div class="g-recaptcha" data-sitekey="6LcAST4rAAAAAOaYiXSb1V_p-4-gtWYTOSXyOk_h"></div>
-          <button class="btn">Send Message</button>
+          <button class="btn" id="contact-btn">Send Message</button>
         </form>
       </div>
     </div>
@@ -383,9 +403,9 @@
   <footer data-aos="fade-up">
     &copy; 2025 Fhatal Studios. All rights reserved.
     <div style="margin-top:24px;">
-      <a href="privacy.html" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Privacy Policy</a>
-      <a href="terms.html" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Terms of Service</a>
-      <a href="client-agreement.html" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Client Agreement</a>
+      <a href="privacy.html" id="footer-privacy" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Privacy Policy</a>
+      <a href="terms.html" id="footer-terms" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Terms of Service</a>
+      <a href="client-agreement.html" id="footer-client" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Client Agreement</a>
     </div>
   </footer>
 
@@ -448,6 +468,122 @@
       }
       return true;
     }
+
+    // Language translations
+    const translations = {
+      en: {
+        langBtn: "Suomeksi",
+        heroTitle: "Websites That Build Trust",
+        heroDesc: "Prototype-first digital studio helping brands grow with AI and precision",
+        heroBtn: "Get Your Free Prototype",
+        servicesTitle: "What We Do",
+        servicesAi: `<strong>AI-Enhanced Workflow</strong><br>
+At Fhatal Studios, we integrate tools like ChatGPT into our workflow not your website. This means faster turnarounds, smarter edits, and a more efficient development process from start to finish. Whether it's generating code snippets, drafting content, or exploring layout variations, our AI-enhanced workflow speeds things up without compromising quality. Every site is still designed, coded, and reviewed by real professionals. No bloated templates. No blind automation. Just smarter work, done better.`,
+        servicesTech: `<strong>Modern Tech</strong><br>
+We build using modern web technologies such as HTML, CSS, JavaScript, and React.js. These tools let us create clean, scalable, and secure websites that load fast and adapt flawlessly to all screen sizes. Every build is responsive, SEO-ready, and crafted to evolve with your business not just serve you for the moment. Whether you need something simple or something more advanced, we deliver with future-proof structure and maintainable code.`,
+        servicesStartup: `<strong>Startup Friendly</strong><br>
+We understand what it’s like to start from zero. That’s why we offer free design prototypes up front before any commitments or invoices. You get a clear sense of direction, design style, and value before making a decision. It’s not a demo it’s a real start to your project. We believe this approach builds trust, reduces friction, and makes collaboration smoother from day one.`,
+        aboutusTitle: "About Us",
+        aboutusP1: `<strong>Fhatal Studios</strong> was built on a simple idea: modern web design should be accessible, fast, and honest. We saw too many startups and small businesses struggle with overpriced agencies, outdated tools, and templated results that didn’t reflect their real vision. So, we decided to change that.`,
+        aboutusP2: `It all started with three founders who brought together skills in <strong>software engineering</strong>, <strong>creative media</strong>, and <strong>business strategy</strong>. What began as a side project quickly grew into a full-service studio with a clear mission: to help small brands launch faster and smarter with clean code, clear design, and a human-first process.`,
+        aboutusP3: `Our approach is different by design. Every project begins with a <strong>free prototype</strong> so you can see the direction before you commit. We use <strong>AI tools like ChatGPT</strong> to support our workflow, giving us more speed and flexibility without ever replacing the value of real hands-on work. Every site is reviewed, improved, and delivered by real people.`,
+        aboutusP4: `We work with modern stacks like <strong>HTML, CSS, JavaScript, and React.js</strong> to build sites that load fast, look sharp, and scale with your business. Whether you’re launching your first page or redesigning something outdated, we build with the long term in mind.`,
+        aboutusP5: `<strong>Fhatal Studios</strong> is intentionally small and selectively scalable. That lets us stay fast, collaborative, and focused on <strong>quality over volume</strong>. When you work with us, you’re not just getting a site you’re getting a dedicated team that cares about building something that works and lasts.`,
+        kimiTitle: "Kimi Huhtala",
+        kimiRole: `<strong>Founder</strong><br>
+Founder of Fhatal Studios and ICT engineer. Oversees operations, assists in development, and integrates AI to streamline project delivery.`,
+        veetiTitle: "Veeti Pere",
+        veetiRole: `<strong>Consultant <br> Lead Software Engineer</strong><br>
+Background in UX, infrastructure, and full-stack development. 7+ years in software and web projects, now integrating AI for faster, smarter workflows.`,
+        arttuTitle: "Arttu Aarnio-Wihuri",
+        arttuRole: `<strong>Consultant <br> Business Development Lead</strong><br>
+Experienced in both IT and marketing. Has led and supported digital projects, with a broad view on business development and strategy.`,
+        contactTitle: "Let’s Talk",
+        contactName: "Your Name",
+        contactEmail: "Your Email",
+        contactMessage: "Tell us what you need...",
+        contactBtn: "Send Message",
+        footerPrivacy: "Privacy Policy",
+        footerTerms: "Terms of Service",
+        footerClient: "Client Agreement"
+      },
+      fi: {
+        langBtn: "In English",
+        heroTitle: "Verkkosivut, jotka rakentavat luottamusta",
+        heroDesc: "Prototyyppi-ensin -digitoimisto, joka auttaa brändejä kasvamaan tekoälyn ja tarkkuuden avulla",
+        heroBtn: "Pyydä ilmainen prototyyppi",
+        servicesTitle: "Mitä Teemme",
+        servicesAi: `<strong>AI-tehostettu työnkulku</strong><br>
+Fhatal Studios hyödyntää ChatGPT:tä ja muita tekoälytyökaluja kehitysprosessissa – ei asiakkaan sivustossa. Tämä tarkoittaa nopeampaa toimitusta, fiksumpia muokkauksia ja tehokkaampaa tekemistä alusta loppuun. Koodin generointi, sisällön luonnostelu ja layout-vaihtoehtojen ideointi sujuvat vikkelämmin, mutta jokainen sivu suunnitellaan ja tarkistetaan aina oikeiden ammattilaisten toimesta. Ei valmispohjia, ei sokeaa automaatiota – vain fiksumpaa tekemistä.`,
+        servicesTech: `<strong>Moderni teknologia</strong><br>
+Rakennamme nykyaikaisilla teknologioilla kuten HTML, CSS, JavaScript ja React.js. Näillä syntyy selkeitä, skaalautuvia ja turvallisia sivustoja, jotka latautuvat nopeasti ja toimivat kaikilla laitteilla. Jokainen toteutus on responsiivinen, hakukoneystävällinen ja rakennettu kestämään yrityksesi kasvun mukana – ei vain tätä hetkeä varten.`,
+        servicesStartup: `<strong>Startup-ystävällinen</strong><br>
+Ymmärrämme, miltä tuntuu aloittaa nollasta. Siksi tarjoamme maksuttoman prototyypin ennen sitoutumista tai laskutusta. Näet suunnan, tyylin ja arvon ennen päätöstä. Kyse ei ole demosta vaan aidosta aloituksesta. Tämä rakentaa luottamusta ja tekee yhteistyöstä sujuvaa alusta asti.`,
+        aboutusTitle: "Meistä",
+        aboutusP1: `<strong>Fhatal Studios</strong> perustettiin yksinkertaisesta ajatuksesta: modernin verkkosuunnittelun tulee olla saavutettavaa, nopeaa ja rehellistä. Näimme liian monta pientä yritystä kamppailemassa ylihinnoiteltujen toimistojen, vanhentuneiden työkalujen ja pohjapohjaisten ratkaisujen kanssa, jotka eivät vastanneet heidän todellista visiotaan. Päätimme muuttaa tämän.`,
+        aboutusP2: `Kaikki alkoi kolmesta perustajasta, jotka yhdistivät osaamisensa ohjelmistokehityksestä, luovasta mediasta ja liiketoimintastrategiasta. Sivuprojektista kasvoi nopeasti täyden palvelun studio, jonka selkeä missio on auttaa pieniä brändejä käynnistymään nopeammin ja fiksummin selkeällä koodilla, kirkkaalla designilla ja ihmislähtöisellä prosessilla.`,
+        aboutusP3: `Lähestymistapamme on erilainen tarkoituksella. Jokainen projekti alkaa <strong>ilmaisella prototyypillä</strong>, jotta näet suunnan ennen sitoutumista. Hyödynnämme <strong>tekoälytyökaluja kuten ChatGPT</strong> työnkulun tukena, mikä tuo nopeutta ja joustavuutta – kuitenkaan koskaan korvaamatta oikean käsityön arvoa. Jokainen sivu tarkistetaan ja viimeistellään oikeiden ihmisten toimesta.`,
+        aboutusP4: `Käytämme moderneja stackeja kuten <strong>HTML, CSS, JavaScript ja React.js</strong> rakentaaksemme sivuja, jotka latautuvat nopeasti, näyttävät hyvältä ja skaalautuvat yrityksesi mukana. Olitpa lanseeraamassa ensimmäistä sivua tai uudistamassa vanhaa, rakennamme pitkällä tähtäimellä.`,
+        aboutusP5: `<strong>Fhatal Studios</strong> on tarkoituksella pieni ja joustavasti laajennettava. Näin pysymme nopeina, yhteistyökykyisinä ja keskitymme <strong>laatuun määrän sijaan</strong>. Kun työskentelet kanssamme, saat omistautuneen tiimin, joka välittää siitä, että lopputulos toimii ja kestää.`,
+        kimiTitle: "Kimi Huhtala",
+        kimiRole: `<strong>Perustaja</strong><br>
+Fhatal Studiosin perustaja ja ICT-insinööri. Vastaa operatiivisesta toiminnasta, osallistuu kehitykseen ja hyödyntää tekoälyä projektien sujuvoittamiseksi.`,
+        veetiTitle: "Veeti Pere",
+        veetiRole: `<strong>Konsultti <br> Lead Software Engineer</strong><br>
+Taustaa UX:stä, infrastruktuurista ja full stack -kehityksestä. 7+ vuotta ohjelmisto- ja verkkoprojekteja, nyt tekoälyllä vauhditettuna.`,
+        arttuTitle: "Arttu Aarnio-Wihuri",
+        arttuRole: `<strong>Konsultti <br> Business Development Lead</strong><br>
+Kokemusta sekä IT:stä että markkinoinnista. Johtanut ja tukenut digiprojekteja laajalla liiketoimintanäkemyksellä.`,
+        contactTitle: "Ota Yhteyttä",
+        contactName: "Nimesi",
+        contactEmail: "Sähköpostisi",
+        contactMessage: "Kerro, mitä tarvitset...",
+        contactBtn: "Lähetä viesti",
+        footerPrivacy: "Tietosuojaseloste",
+        footerTerms: "Käyttöehdot",
+        footerClient: "Asiakassopimus"
+      }
+    };
+
+    let currentLang = "en";
+    document.getElementById("langSwitcher").onclick = function() {
+      currentLang = currentLang === "en" ? "fi" : "en";
+      setLang(currentLang);
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.getElementById("langSwitcher").textContent = t.langBtn;
+      document.getElementById("hero-title").textContent = t.heroTitle;
+      document.getElementById("hero-desc").textContent = t.heroDesc;
+      document.getElementById("hero-btn").textContent = t.heroBtn;
+      document.getElementById("services-title").textContent = t.servicesTitle;
+      document.getElementById("services-ai").innerHTML = t.servicesAi;
+      document.getElementById("services-tech").innerHTML = t.servicesTech;
+      document.getElementById("services-startup").innerHTML = t.servicesStartup;
+      document.getElementById("aboutus-title").textContent = t.aboutusTitle;
+      document.getElementById("aboutus-p1").innerHTML = t.aboutusP1;
+      document.getElementById("aboutus-p2").innerHTML = t.aboutusP2;
+      document.getElementById("aboutus-p3").innerHTML = t.aboutusP3;
+      document.getElementById("aboutus-p4").innerHTML = t.aboutusP4;
+      document.getElementById("aboutus-p5").innerHTML = t.aboutusP5;
+      document.getElementById("kimi-title").textContent = t.kimiTitle;
+      document.getElementById("kimi-role").innerHTML = t.kimiRole;
+      document.getElementById("veeti-title").textContent = t.veetiTitle;
+      document.getElementById("veeti-role").innerHTML = t.veetiRole;
+      document.getElementById("arttu-title").textContent = t.arttuTitle;
+      document.getElementById("arttu-role").innerHTML = t.arttuRole;
+      document.getElementById("contact-title").textContent = t.contactTitle;
+      document.getElementById("contact-name").placeholder = t.contactName;
+      document.getElementById("contact-email").placeholder = t.contactEmail;
+      document.getElementById("contact-message").placeholder = t.contactMessage;
+      document.getElementById("contact-btn").textContent = t.contactBtn;
+      document.getElementById("footer-privacy").textContent = t.footerPrivacy;
+      document.getElementById("footer-terms").textContent = t.footerTerms;
+      document.getElementById("footer-client").textContent = t.footerClient;
+    }
+    // Set initial language
+    setLang(currentLang);
   </script>
 </body>
 </html>
