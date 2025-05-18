@@ -187,43 +187,6 @@
       justify-content: center;
     }
 
-    .about-triangle {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 32px;
-      margin-bottom: 40px;
-    }
-    .triangle-row {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-    }
-    .triangle-top {
-      margin-bottom: 0;
-    }
-    .triangle-bottom {
-      gap: 60px;
-    }
-    .about-person {
-      flex: 1 1 250px;
-      min-width: 250px;
-      background: #1a1a1a;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      text-align: center;
-      max-width: 320px;
-    }
-    @media (max-width: 900px) {
-      .triangle-bottom { gap: 20px; }
-      .about-person { min-width: 180px; max-width: 100%; }
-    }
-    @media (max-width: 768px) {
-      .about-triangle { gap: 16px; }
-      .triangle-row { flex-direction: column; gap: 16px; }
-      .about-person { margin: 0 auto; }
-    }
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.3rem; }
       .three-col { flex-direction: column; }
@@ -265,28 +228,24 @@
 
     <section id="about" data-aos="fade-up">
       <h2>About Us</h2>
-      <div class="about-triangle">
-        <div class="triangle-row triangle-top">
-          <div class="about-person" data-aos="zoom-in" data-aos-delay="200">
-            <img src="img/kimi.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
-            <h3>Kimi Huhtala</h3>
-            <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">Founder</p>
-            <p>Founder of Fhatal Studios and ICT engineer. Oversees operations, assists in development, and integrates AI to streamline project delivery.</p>
-          </div>
+      <div class="three-col">
+        <div data-aos="zoom-in" data-aos-delay="100">
+          <img src="img/veeti.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
+          <h3>Veeti Pere</h3>
+          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">CTO & Lead Software Engineer</p>
+          <p>Background in UX, infrastructure, and full-stack development. 7+ years in software and web projects, now integrating AI for faster, smarter workflows.</p>
         </div>
-        <div class="triangle-row triangle-bottom">
-          <div class="about-person" data-aos="zoom-in" data-aos-delay="100">
-            <img src="img/veeti.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
-            <h3>Veeti Pere</h3>
-            <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">Consultant <br> Lead Software Engineer</p>
-            <p>Background in UX, infrastructure, and full-stack development. 7+ years in software and web projects, now integrating AI for faster, smarter workflows.</p>
-          </div>
-          <div class="about-person" data-aos="zoom-in" data-aos-delay="300">
-            <img src="img/arttu.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
-            <h3>Arttu Aarnio-Wihuri</h3>
-            <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">Consultant <br> Business Development Lead</p>
-            <p>Experienced in both IT and marketing. Has led and supported digital projects, with a broad view on business development and strategy.</p>
-          </div>
+        <div data-aos="zoom-in" data-aos-delay="200">
+          <img src="img/kimi.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
+          <h3>Kimi Huhtala</h3>
+          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">CEO & Technical Strategist</p>
+          <p>React.js & Node.js expert. Built scalable apps for startups and enterprises since 2015.</p>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="300">
+          <img src="img/arttu.jpg" alt="Team Member" style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;">
+          <h3>Arttu Aarnio-Wihuri</h3>
+          <p style="color:#d4af37;font-weight:600;margin-bottom:8px;">CMO & Growth Automation Specialist</p>
+          <p>PhD in AI. 7+ years in machine learning and automation for digital products.</p>
         </div>
       </div>
     </section>
@@ -294,12 +253,12 @@
     <section id="contact" data-aos="fade-up">
       <h2>Let’s Talk</h2>
       <form action="https://formspree.io/f/xvgaldwv" method="POST" onsubmit="return validateRecaptcha();">
-        <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
-        <input type="email" name="_replyto" placeholder="Your Email" required aria-required="true" />
-        <textarea name="message" rows="4" placeholder="Tell us what you need..." required aria-required="true"></textarea>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="_replyto" placeholder="Your Email" required />
+        <textarea name="message" rows="4" placeholder="Tell us what you need..." required></textarea>
         <!-- Google reCAPTCHA widget -->
         <div class="g-recaptcha" data-sitekey="6LcAST4rAAAAAOaYiXSb1V_p-4-gtWYTOSXyOk_h"></div>
-        <button class="btn" type="submit">Send Message</button>
+        <button class="btn">Send Message</button>
       </form>
     </section>
 
