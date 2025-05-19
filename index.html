@@ -97,7 +97,8 @@
 
     h2 {
       font-size: 2rem;
-      color: #d4af37;
+      color: #bdb8ff;
+      font-weight: bold;
       margin-bottom: 20px;
     }
 
@@ -108,7 +109,7 @@
     }
 
     .btn {
-      background: #d4af37;
+      background: #E0DEFF;
       color: #0f0f10;
       padding: 12px 30px;
       border: none;
@@ -119,7 +120,7 @@
     }
 
     .btn:hover {
-      box-shadow: 0 0 20px #d4af37aa;
+      box-shadow: 0 0 20px #cbc7fa;
       transform: translateY(-2px);
     }
 
@@ -127,7 +128,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: rgba(20, 25, 32, 0.95);
+      background-color: #E0DEFF;
       display: flex;
       justify-content: center;
       padding: 20px;
@@ -145,7 +146,7 @@
       top: 20px;
       z-index: 200;
       background: #222;
-      color: #d4af37;
+      color: #E0DEFF;
       border: none;
       border-radius: 6px;
       padding: 8px 18px;
@@ -191,7 +192,7 @@
       left: 50%;
       transform: translateX(-50%);
       font-size: 24px;
-      opacity: 0.5; /* Brighter arrow */
+      opacity: 0.7; /* Brighter arrow */
       animation: bounce 2s infinite;
       transition: opacity 0.4s ease;
       pointer-events: none;
@@ -231,22 +232,41 @@
       text-align: center;
       padding: 60px 20px;
       font-size: 0.9rem;
-      color: #9ca3af;
-      background-color: #141920;
+      color: #000000;
+      background-color: #E0DEFF;
       border-top: 1px solid #2e2e2e;
+    }
+
+    /* Add hover effect for footer links */
+    footer a {
+      color: #000000;
+      text-decoration: underline;
+      margin: 0 12px;
+      border-radius: 6px;
+      padding: 4px 10px;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    footer a:hover {
+      background: #cbc7fa;
+      color: #0f0f10;
+      box-shadow: 0 0 20px #cbc7fa;
+      text-decoration: underline;
     }
 
     #scrollTopBtn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #d4af37;
+      background-color: #E0DEFF;
       color: #0f0f10;
       border: none;
       padding: 12px 16px;
       border-radius: 50%;
       cursor: pointer;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 0 15px rgba(128, 128, 128, 0.4);
       font-weight: bold;
       display: none;
       z-index: 99;
@@ -290,7 +310,7 @@
   <div id="particles-js"></div>
 
   <header>
-    <img src="img/F-A_white.png" alt="Fhatal Studios Logo">
+    <img src="img/favicon2.png" alt="Fhatal Studios Logo">
     <button class="lang-switcher" id="langSwitcher">Suomeksi</button>
   </header>
 
@@ -403,9 +423,9 @@
   <footer data-aos="fade-up">
     &copy; 2025 Fhatal Studios. All rights reserved.
     <div style="margin-top:24px;">
-      <a href="privacy.html" id="footer-privacy" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Privacy Policy</a>
-      <a href="terms.html" id="footer-terms" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Terms of Service</a>
-      <a href="client-agreement.html" id="footer-client" style="color:#d4af37;text-decoration:underline;margin:0 12px;">Client Agreement</a>
+      <a href="privacy.html" id="footer-privacy" style="color:#000000;text-decoration:underline;margin:0 12px;">Privacy Policy</a>
+      <a href="terms.html" id="footer-terms" style="color:#000000;text-decoration:underline;margin:0 12px;">Terms of Service</a>
+      <a href="client-agreement.html" id="footer-client" style="color:#000000;text-decoration:underline;margin:0 12px;">Client Agreement</a>
     </div>
   </footer>
 
@@ -420,14 +440,14 @@
     particlesJS("particles-js", {
       particles: {
         number: { value: 60 },
-        color: { value: "#d4af37" },
+        color: { value: "#E0DEFF" },
         shape: { type: "circle" },
         opacity: { value: 0.3 },
         size: { value: 3 },
         line_linked: {
           enable: true,
           distance: 150,
-          color: "#d4af37",
+          color: "#E0DEFF",
           opacity: 0.2,
           width: 1
         },
