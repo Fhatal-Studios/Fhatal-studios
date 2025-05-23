@@ -123,14 +123,21 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
       z-index: 100;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      min-height: 100px;
+      min-height: 0;
+      height: 125px; /* Half the previous height */
+      padding: 0;
+      margin: 0;
+      overflow: visible; /* Allow image to overflow */
     }
 
     header img {
-      height: 65px;
+      height: 250px; /* Match new header height */
+      width: auto;
+      display: block;
+      margin: 0; /* Remove negative margin */
+      padding: 0;
     }
 
     .lang-switcher {
