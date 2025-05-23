@@ -8,6 +8,7 @@
       color: #e5e7eb;
       scroll-behavior: smooth;
       height: 100%;
+      font-size: 17px; /* Between old (16px) and new (20px) */
     }
 
     body {
@@ -87,15 +88,15 @@
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 2.1rem; /* Between old and new */
       color: #bdb8ff;
       font-weight: bold;
       margin-bottom: 20px;
     }
 
     p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+      font-size: 1.15rem; /* Between old and new */
+      line-height: 1.65;
       color: #cbd5e1;
     }
 
@@ -108,6 +109,7 @@
       cursor: pointer;
       transition: 0.3s ease;
       border-radius: 6px;
+      font-size: 1.05rem; /* Between old and new */
     }
 
     .btn:hover {
@@ -126,14 +128,14 @@
       z-index: 100;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
       min-height: 0;
-      height: 125px; /* Half the previous height */
+      height: 140px; /* Match image height exactly */
       padding: 0;
       margin: 0;
       overflow: visible; /* Allow image to overflow */
     }
 
     header img {
-      height: 250px; /* Match new header height */
+      height: 220px;
       width: auto;
       display: block;
       margin: 0; /* Remove negative margin */
@@ -153,7 +155,7 @@
       padding: 8px 18px;
       font-weight: 600;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 1.05rem; /* Between old and new */
       transition: background 0.2s;
       display: flex;
       align-items: center;
@@ -177,13 +179,13 @@
     }
 
     .hero-content h1 {
-      font-size: 3rem;
+      font-size: 3.1rem; /* Between old and new */
       color: #ffffff;
       margin-bottom: 1rem;
     }
 
     .hero-content p {
-      font-size: 1.2rem;
+      font-size: 1.18rem; /* Between old and new */
       max-width: 600px;
       margin: 0 auto 2rem;
       color: #cbd5e1;
@@ -222,6 +224,7 @@
       border-radius: 6px;
       background: #1f1f1f;
       color: #ffffff;
+      font-size: 1rem; /* Between old and new */
     }
 
     input::placeholder, textarea::placeholder {
@@ -235,7 +238,7 @@
     footer {
       text-align: center;
       padding: 60px 20px;
-      font-size: 0.9rem;
+      font-size: 0.98rem; /* Between old and new */
       color: #000000;
       background-color: #E0DEFF;
       border-top: 1px solid #2e2e2e;
@@ -251,6 +254,7 @@
       transition: background 0.3s, color 0.3s, box-shadow 0.3s;
       font-weight: 600;
       display: inline-block;
+      font-size: 0.98rem; /* Between old and new */
     }
 
     footer a:hover {
@@ -306,5 +310,9 @@
         min-height: 100vh;
         scroll-snap-align: none;
         scroll-snap-stop: normal;
+      }
+
+      .lang-switcher {
+        font-size: 0.98rem; /* Between old and new for mobile */
       }
     }
