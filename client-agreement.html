@@ -15,6 +15,7 @@
       margin: 0 auto;
       padding: 60px 20px;
       line-height: 1.7;
+      position: relative;
     }
     h1, h2 {
       color: #bdb8ff;
@@ -31,52 +32,122 @@
       margin-bottom: 40px;
       box-shadow: 0 0 10px #9893d6;
     }
+    .lang-switcher {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      background: #E0DEFF;
+      color: #222;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1.05rem;
+      transition: background 0.2s;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lang-switcher:hover {
+      background: #333;
+    }
     footer {
       text-align: center;
       margin-top: 80px;
       padding: 40px 0;
       font-size: 0.9rem;
-      color: e5e7eb;
+      color: #e5e7eb;
     }
   </style>
 </head>
 <body>
+  <button class="lang-switcher" id="langSwitcher" type="button">Suomeksi</button>
+  <a href="index.html" class="back-btn" id="back-btn">← Back to Home</a>
 
-  <a href="index.html" class="back-btn">← Back to Home</a>
+  <h1 id="agreement-title">Client Agreement</h1>
+  <p id="agreement-updated">Last updated: 18.5.2025</p>
 
-  <h1>Client Agreement</h1>
+  <h2 id="agreement-1-title">1. Scope of Work</h2>
+  <p id="agreement-1">The scope of work, deliverables, and timelines will be defined in a separate written proposal or email confirmation.</p>
 
-  <h2>1. Scope of Work</h2>
-  <p>Fhatal Studios will design and/or develop a website or digital product as outlined in communication between the client and our team (e.g., email, Trello).</p>
+  <h2 id="agreement-2-title">2. Payment Terms</h2>
+  <p id="agreement-2">Payment terms, including deposits and milestones, will be agreed upon before work begins. Full ownership transfers after payment.</p>
 
-  <h2>2. Timeline</h2>
-  <p>Estimated delivery is [insert timeframe]. Timelines may be adjusted based on client responsiveness and project changes.</p>
+  <h2 id="agreement-3-title">3. Revisions</h2>
+  <p id="agreement-3">Reasonable revisions are included as specified in the proposal. Additional changes may incur extra charges.</p>
 
-  <h2>3. Payment Terms</h2>
-  <ul>
-    <li>Total cost: €[insert]</li>
-    <li>[50/50] split (half upfront, half on delivery), or 100% on completion</li>
-    <li>Accepted via [bank transfer / Stripe / PayPal]</li>
-  </ul>
+  <h2 id="agreement-4-title">4. Confidentiality</h2>
+  <p id="agreement-4">We treat all client information as confidential and do not share it with third parties except as required by law.</p>
 
-  <h2>4. Revisions</h2>
-  <p>Includes [1-2] rounds of revisions. Additional requests may be billed at €[hourly rate]/hr.</p>
-
-  <h2>5. Ownership</h2>
-  <p>Client receives full ownership rights once the project is paid in full. Until then, Fhatal Studios retains all IP rights to the work.</p>
-
-  <h2>6. Confidentiality</h2>
-  <p>Both parties agree to maintain confidentiality regarding sensitive data, project materials, and client branding.</p>
-
-  <h2>7. Cancellation</h2>
-  <p>If canceled mid-project, a partial invoice will be issued for completed work. No refunds for completed phases.</p>
-
-  <h2>8. Portfolio Use</h2>
-  <p>Fhatal Studios may showcase the project in its portfolio unless otherwise agreed.</p>
+  <h2 id="agreement-5-title">5. Termination</h2>
+  <p id="agreement-5">Either party may terminate the agreement with written notice. Work completed up to termination will be invoiced accordingly.</p>
 
   <footer>
     &copy; 2025 Fhatal Studios. All rights reserved.
   </footer>
 
+  <script>
+    const translations = {
+      en: {
+        langBtn: "Suomeksi",
+        backBtn: "← Back to Home",
+        title: "Client Agreement",
+        updated: "Last updated: 18.5.2025",
+        t1: "1. Scope of Work",
+        p1: "The scope of work, deliverables, and timelines will be defined in a separate written proposal or email confirmation.",
+        t2: "2. Payment Terms",
+        p2: "Payment terms, including deposits and milestones, will be agreed upon before work begins. Full ownership transfers after final payment.",
+        t3: "3. Revisions",
+        p3: "Reasonable revisions are included as specified in the proposal. Additional changes may incur extra charges.",
+        t4: "4. Confidentiality",
+        p4: "We treat all client information as confidential and do not share it with third parties except as required by law.",
+        t5: "5. Termination",
+        p5: "Either party may terminate the agreement with written notice. Work completed up to termination will be invoiced accordingly."
+      },
+      fi: {
+        langBtn: "In English",
+        backBtn: "← Takaisin etusivulle",
+        title: "Asiakassopimus",
+        updated: "Päivitetty: 18.5.2025",
+        t1: "1. Työn kulku",
+        p1: "Työn laajuus, toimitukset ja aikataulut määritellään erillisessä kirjallisessa tarjouksessa tai sähköpostivahvistuksessa.",
+        t2: "2. Maksuehdot",
+        p2: "Maksuehdot, kuten maksut ja välitavoitteet, sovitaan ennen työn aloittamista. Omistusoikeus siirtyy asiakkaalle vasta loppumaksun jälkeen.",
+        t3: "3. Muutokset",
+        p3: "Kohtuulliset muutokset sisältyvät tarjoukseen. Lisämuutokset voivat aiheuttaa lisäkustannuksia.",
+        t4: "4. Luottamuksellisuus",
+        p4: "Kaikkia asiakkaan tietoja käsitellään luottamuksellisesti eikä niitä jaeta kolmansille osapuolille, ellei laki sitä vaadi.",
+        t5: "5. Sopimuksen päättäminen",
+        p5: "Kumpi tahansa osapuoli voi irtisanoa sopimuksen kirjallisella ilmoituksella. Työ laskutetaan tehdyn työn määrän mukaan irtisanomiseen asti."
+      }
+    };
+
+    let currentLang = "en";
+    document.getElementById("langSwitcher").onclick = function() {
+      currentLang = currentLang === "en" ? "fi" : "en";
+      setLang(currentLang);
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.getElementById("langSwitcher").textContent = t.langBtn;
+      document.getElementById("back-btn").textContent = t.backBtn;
+      document.getElementById("agreement-title").textContent = t.title;
+      document.getElementById("agreement-updated").textContent = t.updated;
+      document.getElementById("agreement-1-title").textContent = t.t1;
+      document.getElementById("agreement-1").textContent = t.p1;
+      document.getElementById("agreement-2-title").textContent = t.t2;
+      document.getElementById("agreement-2").textContent = t.p2;
+      document.getElementById("agreement-3-title").textContent = t.t3;
+      document.getElementById("agreement-3").textContent = t.p3;
+      document.getElementById("agreement-4-title").textContent = t.t4;
+      document.getElementById("agreement-4").textContent = t.p4;
+      document.getElementById("agreement-5-title").textContent = t.t5;
+      document.getElementById("agreement-5").textContent = t.p5;
+    }
+    setLang(currentLang);
+  </script>
 </body>
 </html>

@@ -15,6 +15,7 @@
       margin: 0 auto;
       padding: 60px 20px;
       line-height: 1.7;
+      position: relative;
     }
     h1, h2 {
       color: #bdb8ff;
@@ -31,61 +32,131 @@
       margin-bottom: 40px;
       box-shadow: 0 0 10px #9893d6;
     }
+    .lang-switcher {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      background: #E0DEFF;
+      color: #222;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1.05rem;
+      transition: background 0.2s;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lang-switcher:hover {
+      background: #333;
+    }
     footer {
       text-align: center;
       margin-top: 80px;
       padding: 40px 0;
       font-size: 0.9rem;
-      color: e5e7eb;
+      color: #e5e7eb;
     }
   </style>
 </head>
 <body>
+  <button class="lang-switcher" id="langSwitcher" type="button">Suomeksi</button>
+  <a href="index.html" class="back-btn" id="back-btn">← Back to Home</a>
 
-  <a href="index.html" class="back-btn">← Back to Home</a>
+  <h1 id="privacy-title">Privacy Policy</h1>
+  <p id="privacy-updated">Last updated: 18.5.2025</p>
 
-  <h1>Privacy Policy</h1>
-  <p>Last updated: 18.5.2025</p>
+  <h2 id="privacy-1-title">1. Introduction</h2>
+  <p id="privacy-1">We respect your privacy and are committed to protecting your personal data. This policy explains how we handle your information.</p>
 
-  <h2>1. Introduction</h2>
-  <p>Fhatal Studios ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and disclose your information when you interact with our website or services.</p>
+  <h2 id="privacy-2-title">2. What Data We Collect</h2>
+  <p id="privacy-2">We collect only the information you provide via our contact forms (such as name, email, and message).</p>
 
-  <h2>2. What Information We Collect</h2>
-  <ul>
-    <li><strong>Contact form data:</strong> Name, email, and message content</li>
-    <li><strong>Usage data:</strong> Browser type, pages visited (via analytics tools)</li>
-    <li><strong>Cookies:</strong> If used, for site preferences and traffic analysis</li>
-  </ul>
+  <h2 id="privacy-3-title">3. How We Use Your Data</h2>
+  <p id="privacy-3">Your data is used solely to respond to your inquiries and provide our services. We do not sell or share your data with third parties except as required by law.</p>
 
-  <h2>3. How We Use Information</h2>
-  <ul>
-    <li>To respond to contact form submissions</li>
-    <li>To improve site usability and performance</li>
-    <li>To manage communication and service delivery</li>
-  </ul>
+  <h2 id="privacy-4-title">4. Data Security</h2>
+  <p id="privacy-4">We take reasonable measures to protect your data but cannot guarantee absolute security.</p>
 
-  <h2>4. Third-Party Services</h2>
-  <p>We use the following third-party services that may collect limited user data:</p>
-  <ul>
-    <li><strong>Formspree:</strong> to process contact form messages</li>
-    <li><strong>Google Analytics:</strong> for anonymous site usage tracking (if enabled)</li>
-  </ul>
+  <h2 id="privacy-5-title">5. Cookies</h2>
+  <p id="privacy-5">Our website may use cookies for basic functionality and analytics. You can disable cookies in your browser settings.</p>
 
-  <h2>5. Data Retention</h2>
-  <p>We retain submitted data for up to 12 months unless otherwise required for ongoing communication or legal compliance.</p>
-
-  <h2>6. Your Rights</h2>
-  <p>Under GDPR and other regulations, you have the right to access, update, or delete your personal data. Email us at support@fhatal.com for requests.</p>
-
-  <h2>7. Security</h2>
-  <p>We implement standard security practices, but no online system is 100% secure. You share data at your own risk.</p>
-
-  <h2>8. Changes</h2>
-  <p>This policy may be updated. We'll post the new version here with an updated revision date.</p>
+  <h2 id="privacy-6-title">6. Your Rights</h2>
+  <p id="privacy-6">You have the right to request access, correction, or deletion of your personal data. Contact us for any privacy-related questions.</p>
 
   <footer>
     &copy; 2025 Fhatal Studios. All rights reserved.
   </footer>
 
+  <script>
+    const translations = {
+      en: {
+        langBtn: "Suomeksi",
+        backBtn: "← Back to Home",
+        title: "Privacy Policy",
+        updated: "Last updated: 18.5.2025",
+        t1: "1. Introduction",
+        p1: "We respect your privacy and are committed to protecting your personal data. This policy explains how we handle your information.",
+        t2: "2. What Data We Collect",
+        p2: "We collect only the information you provide via our contact forms (such as name, email, and message).",
+        t3: "3. How We Use Your Data",
+        p3: "Your data is used solely to respond to your inquiries and provide our services. We do not sell or share your data with third parties except as required by law.",
+        t4: "4. Data Security",
+        p4: "We take reasonable measures to protect your data but cannot guarantee absolute security.",
+        t5: "5. Cookies",
+        p5: "Our website may use cookies for basic functionality and analytics. You can disable cookies in your browser settings.",
+        t6: "6. Your Rights",
+        p6: "You have the right to request access, correction, or deletion of your personal data. Contact us for any privacy-related questions."
+      },
+      fi: {
+        langBtn: "In English",
+        backBtn: "← Takaisin etusivulle",
+        title: "Tietosuojaseloste",
+        updated: "Päivitetty: 18.5.2025",
+        t1: "1. Johdanto",
+        p1: "Kunnioitamme yksityisyyttäsi ja sitoudumme suojaamaan henkilötietojasi. Tämä seloste kertoo, miten käsittelemme tietojasi.",
+        t2: "2. Keräämämme tiedot",
+        p2: "Keräämme vain tiedot, jotka annat yhteydenottolomakkeiden kautta (esim. nimi, sähköposti ja viesti).",
+        t3: "3. Tietojen käyttötarkoitus",
+        p3: "Tietojasi käytetään vain yhteydenottoihin vastaamiseen ja palveluidemme tarjoamiseen. Emme myy tai jaa tietojasi kolmansille osapuolille, ellei laki sitä vaadi.",
+        t4: "4. Tietoturva",
+        p4: "Pyrimme suojaamaan tietosi kohtuullisin keinoin, mutta emme voi taata täydellistä tietoturvaa.",
+        t5: "5. Evästeet",
+        p5: "Sivustomme voi käyttää evästeitä perustoimintoihin ja analytiikkaan. Voit estää evästeet selaimesi asetuksista.",
+        t6: "6. Oikeutesi",
+        p6: "Sinulla on oikeus pyytää tietojesi tarkastusta, oikaisua tai poistamista. Ota yhteyttä, jos sinulla on kysyttävää tietosuojasta."
+      }
+    };
+
+    let currentLang = "en";
+    document.getElementById("langSwitcher").onclick = function() {
+      currentLang = currentLang === "en" ? "fi" : "en";
+      setLang(currentLang);
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.getElementById("langSwitcher").textContent = t.langBtn;
+      document.getElementById("back-btn").textContent = t.backBtn;
+      document.getElementById("privacy-title").textContent = t.title;
+      document.getElementById("privacy-updated").textContent = t.updated;
+      document.getElementById("privacy-1-title").textContent = t.t1;
+      document.getElementById("privacy-1").textContent = t.p1;
+      document.getElementById("privacy-2-title").textContent = t.t2;
+      document.getElementById("privacy-2").textContent = t.p2;
+      document.getElementById("privacy-3-title").textContent = t.t3;
+      document.getElementById("privacy-3").textContent = t.p3;
+      document.getElementById("privacy-4-title").textContent = t.t4;
+      document.getElementById("privacy-4").textContent = t.p4;
+      document.getElementById("privacy-5-title").textContent = t.t5;
+      document.getElementById("privacy-5").textContent = t.p5;
+      document.getElementById("privacy-6-title").textContent = t.t6;
+      document.getElementById("privacy-6").textContent = t.p6;
+    }
+    setLang(currentLang);
+  </script>
 </body>
 </html>
