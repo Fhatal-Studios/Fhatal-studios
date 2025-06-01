@@ -139,7 +139,21 @@
     </div>
   </footer>
 
-  <button id="scrollTopBtn" title="Scroll to top">↑</button>
+  <!-- Move scroll-to-top button just before Zapier chatbot, and float it left of the chatbot -->
+  <button
+    id="scrollTopBtn"
+    title="Scroll to top"
+    style="z-index:10001; position:fixed; bottom:38px; right:100px;">
+    ↑
+  </button>
+
+  <!-- Zapier Chatbot Embed -->
+  <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+  <zapier-interfaces-chatbot-embed
+    is-popup='true'
+    chatbot-id='cmbdng70v006mb03odem5527n'
+    style="--zapier-interfaces-chatbot-primary-color:#E0DEFF; --zapier-interfaces-chatbot-button-color:#0f0f10; --zapier-interfaces-chatbot-button-background:#E0DEFF; position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
+  </zapier-interfaces-chatbot-embed>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
