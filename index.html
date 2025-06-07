@@ -11,6 +11,7 @@
   <!-- Remixicon for icons -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <style>
     :root {
       --brand-bg: #E0DEFF;
@@ -156,31 +157,31 @@
       margin-top: 12px;
       transition: background 0.16s, color 0.16s;
       box-shadow: 0 2px 20px 0 rgba(120,110,190,0.09);
+      display: inline-block;
+      text-decoration: none;
     }
     .get-proto-btn:hover {
       background: #fff;
       color: #292744;
+      text-decoration: none;
     }
 
-    /* SECTIONS: Alternating BGs */
-    .section-bg-dark {
-      background: var(--gradient-dark);
-    }
-    .section-bg-light {
-      background: var(--gradient-light);
-    }
-    .section-bg-lighter {
-      background: var(--gradient-lighter);
-    }
-
-    /* TEAM SECTION */
+    /* TEAM SECTION GRADIENT FADE */
     .team-section {
-      padding: 7vw 0 6vw 0;
-      text-align: center;
-    }
+  /* Smooth fade from hero dark to services lighter section */
+  background: linear-gradient(
+    to bottom,
+    rgba(25,25,33,1) 0%,
+    rgba(25,25,33,0.84) 12%,
+    #232046 55%,
+    #23223a 100%
+  );
+  padding: 7vw 0 6vw 0;
+  text-align: center;
+}
+
     .team-title {
       font-weight: 800;
-      /* font-size: 2.4rem; */
       color: var(--white);
       margin-bottom: 80px;
       letter-spacing: -0.02em;
@@ -206,7 +207,10 @@
       z-index: 1;
       position: relative;
     }
-    /* TEAM AND SERVICES CARDS, SAME STYLE & WIDTH */
+    .team-row-top .team-member {
+      transform: translateY(-56px);
+      z-index: 3;
+    }
     .team-member,
     .service-card {
       background: rgba(36, 36, 60, 0.80);
@@ -214,8 +218,8 @@
       box-shadow: 0 6px 34px 0 rgba(50,60,100,0.09);
       border: 1.5px solid rgba(143, 148, 251, 0.09);
       margin-bottom: 18px;
-      min-width: 680px;    /* Increased width */
-      max-width: 800px;    /* Increased width */
+      min-width: 680px;
+      max-width: 800px;
       width: 100%;
       text-align: left;
       transition: transform 0.13s, box-shadow 0.13s, border-color 0.13s;
@@ -245,7 +249,6 @@
       .team-row-top { margin-bottom: 0; }
       .team-member, .service-card { width: 94vw; min-width: 0; max-width: 98vw; padding: 28px 8vw 24px 8vw; }
     }
-    /* HOVER EFFECTS */
     .team-member:hover,
     .service-card:hover {
       transform: translateY(-8px) scale(1.028);
@@ -271,7 +274,6 @@
       box-shadow: 0 6px 30px 0 rgba(50,50,100,0.13);
       transition: border-color 0.18s, box-shadow 0.16s;
     }
-    /* SCALING TEXT IN CARDS */
     .team-name, .service-title {
       font-weight: 800;
       color: var(--white);
@@ -294,10 +296,17 @@
       font-size: clamp(1rem, 1.25vw, 1.14rem);
     }
     /* SERVICES SECTION */
-    .services-section {
-      padding: 7vw 0 6vw 0;
-      text-align: center;
-    }
+.services-section {
+  padding: 7vw 0 6vw 0;
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    #23223a 0%,
+    #232046 46%,
+    #232046 80%,
+    #191921 100%
+  );
+}
     .services-title {
       font-weight: 800;
       color: var(--white);
@@ -366,7 +375,7 @@
       opacity: 1;
       font-family: 'Inter', sans-serif;
     }
-    .contact-section button[type="submit"] {
+    .contact-section button[type="submit"], .contact-section button#contact-btn {
       font-weight: 700;
       border-radius: 30px;
       padding: 12px 30px;
@@ -377,7 +386,7 @@
       margin-top: 18px;
       transition: background 0.15s, color 0.15s;
     }
-    .contact-section button[type="submit"]:hover {
+    .contact-section button[type="submit"]:hover, .contact-section button#contact-btn:hover {
       background: #fff;
       color: #232046;
     }
@@ -418,21 +427,20 @@
   <!-- Hero Section -->
   <section class="hero" id="about">
     <div id="particles-js"></div>
-    <img src="img/favicon.svg" class="hero-logo" alt="Fhatal Studios Logo">
     <h1 class="hero-title" data-en="We build custom software for real impact." data-fi="Verkkosivut, jotka rakentavat luottamusta.">Websites That Build Trust.</h1>
     <div class="hero-desc"
       data-en="Fhatal Studios is a Prototype-first digital studio helping brands grow with AI and precision. We design and build Websites, Web Applications and Online Stores reliably and fast."
       data-fi="Fhatal Studios on prototyyppi ensin periaatteella toimiva digitaalinen studio, joka auttaa yrityksiä kasvamaan ilman riskiä. Suunnittelemme ja toteutamme verkkosivustoja, web-sovelluksia ja verkkokauppoja luotettavasti ja nopeasti.">
       Fhatal Studios is a Prototype-first digital studio helping brands grow with AI and precision. We design and build Websites and Web Applications reliably and fast.
     </div>
-    <button class="get-proto-btn"
+    <a href="#contact" class="get-proto-btn"
       data-en="Get your free prototype now"
       data-fi="Pyydä ilmainen prototyyppi nyt">
       Get your free prototype now
-    </button>
+    </a>
   </section>
   <!-- Team Section -->
-  <section class="team-section section-bg-light" id="team">
+  <section class="team-section" id="team">
     <div class="container">
       <h2 class="team-title" data-en="Meet our team" data-fi="Tapaa tiimi">The Fhatal Crew</h2>
       <div class="team-triangle">
@@ -613,7 +621,7 @@
     document.getElementById('lang-fi').addEventListener('click', function(){ setLang('fi'); });
 
     // Smooth nav scroll
-    document.querySelectorAll('a.nav-link').forEach(link => {
+    document.querySelectorAll('a.nav-link, .get-proto-btn').forEach(link => {
       link.addEventListener('click', function(e) {
         if (this.hash && document.querySelector(this.hash)) {
           e.preventDefault();
