@@ -3,337 +3,658 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Web Design Studio | Free Website Prototype – Fhatal Studios</title>
-  <meta name="description" content="Fhatal Studios is a modern AI-powered web design studio offering free website prototypes for startups and small businesses. Fast, scalable, and trust-building digital solutions." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="icon" type="image/png" href="img/favicon.png">
-  <link rel="stylesheet" href="index.css" />
+  <title>Fhatal Studios</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Remixicon for icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Organization", "name": "Fhatal Studios", "url": "https://fhatal.com", "logo": "https://fhatal.com/img/testi2.png", "sameAs": [] } </script>
+  <style>
+    :root {
+      --brand-bg: #E0DEFF;
+      --dark-bg: #191921;
+      --hero-bg: #191921;
+      --card-bg: #232046;
+      --accent: #8f94fb;
+      --headline: #232046;
+      --text: #232046;
+      --muted: #58558b;
+      --white: #fff;
+      --border: #bbb7ee;
+      --light-bg: #23223a;
+      --lighter-bg: #222236;
+      --gradient-dark: linear-gradient(160deg, #212134 60%, #232046 100%);
+      --gradient-light: linear-gradient(160deg, #232046 55%, #302f53 100%);
+      --gradient-lighter: linear-gradient(180deg, #23223a 55%, #272752 100%);
+    }
+    html, body {
+      height: 100%;
+      background: var(--dark-bg);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      font-size: 18px;
+      background: var(--dark-bg);
+      min-height: 100vh;
+    }
+    /* NAVIGATION */
+    .navbar {
+      background: var(--brand-bg) !important;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.20rem;
+      padding: 0.9rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      box-shadow: 0 2px 12px 0 rgba(150,150,190,0.04);
+    }
+    .navbar-brand img {
+      height: 55px;
+      margin-right: 18px;
+      vertical-align: middle;
+      transition: height 0.15s;
+    }
+    .navbar-brand {
+      font-weight: 900;
+      color: var(--headline) !important;
+      font-size: 1.45rem;
+      letter-spacing: 0.7px;
+    }
+    .nav-link {
+      color: var(--headline) !important;
+      margin-right: 1.15rem;
+      font-weight: 500;
+      transition: color 0.12s;
+    }
+    .nav-link.active, .nav-link:hover {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+    .lang-switcher {
+      margin-left: 2.2rem;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--headline);
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.30rem;
+      padding: 3px 10px;
+      letter-spacing: 0.5px;
+      border-radius: 7px;
+      transition: color 0.13s;
+    }
+    .lang-btn.active, .lang-btn:focus {
+      color: var(--accent);
+      outline: none;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--hero-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding-top: 90px;
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0; top: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero > *:not(#particles-js) {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-logo {
+      width: 160px;
+      max-width: 30vw;
+      margin-bottom: 30px;
+      border-radius: 18px;
+      background: rgba(25,25,33,0.55);
+      box-shadow: 0 2px 18px 0 rgba(0,0,0,0.08);
+      transition: filter 0.15s;
+    }
+    .hero-title {
+      font-weight: 900;
+      color: var(--white);
+      font-size: 3.3rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 26px;
+      line-height: 1.1;
+    }
+    .hero-desc {
+      color: #d6d6f2;
+      font-size: 1.23rem;
+      font-weight: 500;
+      max-width: 540px;
+      margin: 0 auto 38px auto;
+      line-height: 1.6;
+    }
+    .get-proto-btn {
+      font-weight: 800;
+      font-size: 1.23rem;
+      background: var(--accent);
+      color: #232046;
+      border: none;
+      border-radius: 100px;
+      padding: 14px 44px;
+      margin-top: 12px;
+      transition: background 0.16s, color 0.16s;
+      box-shadow: 0 2px 20px 0 rgba(120,110,190,0.09);
+    }
+    .get-proto-btn:hover {
+      background: #fff;
+      color: #292744;
+    }
+
+    /* SECTIONS: Alternating BGs */
+    .section-bg-dark {
+      background: var(--gradient-dark);
+    }
+    .section-bg-light {
+      background: var(--gradient-light);
+    }
+    .section-bg-lighter {
+      background: var(--gradient-lighter);
+    }
+
+    /* TEAM SECTION */
+    .team-section {
+      padding: 7vw 0 6vw 0;
+      text-align: center;
+    }
+    .team-title {
+      font-weight: 800;
+      /* font-size: 2.4rem; */
+      color: var(--white);
+      margin-bottom: 80px;
+      letter-spacing: -0.02em;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+    }
+    .team-triangle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .team-row-top {
+      margin-bottom: 0px;
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+      position: relative;
+    }
+    .team-row-bottom {
+      display: flex;
+      gap: 60px;
+      justify-content: center;
+      z-index: 1;
+      position: relative;
+    }
+    /* TEAM AND SERVICES CARDS, SAME STYLE & WIDTH */
+    .team-member,
+    .service-card {
+      background: rgba(36, 36, 60, 0.80);
+      border-radius: 24px;
+      box-shadow: 0 6px 34px 0 rgba(50,60,100,0.09);
+      border: 1.5px solid rgba(143, 148, 251, 0.09);
+      margin-bottom: 18px;
+      min-width: 680px;    /* Increased width */
+      max-width: 800px;    /* Increased width */
+      width: 100%;
+      text-align: left;
+      transition: transform 0.13s, box-shadow 0.13s, border-color 0.13s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 16px 48px;
+    }
+    .team-member {
+      align-items: center;
+      text-align: center;
+      padding: 16px 48px;
+    }
+    @media (max-width: 1200px) {
+      .team-member, .service-card { min-width: 300px; max-width: 96vw; }
+      .services-row { gap: 24px; }
+      .team-row-bottom { gap: 24px; }
+    }
+    @media (max-width: 700px) {
+      .hero-title { font-size: 2.0rem; }
+      .hero-logo { width: 70px; }
+      .team-row-top, .team-row-bottom, .services-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+      .team-row-top { margin-bottom: 0; }
+      .team-member, .service-card { width: 94vw; min-width: 0; max-width: 98vw; padding: 28px 8vw 24px 8vw; }
+    }
+    /* HOVER EFFECTS */
+    .team-member:hover,
+    .service-card:hover {
+      transform: translateY(-8px) scale(1.028);
+      box-shadow: 0 16px 36px 0 rgba(130,130,210,0.16);
+      border-color: var(--accent);
+      background: rgba(50,52,96,0.97);
+    }
+    .team-member:hover .team-photo {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px 0 rgba(120,110,190,0.12);
+    }
+    .service-card:hover .service-icon {
+      color: #fff;
+    }
+    .team-photo {
+      width: 116px;
+      height: 116px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 28px;
+      border: 2.5px solid rgba(143,148,251,0.36);
+      background: var(--card-bg);
+      box-shadow: 0 6px 30px 0 rgba(50,50,100,0.13);
+      transition: border-color 0.18s, box-shadow 0.16s;
+    }
+    /* SCALING TEXT IN CARDS */
+    .team-name, .service-title {
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+      font-size: clamp(1.3rem, 2.2vw, 2.2rem);
+    }
+    .team-role {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-size: clamp(1.05rem, 1.4vw, 1.15rem);
+    }
+    .team-desc, .service-desc {
+      color: #d6d6f2;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 0;
+      max-width: 90%;
+      font-size: clamp(1rem, 1.25vw, 1.14rem);
+    }
+    /* SERVICES SECTION */
+    .services-section {
+      padding: 7vw 0 6vw 0;
+      text-align: center;
+    }
+    .services-title {
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 64px;
+      letter-spacing: -0.01em;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+    .services-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 38px;
+    }
+    .service-icon {
+      font-size: 2.4rem;
+      margin-bottom: 18px;
+      color: var(--accent);
+      transition: color 0.14s;
+    }
+    /* CONTACT SECTION */
+    .contact-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    .contact-container {
+      max-width: 540px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .contact-title {
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 36px;
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: -0.01em;
+    }
+    .form-label {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1.07rem;
+    }
+    .form-control {
+      background: transparent !important;
+      border: none !important;
+      border-bottom: 2px solid var(--accent) !important;
+      border-radius: 0 !important;
+      color: var(--white) !important;
+      box-shadow: none !important;
+      font-size: 1.07rem;
+      font-family: 'Inter', sans-serif;
+      padding-left: 0;
+      margin-bottom: 18px;
+    }
+    .form-control:focus {
+      border-bottom: 2.5px solid #232046 !important;
+      background: transparent !important;
+      color: var(--white) !important;
+      box-shadow: none !important;
+    }
+    ::placeholder {
+      color: #b5b5d2 !important;
+      opacity: 1;
+      font-family: 'Inter', sans-serif;
+    }
+    .contact-section button[type="submit"] {
+      font-weight: 700;
+      border-radius: 30px;
+      padding: 12px 30px;
+      font-size: 1.08rem;
+      background: var(--accent);
+      color: #232046;
+      border: none;
+      margin-top: 18px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .contact-section button[type="submit"]:hover {
+      background: #fff;
+      color: #232046;
+    }
+    /* FOOTER */
+    .footer-bg {
+      color: var(--headline);
+      background: var(--brand-bg) !important;
+      font-size: 1rem;
+      letter-spacing: 0.2px;
+      border-top: 1px solid #bbb7ee;
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NLFLNX7W42"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NLFLNX7W42');
-</script>
 <body>
-  <div id="particles-js"></div>
-
-  <header>
-    <img src="img/testi2.png" alt="Fhatal Studios Logo">
-    <button class="lang-switcher" id="langSwitcher">Suomeksi</button>
-  </header>
-
-  <!-- Hero -->
-  <section id="hero">
-    <div class="hero-content" data-aos="fade-up">
-      <h1 id="hero-title">Websites That Build Trust</h1>
-      <p id="hero-desc">Prototype-first Digital Studio Helping Brands Grow With AI and Precision</p>
-      <a href="#contact"><button class="btn" id="hero-btn">Get Your Free Prototype</button></a>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="img/logo.png" alt="Fhatal Studios Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#team" data-en="Team" data-fi="Tiimi">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services" data-en="Services" data-fi="Palvelut">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" data-en="Contact" data-fi="Ota Yhteyttä">Contact</a></li>
+        </ul>
+        <div class="lang-switcher d-flex align-items-center">
+          <button id="lang-en" class="lang-btn active" aria-label="Switch to English">EN</button>
+          <button id="lang-fi" class="lang-btn" aria-label="Vaihda suomeksi">FI</button>
+        </div>
+      </div>
     </div>
-    <div class="scroll-arrow" id="scrollArrow">↓</div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div id="particles-js"></div>
+    <img src="img/favicon.svg" class="hero-logo" alt="Fhatal Studios Logo">
+    <h1 class="hero-title" data-en="We build custom software for real impact." data-fi="Verkkosivut, jotka rakentavat luottamusta.">Websites That Build Trust.</h1>
+    <div class="hero-desc"
+      data-en="Fhatal Studios is a Prototype-first digital studio helping brands grow with AI and precision. We design and build Websites, Web Applications and Online Stores reliably and fast."
+      data-fi="Fhatal Studios on prototyyppi ensin periaatteella toimiva digitaalinen studio, joka auttaa yrityksiä kasvamaan ilman riskiä. Suunnittelemme ja toteutamme verkkosivustoja, web-sovelluksia ja verkkokauppoja luotettavasti ja nopeasti.">
+      Fhatal Studios is a Prototype-first digital studio helping brands grow with AI and precision. We design and build Websites and Web Applications reliably and fast.
+    </div>
+    <button class="get-proto-btn"
+      data-en="Get your free prototype now"
+      data-fi="Pyydä ilmainen prototyyppi nyt">
+      Get your free prototype now
+    </button>
   </section>
-
-  <!-- About Us Placeholder Section -->
-  <section id="about-us">
-    <div class="split" data-aos="fade-up">
-      <div class="text">
-        <h2 id="aboutus-title">About Us</h2>
-        <p id="aboutus-p1">
-          <strong>Fhatal Studios</strong> was built on a simple idea: modern web design should be accessible, fast, and smooth. We saw too many startups and small businesses struggle with overpriced agencies, outdated tools, and templated results that didn’t reflect their real vision. So, we decided to change that.
-        </p><br>
-        <p id="aboutus-p2">
-          It all started with three founders who brought together skills in <strong>software engineering</strong>, <strong>customer service</strong>, and <strong>user experience</strong>. What began as a side project quickly grew into a full-service studio with a clear mission: to help small brands launch faster and smarter with clean code, clear design, and a human-first process.
-        </p><br>
-        <p id="aboutus-p3">
-          Our approach is different by design. Every project begins with a <strong>free prototype</strong> so you can see the direction before you commit. We use <strong>AI tools like ChatGPT</strong> to support our workflow, giving us more speed and flexibility without ever replacing the value of real hands-on work. Every site is reviewed, improved, and delivered by real people.
-        </p><br>
-        <p id="aboutus-p4">
-          We work with modern stacks like <strong>JavaScript, and React.js</strong> to build sites that load fast, look sharp, and scale with your business. Whether you’re launching your first page or redesigning something outdated, we build with the long term in mind.
-        </p><br>
+  <!-- Team Section -->
+  <section class="team-section section-bg-light" id="team">
+    <div class="container">
+      <h2 class="team-title" data-en="Meet our team" data-fi="Tapaa tiimi">The Fhatal Crew</h2>
+      <div class="team-triangle">
+        <!-- Top member -->
+        <div class="team-row-top">
+          <div class="team-member">
+            <img src="img/kimi.jpg" alt="Kimi Huhtala" class="team-photo" />
+            <div class="team-name" data-en="Kimi Huhtala" data-fi="Kimi Huhtala">Kimi Huhtala</div>
+            <div class="team-role" data-en="Lead Developer" data-fi="Pääkehittäjä">Founder</div>
+            <div class="team-desc"
+              data-en="Founder of Fhatal Studios and an ICT - Engineer with extensive experience in web and software development. Responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery."
+              data-fi=" Fhatal Studiosin perustaja sekä ICT - insinööri, jolla on laaja kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuihin projektien kehityksen tehostamiseksi.">
+              Founder of Fhatal Studios and an ICT Engineer with extensive experience in web and software development. Responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery.
+            </div>
+          </div>
+        </div>
+        <!-- Bottom row -->
+        <div class="team-row-bottom">
+          <div class="team-member">
+            <img src="img/veeti.jpg" alt="Veeti Pere" class="team-photo" />
+            <div class="team-name" data-en="Veeti Pere" data-fi="Veeti Pere">Veeti Pere</div>
+            <div class="team-role" data-en="UI/UX Designer" data-fi="UI/UX-suunnittelija">Consultant<br>Software Engineer</div>
+            <div class="team-desc"
+              data-en="Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions."
+              data-fi="Yli seitsemän vuoden kokemuksella ohjelmisto- ja verkkokehityksestä olen erikoistunut UX-suunnitteluun, infrastruktuuriin ja kokonaisvaltaisiin ohjelmistoratkaisuihin. Tällä hetkellä keskityn hyödyntämään tekoälyä työprosessien nopeuttamiseksi ja kehittämiseksi asiakkaillemme.">
+              Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions.
+            </div>
+          </div>
+          <div class="team-member">
+            <img src="img/arttu.jpg" alt="Arttu Aarnio-Wihuri" class="team-photo" />
+            <div class="team-name" data-en="Arttu Aarnio-Wihuri" data-fi="Arttu Aarnio-Wihuri">Arttu Aarnio-Wihuri</div>
+            <div class="team-role" data-en="Mobile Engineer" data-fi="Mobiilikehittäjä">Consultant<br>Business Development Lead</div>
+            <div class="team-desc"
+              data-en="Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results."
+              data-fi="Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.">
+              Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
-    <!-- Services -->
-  <section id="services">
-    <div class="split" data-aos="fade-up">
-      <div class="text">
-        <h2 id="services-title">What We Offer</h2>
-        <p id="services-ai">
-          <strong>AI-Enhanced Workflow</strong><br>
-          At Fhatal Studios, we integrate tools like ChatGPT into our workflow not your website. This means faster turnarounds, smarter edits, and a more efficient development process from start to finish. Whether it's generating code snippets, drafting content, or exploring layout variations, our AI-enhanced workflow speeds things up without compromising quality. Every site is still designed, coded, and reviewed by real professionals. No bloated templates. No blind automation. Just smarter work, done better.
-        </p><br>
-        <p id="services-tech">
-          <strong>Modern Tech</strong><br>
-          We build using modern web technologies such as JavaScript, and React.js. These tools let us create clean, scalable, and secure websites that load fast and adapt flawlessly to all screen sizes. Every build is responsive, SEO-ready, and crafted to evolve with your business not just serve you for the moment. Whether you need something simple or something more advanced, we deliver with future-proof structure and maintainable code.
-        </p><br>
-        <p id="services-startup">
-          <strong>Startup Friendly</strong><br>
-          We understand what it’s like to start from zero. That’s why we offer free design prototypes up front before any commitments or invoices. You get a clear sense of direction, design style, and value before making a decision. It’s not a demo it’s a real start to your project. We believe this approach builds trust, reduces friction, and makes collaboration smoother from day one.
-        </p>
+  <!-- Services Section -->
+  <section class="services-section section-bg-lighter" id="services">
+    <div class="container">
+      <h2 class="services-title" data-en="What we offer" data-fi="Palvelumme">What We Offer</h2>
+      <div class="services-row">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <i class="service-icon ri-code-s-slash-line"></i>
+          <div class="service-title" data-en="Web App Development" data-fi="Verkkosovellukset">Web Applications</div>
+          <div class="service-desc"
+            data-en="We design and develop modern web applications using the latest technologies, such as JavaScript, React.js, and other contemporary development tools. We build applications that are secure, scalable, and easily expandable to support your business growth. All our solutions are responsive, user-friendly, and optimized for search engines."
+            data-fi="Suunnittelemme ja kehitämme moderneja web-sovelluksia hyödyntäen uusimpia teknologioita, kuten JavaScriptiä, React.js:ää ja muita nykyaikaisia kehitystyökaluja. Rakennamme sovelluksia, jotka ovat turvallisia, skaalautuvia ja helposti laajennettavia yrityksesi kasvun tueksi. Kaikki toteutuksemme ovat responsiivisia, käyttäjäystävällisiä ja hakukoneystävällisiä.">
+            We design and develop modern web applications using the latest technologies, such as JavaScript, React.js, and other contemporary development tools. We build applications that are secure, scalable, and easily expandable to support your business growth. All our solutions are responsive, user-friendly, and optimized for search engines.
+          </div>
+        </div>
+        <!-- Service 2 -->
+        <div class="service-card">
+          <i class="service-icon ri-smartphone-line"></i>
+          <div class="service-title" data-en="Mobile Apps" data-fi="Mobiilisovellukset">Websites</div>
+          <div class="service-desc"
+            data-en="We build using modern web technologies such as HTML, CSS, JavaScript, and React.js. These tools let us create clean, scalable, and secure websites that load fast and adapt flawlessly to all screen sizes. Every build is responsive, SEO-ready, and crafted to evolve with your business not just serve you for the moment. Whether you need something simple or something more advanced, we deliver with future-proof structure and maintainable code."
+            data-fi="Rakennamme nykyaikaisilla teknologioilla kuten HTML, CSS, JavaScript ja React.js. Näillä syntyy selkeitä, skaalautuvia ja turvallisia sivustoja, jotka latautuvat nopeasti ja toimivat kaikilla laitteilla. Jokainen toteutus on responsiivinen, hakukoneystävällinen ja rakennettu kestämään yrityksesi kasvun mukana – ei vain tätä hetkeä varten.">
+            We build using modern web technologies such as HTML, CSS, JavaScript, and React.js. These tools let us create clean, scalable, and secure websites that load fast and adapt flawlessly to all screen sizes. Every build is responsive, SEO-ready, and crafted to evolve with your business not just serve you for the moment. Whether you need something simple or something more advanced, we deliver with future-proof structure and maintainable code.
+          </div>
+        </div>
+        <!-- Service 3 -->
+        <div class="service-card">
+          <i class="service-icon ri-brush-2-line"></i>
+          <div class="service-title" data-en="Startup Friendly" data-fi="Startup Ystävällinen">Startup Friendly</div>
+          <div class="service-desc"
+            data-en="We understand what it’s like to start from zero. That’s why we offer free design prototypes up front before any commitments or invoices. You get a clear sense of direction, design style, and value before making a decision. We believe this approach builds trust, reduces friction, and makes collaboration smoother from day one."
+            data-fi="Ymmärrämme, miltä tuntuu aloittaa täysin nollasta. Siksi tarjoamme ilmaisen prototyypin, jo ennen sitoumuksia tai laskutusta. Saat heti selkeän käsityksen suunnan, tyylin ja arvon suhteen ennen päätöksen tekemistä. Uskomme, että tämä tapa rakentaa luottamusta ja tekee yhteistyöstä sujuvaa jo ensimmäisestä päivästä alkaen.">
+            We understand what it’s like to start from zero. That’s why we offer free design prototypes up front before any commitments or invoices. You get a clear sense of direction, design style, and value before making a decision. We believe this approach builds trust, reduces friction, and makes collaboration smoother from day one.
+          </div>
+        </div>
+        <!-- Service 4 -->
+        <div class="service-card">
+          <i class="service-icon ri-cloud-line"></i>
+          <div class="service-title" data-en="AI-Enhanced Workflow" data-fi="Pilvi & integraatiot">AI-Enhanced Workflow</div>
+          <div class="service-desc"
+            data-en="At Fhatal Studios, we integrate tools like ChatGPT into our workflow not your website. This means faster turnarounds, smarter edits, and a more efficient development process from start to finish. Whether it's generating code snippets, drafting content, or exploring layout variations, our AI-enhanced workflow speeds things up without compromising quality. Every site is still designed, coded, and reviewed by real professionals."
+            data-fi="Fhatal Studios hyödyntää ChatGPT:tä ja muita tekoälytyökaluja kehitysprosessissa – ei asiakkaan sivustossa. Tämä tarkoittaa nopeampaa toimitusta, fiksumpia muokkauksia ja tehokkaampaa tekemistä alusta loppuun. Koodin generointi, sisällön luonnostelu ja layout-vaihtoehtojen ideointi sujuvat vikkelämmin, mutta jokainen sivu suunnitellaan ja tarkistetaan aina oikeiden ammattilaisten toimesta.">
+           At Fhatal Studios, we integrate tools like ChatGPT into our workflow not your website. This means faster turnarounds, smarter edits, and a more efficient development process from start to finish. Whether it's generating code snippets, drafting content, or exploring layout variations, our AI-enhanced workflow speeds things up without compromising quality. Every site is still designed, coded, and reviewed by real professionals.
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- About Sections -->
-  <section id="about-kimi">
-    <div class="split" data-aos="fade-up">
-      <div class="image"><img src="img/kimi.jpg" alt="Kimi Huhtala, AI Web Design Studio Founder"></div>
-      <div class="text">
-        <h2 id="kimi-title">Kimi Huhtala</h2>
-        <p id="kimi-role"><strong>Founder & CEO</strong><br>
-        Founder of Fhatal Studios and an ICT Engineer with extensive experience in web and software development. Responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery.</p>
-      </div>
+  <!-- Contact Section -->
+  <section class="contact-section section-bg-dark" id="contact">
+    <div class="contact-container">
+      <h2 class="contact-title" data-en="Let’s work together" data-fi="Ota Yhteyttä">Let’s work together</h2>
+<form action="https://formspree.io/f/xpwdgwdr" method="POST" onsubmit="return validateRecaptcha();">
+  <div class="mb-4">
+    <label for="contact-name" class="form-label" data-en="Your Name" data-fi="Nimesi">Your Name</label>
+    <input type="text" name="name" id="contact-name" class="form-control"
+           placeholder="Your Name" data-en="Your Name" data-fi="Nimesi" required />
+  </div>
+  <div class="mb-4">
+    <label for="contact-email" class="form-label" data-en="Your Email" data-fi="Sähköposti">Your Email</label>
+    <input type="email" name="_replyto" id="contact-email" class="form-control"
+           placeholder="you@example.com" data-en="you@example.com" data-fi="sinä@esimerkki.fi" required />
+  </div>
+  <div class="mb-4">
+    <label for="contact-message" class="form-label" data-en="Message" data-fi="Viesti">Message</label>
+    <textarea name="message" id="contact-message" rows="4" class="form-control"
+              placeholder="Tell us what you need..." data-en="Tell us what you need..." data-fi="Kerro, miten voimme auttaa..." required></textarea>
+  </div>
+  <div class="mb-4">
+    <div class="g-recaptcha" data-sitekey="6LezslMrAAAAAIf39D1hiKx8BZFqnbSbbTRPHq5t"></div>
+  </div>
+  <button class="btn" id="contact-btn" type="submit"
+    data-en="Send Message"
+    data-fi="Lähetä viesti">Send Message</button>
+</form>
     </div>
   </section>
-  
-  <section id="about-veeti">
-    <div class="split" data-aos="fade-up">
-      <div class="image"><img src="img/veeti.jpg" alt="Veeti Pere, Lead Software Engineer at Fhatal Studios"></div>
-      <div class="text">
-        <h2 id="veeti-title">Veeti Pere</h2>
-        <p id="veeti-role"><strong>Consultant <br> Lead Software Engineer</strong><br>
-        Background in UX, infrastructure, and full-stack development. 7+ years in software and web projects, now integrating AI for faster, smarter workflows.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="about-arttu">
-    <div class="split" data-aos="fade-up">
-      <div class="image"><img src="img/arttu.jpg" alt="Business Development Lead at Fhatal Studios"></div>
-      <div class="text">
-        <h2 id="arttu-title">Arttu Aarnio-Wihuri</h2>
-        <p id="arttu-role"><strong>Consultant <br> Business Development Lead</strong><br>
-        Experienced in both IT and marketing. Has led and supported digital projects, with a broad view on business development and strategy.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="split" data-aos="fade-up">
-      <div class="text">
-        <h2 id="contact-title">Let’s Talk</h2>
-        <form action="https://formspree.io/f/xpwdgwdr" method="POST" onsubmit="return validateRecaptcha();">
-          <input type="text" name="name" id="contact-name" placeholder="Your Name" required />
-          <input type="email" name="_replyto" id="contact-email" placeholder="Your Email" required />
-          <textarea name="message" id="contact-message" rows="4" placeholder="Tell us what you need..." required></textarea>
-          <div class="g-recaptcha" data-sitekey="6LezslMrAAAAAIf39D1hiKx8BZFqnbSbbTRPHq5t"></div>
-          <button class="btn" id="contact-btn">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
-  <footer data-aos="fade-up">
-    &copy; 2025 Fhatal Studios. All rights reserved.
-    <div style="margin-top:24px;">
-      <a href="privacy.html" id="footer-privacy" style="color:#000000;text-decoration:underline;margin:0 12px;">Privacy Policy</a>
-      <a href="terms.html" id="footer-terms" style="color:#000000;text-decoration:underline;margin:0 12px;">Terms of Service</a>
-      <a href="client-agreement.html" id="footer-client" style="color:#000000;text-decoration:underline;margin:0 12px;">Client Agreement</a>
+  <footer class="footer-bg text-center py-3">
+    <div class="container">
+      &copy; 2025 Fhatal Studios. All rights reserved.
     </div>
   </footer>
+  <!-- JS + Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    // Minimal particles config, subtle
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 44, "density": { "enable": true, "value_area": 1200 } },
+        "color": { "value": "#8f94fb" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.22, "random": true },
+        "size": { "value": 2.8, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 170,
+          "color": "#8f94fb",
+          "opacity": 0.13,
+          "width": 1.1
+        },
+        "move": {
+          "enable": true,
+          "speed": 0.8,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": false }
+        },
+        "modes": { "grab": { "distance": 160, "line_linked": { "opacity": 0.22 } } }
+      },
+      "retina_detect": true
+    });
 
-  <!-- Move scroll-to-top button just before Zapier chatbot, and float it left of the chatbot -->
-  <button
-    id="scrollTopBtn"
-    title="Scroll to top"
-    style="z-index:10001; position:fixed; bottom:38px; right:100px;">
-    ↑
-  </button>
+    // Language switcher
+    function setLang(lang) {
+      document.querySelectorAll('[data-en]').forEach(function(el) {
+        el.innerHTML = el.getAttribute(lang === 'fi' ? 'data-fi' : 'data-en');
+      });
+      document.querySelectorAll('input[data-en], textarea[data-en]').forEach(function(el) {
+        el.placeholder = el.getAttribute(lang === 'fi' ? 'data-fi' : 'data-en');
+      });
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+      document.getElementById('lang-fi').classList.toggle('active', lang === 'fi');
+      document.documentElement.lang = lang;
+    }
+    document.getElementById('lang-en').addEventListener('click', function(){ setLang('en'); });
+    document.getElementById('lang-fi').addEventListener('click', function(){ setLang('fi'); });
 
-  <!-- Zapier Chatbot Embed -->
+    // Smooth nav scroll
+    document.querySelectorAll('a.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.hash && document.querySelector(this.hash)) {
+          e.preventDefault();
+          document.querySelector(this.hash).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+  <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+  <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmbfk74hr009hsr5xk61pdyqd'></zapier-interfaces-chatbot-embed>
+  <div id="cookie-consent" style="display:none;position:fixed;bottom:20px;left:0;right:0;margin:auto;max-width:400px;background:#222;color:#fff;padding:24px 24px 16px 24px;border-radius:18px;box-shadow:0 6px 32px rgba(0,0,0,0.19);z-index:10000;text-align:center;">
+  <p style="margin-bottom:18px;">
+    FHATAL uses cookies to improve your experience and to analyze site traffic. <a href="/privacy-policy.html" style="color:#8568bd;text-decoration:underline;">Read more</a>.
+  </p>
+  <button id="cookie-accept" style="background:#E0DEFF;color:#222;border:none;padding:8px 24px;border-radius:9px;cursor:pointer;font-weight:bold;">Accept</button>
+</div>
+<script>
+  if (!localStorage.getItem('cookieAccepted')) {
+    document.getElementById('cookie-consent').style.display = 'block';
+  }
+  document.getElementById('cookie-accept').onclick = function() {
+    localStorage.setItem('cookieAccepted', 'yes');
+    document.getElementById('cookie-consent').style.display = 'none';
+  }
+</script> 
+<!-- Zapier Chatbot Embed -->
   <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
   <zapier-interfaces-chatbot-embed
     is-popup='true'
     chatbot-id='cmbfk74hr009hsr5xk61pdyqd'
     style="--zapier-interfaces-chatbot-primary-color:#E0DEFF; --zapier-interfaces-chatbot-button-color:#0f0f10; --zapier-interfaces-chatbot-button-background:#E0DEFF; position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
   </zapier-interfaces-chatbot-embed>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    AOS.init({ duration: 1000, once: true });
-
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 60 },
-        color: { value: "#E0DEFF" },
-        shape: { type: "circle" },
-        opacity: { value: 0.3 },
-        size: { value: 3 },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#E0DEFF",
-          opacity: 0.2,
-          width: 1
-        },
-        move: { enable: true, speed: 1 }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "grab" },
-          onclick: { enable: false },
-          resize: true
-        },
-        modes: {
-          grab: {
-            distance: 180,
-            line_linked: { opacity: 0.5 }
-          }
-        }
-      },
-      retina_detect: true
-    });
-
-    const btn = document.getElementById("scrollTopBtn");
-    window.onscroll = () => {
-      btn.style.display = (window.scrollY > 300) ? "block" : "none";
-
-      // hide scroll arrow after scrolling
-      const arrow = document.getElementById("scrollArrow");
-      if (arrow) arrow.style.opacity = window.scrollY < 150 ? "0.15" : "0";
-    };
-    btn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-    function validateRecaptcha() {
-      const response = grecaptcha.getResponse();
-      if (response.length === 0) {
-        alert("Please complete the reCAPTCHA.");
-        return false;
-      }
-      return true;
-    }
-
-    // Language translations
-    const translations = {
-      en: {
-        langBtn: "Suomeksi",
-        heroTitle: "Websites That Build Trust",
-        heroDesc: "Prototype-first digital studio helping brands grow with AI and precision",
-        heroBtn: "Get Your Free Prototype",
-        servicesTitle: "What We Offer",
-        servicesAi: `<strong>AI-Enhanced Workflow</strong><br>
-At Fhatal Studios, we integrate tools like ChatGPT into our workflow not your website. This means faster turnarounds, smarter edits, and a more efficient development process from start to finish. Whether it's generating code snippets, drafting content, or exploring layout variations, our AI-enhanced workflow speeds things up without compromising quality. Every site is still designed, coded, and reviewed by real professionals. No bloated templates. No blind automation. Just smarter work, done better.`,
-        servicesTech: `<strong>Modern Tech</strong><br>
-We build using modern web technologies such as HTML, CSS, JavaScript, and React.js. These tools let us create clean, scalable, and secure websites that load fast and adapt flawlessly to all screen sizes. Every build is responsive, SEO-ready, and crafted to evolve with your business not just serve you for the moment. Whether you need something simple or something more advanced, we deliver with future-proof structure and maintainable code.`,
-        servicesStartup: `<strong>Startup Friendly</strong><br>
-We understand what it’s like to start from zero. That’s why we offer free design prototypes up front before any commitments or invoices. You get a clear sense of direction, design style, and value before making a decision. It’s not a demo it’s a real start to your project. We believe this approach builds trust, reduces friction, and makes collaboration smoother from day one.`,
-        aboutusTitle: "About Us",
-        aboutusP1: `<strong>Fhatal Studios</strong> was built on a simple idea: modern web design should be accessible, fast, and smooth. 
-        We saw too many startups and small businesses struggle with overpriced agencies and outdated tools that didn’t reflect their real vision. So, we decided to change that.`,
-        aboutusP2: `It all started with three founders who brought together skills in <strong>software engineering</strong>, <strong>creative media</strong>, and <strong>business strategy</strong>.
-        What began as a side project quickly grew into a full-service studio with a clear mission: to help small brands launch faster and smarter with clean code, clear design, and a human-first process.`,
-        aboutusP3: `Every project begins with a <strong>free prototype</strong> so you can see the direction before you commit. We use <strong>AI tools like ChatGPT</strong> to support our workflow, giving us more speed and flexibility without ever replacing the value of real hands-on work. 
-        Every site is reviewed, improved, and delivered by real people.`,
-        aboutusP4: `We work with modern stacks like <strong>JavaScript, and React.js</strong> to build sites that load fast, look sharp, and scale with your business. 
-        Whether you’re launching your first page or redesigning something outdated, we build with the long term in mind.`,
-        kimiTitle: "Kimi Huhtala",
-        kimiRole: `<strong>Founder & CEO</strong><br>
-Founder of Fhatal Studios and ICT Engineer. Oversees operations, assists in development, and integrates AI to streamline project delivery.`,
-        veetiTitle: "Veeti Pere",
-        veetiRole: `<strong>Consultant<br> Lead Software Engineer</strong><br>
-Background in UX, infrastructure, and full-stack development. 7+ years in software and web projects, now integrating AI for faster, smarter workflows.`,
-        arttuTitle: "Arttu Aarnio-Wihuri",
-        arttuRole: `<strong>Consultant <br> Business Development Lead</strong><br>
-Experienced in both IT and marketing. Has led and supported digital projects, with a broad view on business development and strategy.`,
-        contactTitle: "Let’s Talk",
-        contactName: "Your Name",
-        contactEmail: "Your Email",
-        contactMessage: "Tell us what you need...",
-        contactBtn: "Send Message",
-        footerPrivacy: "Privacy Policy",
-        footerTerms: "Terms of Service",
-        footerClient: "Client Agreement"
-      },
-      fi: {
-        langBtn: "In English",
-        heroTitle: "Verkkosivut, jotka rakentavat luottamusta",
-        heroDesc: "Prototyyppi ensin – digitaalinen studio, joka kasvattaa brändisi modernin teknologian ja huolellisen toteutuksen avulla.",
-        heroBtn: "Pyydä ilmainen prototyyppi",
-        servicesTitle: "Mitä Tarjoamme",
-        servicesAi: `<strong>AI-tehostettu Verkkosivujen Kehitys</strong><br>
-Fhatal Studios hyödyntää ChatGPT:tä ja muita tekoälytyökaluja kehitysprosessissa – ei asiakkaan sivustossa. Tämä tarkoittaa nopeampaa toimitusta, fiksumpia muokkauksia ja tehokkaampaa tekemistä alusta loppuun. Koodin generointi, sisällön luonnostelu ja layout-vaihtoehtojen ideointi sujuvat vikkelämmin, mutta jokainen sivu suunnitellaan ja tarkistetaan aina oikeiden ammattilaisten toimesta. Ei valmispohjia, ei sokeaa automaatiota – vain fiksumpaa tekemistä.`,
-        servicesTech: `<strong>Moderni teknologia</strong><br>
-Rakennamme nykyaikaisilla teknologioilla kuten HTML, CSS, JavaScript ja React.js. Näillä syntyy selkeitä, skaalautuvia ja turvallisia sivustoja, jotka latautuvat nopeasti ja toimivat kaikilla laitteilla. Jokainen toteutus on responsiivinen, hakukoneystävällinen ja rakennettu kestämään yrityksesi kasvun mukana – ei vain tätä hetkeä varten.`,
-        servicesStartup: `<strong>Startup-ystävällinen</strong><br>
-Ymmärrämme, miltä tuntuu aloittaa nollasta. Siksi tarjoamme maksuttoman prototyypin ennen sitoutumista tai laskutusta. Näet suunnan, tyylin ja arvon ennen päätöstä. Kyse ei ole demosta vaan aidosta aloituksesta. Tämä rakentaa luottamusta ja tekee yhteistyöstä sujuvaa alusta asti.`,
-        aboutusTitle: "Lyhyesti Meistä",
-        aboutusP1: `<strong>Fhatal Studios</strong> perustettiin yksinkertaisesta syystä: modernien verkkosivujen hankkimisen tulisi olla vaivatonta, nopeaa ja sulavaa. 
-        Näimme liian monta pientä yritystä kamppailemassa ylihinnoiteltujen sivustojen ja vanhentuneiden työkalujen  kanssa, jotka eivät vastanneet heidän todellista visiotaan. <strong>Päätimme muuttaa tämän.<strong>`,
-        aboutusP2: `Kaikki alkoi kolmesta perustajasta, jotka yhdistivät osaamisensa ohjelmistokehityksestä, luovasta mediasta ja liiketoimintastrategiasta. Sivuprojektista kasvoi nopeasti täyden palvelun studio, jonka selkeä missio on auttaa pieniä brändejä käynnistymään nopeammin ja fiksummin selkeällä koodilla, kirkkaalla designilla ja ihmislähtöisellä prosessilla.`,
-        aboutusP3: `Lähestymistapamme on erilainen tarkoituksella. Jokainen projekti alkaa <strong>ilmaisella prototyypillä</strong>, jotta näet suunnan ennen sitoutumista. Hyödynnämme <strong>tekoälytyökaluja kuten ChatGPT</strong> työnkulun tukena, mikä tuo nopeutta ja joustavuutta – kuitenkaan koskaan korvaamatta oikean käsityön arvoa. Jokainen sivu tarkistetaan ja viimeistellään oikeiden ihmisten toimesta.`,
-        aboutusP4: `Käytämme moderneja stackeja kuten <strong>HTML, CSS, JavaScript ja React.js</strong> rakentaaksemme sivuja, jotka latautuvat nopeasti, näyttävät hyvältä ja skaalautuvat yrityksesi mukana. Olitpa lanseeraamassa ensimmäistä sivua tai uudistamassa vanhaa, rakennamme pitkällä tähtäimellä.`,
-        aboutusP5: `<strong>Fhatal Studios</strong> on tarkoituksella pieni ja joustavasti laajennettava. Näin pysymme nopeina, yhteistyökykyisinä ja keskitymme <strong>laatuun määrän sijaan</strong>. Kun työskentelet kanssamme, saat omistautuneen tiimin, joka välittää siitä, että lopputulos toimii ja kestää.`,
-        kimiTitle: "Kimi Huhtala",
-        kimiRole: `<strong>Perustaja</strong><br>
-Fhatal Studiosin perustaja ja ICT-insinööri. Vastaa operatiivisesta toiminnasta, osallistuu kehitykseen ja hyödyntää tekoälyä projektien sujuvoittamiseksi.`,
-        veetiTitle: "Veeti Pere",
-        veetiRole: `<strong>Konsultti <br> Lead Software Engineer</strong><br>
-Taustaa UX:stä, infrastruktuurista ja full stack -kehityksestä. 7+ vuotta ohjelmisto- ja verkkoprojekteja, nyt tekoälyllä vauhditettuna.`,
-        arttuTitle: "Arttu Aarnio-Wihuri",
-        arttuRole: `<strong>Konsultti <br> Business Development Lead</strong><br>
-Kokemusta sekä IT:stä että markkinoinnista. Johtanut ja tukenut digiprojekteja laajalla liiketoimintanäkemyksellä.`,
-        contactTitle: "Ota Yhteyttä",
-        contactName: "Nimesi",
-        contactEmail: "Sähköpostisi",
-        contactMessage: "Kerro, mitä tarvitset...",
-        contactBtn: "Lähetä viesti",
-        footerPrivacy: "Tietosuojaseloste",
-        footerTerms: "Käyttöehdot",
-        footerClient: "Asiakassopimus"
-      }
-    };
-
-    let currentLang = "en";
-    document.getElementById("langSwitcher").onclick = function() {
-      currentLang = currentLang === "en" ? "fi" : "en";
-      setLang(currentLang);
-    };
-
-    function setLang(lang) {
-      const t = translations[lang];
-      document.getElementById("langSwitcher").textContent = t.langBtn;
-      document.getElementById("hero-title").textContent = t.heroTitle;
-      document.getElementById("hero-desc").textContent = t.heroDesc;
-      document.getElementById("hero-btn").textContent = t.heroBtn;
-      document.getElementById("services-title").textContent = t.servicesTitle;
-      document.getElementById("services-ai").innerHTML = t.servicesAi;
-      document.getElementById("services-tech").innerHTML = t.servicesTech;
-      document.getElementById("services-startup").innerHTML = t.servicesStartup;
-      document.getElementById("aboutus-title").textContent = t.aboutusTitle;
-      document.getElementById("aboutus-p1").innerHTML = t.aboutusP1;
-      document.getElementById("aboutus-p2").innerHTML = t.aboutusP2;
-      document.getElementById("aboutus-p3").innerHTML = t.aboutusP3;
-      document.getElementById("aboutus-p4").innerHTML = t.aboutusP4;
-      document.getElementById("aboutus-p5").innerHTML = t.aboutusP5;
-      document.getElementById("kimi-title").textContent = t.kimiTitle;
-      document.getElementById("kimi-role").innerHTML = t.kimiRole;
-      document.getElementById("veeti-title").textContent = t.veetiTitle;
-      document.getElementById("veeti-role").innerHTML = t.veetiRole;
-      document.getElementById("arttu-title").textContent = t.arttuTitle;
-      document.getElementById("arttu-role").innerHTML = t.arttuRole;
-      document.getElementById("contact-title").textContent = t.contactTitle;
-      document.getElementById("contact-name").placeholder = t.contactName;
-      document.getElementById("contact-email").placeholder = t.contactEmail;
-      document.getElementById("contact-message").placeholder = t.contactMessage;
-      document.getElementById("contact-btn").textContent = t.contactBtn;
-      document.getElementById("footer-privacy").textContent = t.footerPrivacy;
-      document.getElementById("footer-terms").textContent = t.footerTerms;
-      document.getElementById("footer-client").textContent = t.footerClient;
-    }
-    // Set initial language
-    setLang(currentLang);
-  </script>
+function validateRecaptcha() {
+  var response = grecaptcha.getResponse();
+  if (response.length === 0) {
+    alert('Please complete the reCAPTCHA.');
+    return false;
+  }
+  return true;
+}
+</script>
 </body>
 </html>

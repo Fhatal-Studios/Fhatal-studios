@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?> <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> <url> <loc>https://fhatal.com/</loc> <priority>1.0</priority> </url> </urlset>
-Title tag:
-
-<title>Fhatal Studios | Prototype-First Digital Studio for Startups & Brands</title>
-Meta description: <meta name="description" content="Prototype-first digital studio helping startups and brands grow with AI-powered web design, free prototypes, and modern tech.">
-
-Schema markup:
-
-<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Organization", "name": "Fhatal Studios", "url": "https://fhatal.com/", "logo": "https://fhatal.com/img/favicon.png" } </script>
