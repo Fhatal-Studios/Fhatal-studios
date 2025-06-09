@@ -167,88 +167,71 @@
       box-shadow: 0 10px 20px 0 rgba(130,130,210,0.16);
       border-color: var(--accent);
     }
+    @media (max-width: 700px) {
+      .hero {
+        padding-bottom: 60px;
+      }
+    }
 
     /* TEAM SECTION GRADIENT FADE */
     .team-section {
-  /* Smooth fade from hero dark to services lighter section */
-  background: linear-gradient(
-    to bottom,
-    rgba(25,25,33,1) 0%,
-    rgba(25,25,33,0.84) 12%,
-    #232046 55%,
-    #23223a 100%
-  );
-  padding: 7vw 0 6vw 0;
-  text-align: center;
-}
-
+      background: linear-gradient(
+        to bottom,
+        rgba(25,25,33,1) 0%,
+        rgba(25,25,33,0.84) 12%,
+        #232046 55%,
+        #23223a 100%
+      );
+      padding: 7vw 0 6vw 0;
+      text-align: center;
+    }
     .team-title {
       font-weight: 800;
       color: #E0DEFF;
-      margin-bottom: 100px;
+      margin-bottom: 50px;
       letter-spacing: -0.02em;
       font-size: clamp(1.5rem, 3vw, 2.4rem);
     }
-    .team-triangle {
+    /* Team row is now column flex, like services */
+    .team-row {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 0;
+      gap: 38px;
     }
-    .team-row-top {
-      margin-bottom: 0px;
-      display: flex;
-      justify-content: center;
-      z-index: 2;
-      position: relative;
-    }
-    .team-row-bottom {
-      display: flex;
-      gap: 60px;
-      justify-content: center;
-      z-index: 1;
-      position: relative;
-    }
-    .team-row-top .team-member {
-      transform: translateY(-56px);
-      z-index: 3;
-    }
-    .team-member,
-    .service-card {
+    .team-member, .service-card {
       background: rgba(36, 36, 60, 0.80);
       border-radius: 24px;
       box-shadow: 0 6px 34px 0 rgba(50,60,100,0.09);
       border: 1.5px solid rgba(143, 148, 251, 0.09);
-      margin-bottom: 18px;
-      min-width: 680px;
-      max-width: 800px;
+      margin-bottom: 0;
+      min-width: 600px;
+      max-width: 700px;
       width: 100%;
       text-align: left;
       transition: transform 0.13s, box-shadow 0.13s, border-color 0.13s;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      padding: 16px 48px;
+      padding: 36px 48px;
     }
     .team-member {
       align-items: center;
       text-align: center;
-      padding: 36px 48px;
     }
     @media (max-width: 1200px) {
       .team-member, .service-card { min-width: 300px; max-width: 96vw; }
-      .services-row { gap: 24px; }
-      .team-row-bottom { gap: 24px; }
+      .services-row, .team-row { gap: 24px; }
     }
     @media (max-width: 700px) {
       .hero-title { font-size: 2.0rem; }
       .hero-logo { width: 70px; }
-      .team-row-top, .team-row-bottom, .services-row {
+      .services-row, .team-row {
         flex-direction: column;
         align-items: center;
         gap: 0;
       }
-      .team-row-top { margin-bottom: 0; }
       .team-member, .service-card { width: 94vw; min-width: 0; max-width: 98vw; padding: 28px 8vw 24px 8vw; }
     }
     .team-member:hover,
@@ -299,28 +282,29 @@
       padding-bottom: 20px;
     }
     /* SERVICES SECTION */
-.services-section {
-  padding: 7vw 0 6vw 0;
-  text-align: center;
-  background: linear-gradient(
-    to bottom,
-    #23223a 0%,
-    #232046 46%,
-    #232046 80%,
-    #191921 100%
-  );
-}
+    .services-section {
+      padding: 7vw 0 6vw 0;
+      text-align: center;
+      background: linear-gradient(
+        to bottom,
+        #23223a 0%,
+        #232046 46%,
+        #232046 80%,
+        #191921 100%
+      );
+    }
     .services-title {
       font-weight: 800;
       color: #E0DEFF;
-      margin-bottom: 64px;
+      margin-bottom: 50px;
       letter-spacing: -0.01em;
       font-size: clamp(1.6rem, 3vw, 2.4rem);
     }
     .services-row {
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
       gap: 38px;
     }
     .service-icon {
@@ -393,6 +377,48 @@
       background: #fff;
       color: #232046;
     }
+  /* MOBILE - MAKE TEAM & SERVICES CARDS IDENTICAL */
+@media (max-width: 700px) {
+  .team-member,
+  .service-card {
+    width: 94vw;
+    min-width: 0;
+    max-width: 98vw;
+    padding: 28px 8vw 24px 8vw !important;
+    margin-bottom: 24px !important;
+    border-radius: 18px !important;
+  }
+  /* Unify inside spacing for both cards */
+  .team-member > *:not(:last-child),
+  .service-card > *:not(:last-child) {
+    margin-bottom: 16px !important;
+  }
+  .team-row-top,
+  .team-row-bottom,
+  .team-triangle {
+    margin-bottom: 0 !important;
+    gap: 0 !important;
+  }
+  .services-row {
+    gap: 0 !important;
+  }
+}
+@media (max-width: 700px) {
+  /* ...your other styles... */
+  .hero-title,
+  .team-title,
+  .services-title,
+  .contact-title {
+    font-size: 2.1rem !important;
+  }
+
+@media (max-width: 600px) {
+  .contact-container {
+    padding: 0 5vw;
+  }
+}
+}
+
     /* FOOTER */
     .footer-bg {
       color: var(--headline);
@@ -446,41 +472,35 @@
   <section class="team-section" id="team">
     <div class="container">
       <h2 class="team-title" data-en="Meet our team" data-fi="Tapaa tiimi">The Fhatal Crew</h2>
-      <div class="team-triangle">
-        <!-- Top member -->
-        <div class="team-row-top">
-          <div class="team-member">
-            <img src="img/kimi.jpg" alt="Kimi Huhtala" class="team-photo" />
-            <div class="team-name" data-en="Kimi Huhtala" data-fi="Kimi Huhtala">Kimi Huhtala</div>
-            <div class="team-role" data-en="Founder" data-fi="perustaja">Founder</div>
-            <div class="team-desc"
-              data-en="Founder of Fhatal Studios and an ICT - Engineer with extensive experience in web and software development. Responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery."
-              data-fi=" Fhatal Studiosin perustaja sekä ICT - insinööri, jolla on laaja kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuihin projektien kehityksen tehostamiseksi.">
-              Founder of Fhatal Studios and an ICT Engineer with extensive experience in web and software development. Responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery.
-            </div>
+      <div class="team-row">
+        <div class="team-member">
+          <img src="img/kimi.jpg" alt="Kimi Huhtala" class="team-photo" />
+          <div class="team-name" data-en="Kimi Huhtala" data-fi="Kimi Huhtala">Kimi Huhtala</div>
+          <div class="team-role" data-en="Founder" data-fi="Perustaja">Founder</div>
+          <div class="team-desc"
+            data-en="Founder of Fhatal Studios and an ICT - Engineer with extensive experience in web and software development. I'm responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery."
+            data-fi=" Fhatal Studiosin perustaja sekä ICT - insinööri. Minulla on laaja useiden vuosien kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuiden hyödyntämiseen kehityksen tehostamiseksi.">
+            Founder of Fhatal Studios and an ICT - Engineer with extensive experience in web and software development. I'm responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery.
           </div>
         </div>
-        <!-- Bottom row -->
-        <div class="team-row-bottom">
-          <div class="team-member">
-            <img src="img/veeti.jpg" alt="Veeti Pere" class="team-photo" />
-            <div class="team-name" data-en="Veeti Pere" data-fi="Veeti Pere">Veeti Pere</div>
-            <div class="team-role" data-en="Software Engineer" data-fi="Pääkehittäjä">Consultant<br>Software Engineer</div>
-            <div class="team-desc"
-              data-en="Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions."
-              data-fi="Yli seitsemän vuoden kokemuksella ohjelmisto- ja verkkokehityksestä olen erikoistunut UX-suunnitteluun, infrastruktuuriin ja kokonaisvaltaisiin ohjelmistoratkaisuihin. Tällä hetkellä keskityn hyödyntämään tekoälyä työprosessien nopeuttamiseksi ja kehittämiseksi asiakkaillemme.">
-              Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions.
-            </div>
+        <div class="team-member">
+          <img src="img/veeti.jpg" alt="Veeti Pere" class="team-photo" />
+          <div class="team-name" data-en="Veeti Pere" data-fi="Veeti Pere">Veeti Pere</div>
+          <div class="team-role" data-en="Consultant - Lead Developer" data-fi="Konsultti - Pääkehittäjä">Consultant - Lead Developer</div>
+          <div class="team-desc"
+            data-en="Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions."
+            data-fi="Yli seitsemän vuoden kokemuksella ohjelmisto- ja verkkokehityksestä olen erikoistunut UX-suunnitteluun, infrastruktuuriin ja kokonaisvaltaisiin ohjelmistoratkaisuihin. Tällä hetkellä keskityn hyödyntämään tekoälyä työprosessien nopeuttamiseksi ja kehittämiseksi asiakkaillemme.">
+            Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions.
           </div>
-          <div class="team-member">
-            <img src="img/arttu.jpg" alt="Arttu Aarnio-Wihuri" class="team-photo" />
-            <div class="team-name" data-en="Arttu Aarnio-Wihuri" data-fi="Arttu Aarnio-Wihuri">Arttu Aarnio-Wihuri</div>
-            <div class="team-role" data-en="Mobile Engineer" data-fi="Mobiilikehittäjä">Consultant<br>Business Development Lead</div>
-            <div class="team-desc"
-              data-en="Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results."
-              data-fi="Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.">
-              Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results.
-            </div>
+        </div>
+        <div class="team-member">
+          <img src="img/arttu.jpg" alt="Arttu Aarnio-Wihuri" class="team-photo" />
+          <div class="team-name" data-en="Arttu Aarnio-Wihuri" data-fi="Arttu Aarnio-Wihuri">Arttu Aarnio-Wihuri</div>
+          <div class="team-role" data-en="Consultant - Business Development Lead" data-fi="Konsultti – liiketoiminnan kehityspäällikkö">Consultant - Business Development Lead</div>
+          <div class="team-desc"
+            data-en="Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results."
+            data-fi="Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.">
+            Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results.
           </div>
         </div>
       </div>
@@ -504,7 +524,7 @@
         <!-- Service 2 -->
         <div class="service-card">
           <i class="service-icon ri-smartphone-line"></i>
-          <div class="service-title" data-en="Mobile Apps" data-fi="Mobiilisovellukset">Websites</div>
+          <div class="service-title" data-en="Responsive Websites" data-fi="Verkkosivut">Websites</div>
           <div class="service-desc"
             data-en="We build using modern web technologies such as HTML, CSS, JavaScript, and React.js. These tools let us create clean, scalable, and secure websites that load fast and adapt flawlessly to all screen sizes. Every build is responsive, SEO-ready, and crafted to evolve with your business not just serve you for the moment. Whether you need something simple or something more advanced, we deliver with future-proof structure and maintainable code."
             data-fi="Rakennamme nykyaikaisilla teknologioilla kuten HTML, CSS, JavaScript ja React.js. Näillä syntyy selkeitä, skaalautuvia ja turvallisia sivustoja, jotka latautuvat nopeasti ja toimivat kaikilla laitteilla. Jokainen toteutus on responsiivinen, hakukoneystävällinen ja rakennettu kestämään yrityksesi kasvun mukana – ei vain tätä hetkeä varten.">
@@ -527,8 +547,8 @@
           <div class="service-title" data-en="AI-Enhanced Workflow" data-fi="Pilvi & integraatiot">AI-Enhanced Workflow</div>
           <div class="service-desc"
             data-en="At Fhatal Studios, we integrate tools like ChatGPT into our workflow not your website. This means faster turnarounds, smarter edits, and a more efficient development process from start to finish. Whether it's generating code snippets, drafting content, or exploring layout variations, our AI-enhanced workflow speeds things up without compromising quality. Every site is still designed, coded, and reviewed by real professionals."
-            data-fi="Fhatal Studios hyödyntää ChatGPT:tä ja muita tekoälytyökaluja kehitysprosessissa – ei asiakkaan sivustossa. Tämä tarkoittaa nopeampaa toimitusta, fiksumpia muokkauksia ja tehokkaampaa tekemistä alusta loppuun. Koodin generointi, sisällön luonnostelu ja layout-vaihtoehtojen ideointi sujuvat vikkelämmin, mutta jokainen sivu suunnitellaan ja tarkistetaan aina oikeiden ammattilaisten toimesta.">
-           At Fhatal Studios, we integrate tools like ChatGPT into our workflow not your website. This means faster turnarounds, smarter edits, and a more efficient development process from start to finish. Whether it's generating code snippets, drafting content, or exploring layout variations, our AI-enhanced workflow speeds things up without compromising quality. Every site is still designed, coded, and reviewed by real professionals.
+            data-fi="Fhatal Studios hyödyntää ChatGPT:tä ja muita tekoälytyökaluja kehitysprosessissa. Tämä tarkoittaa nopeampaa toimitusta ja tehokkaampaa tekemistä alusta loppuun. Koodin generointi, sisällön luonnostelu ja layout-vaihtoehtojen ideointi sujuvat vikkelämmin, mutta jokainen sivu suunnitellaan ja tarkistetaan aina oikeiden ammattilaisten toimesta.">
+           At Fhatal Studios, we integrate tools like ChatGPT into our workflow not your website. This means faster turnarounds and more efficient development process from start to finish. Whether it's generating code snippets, drafting content, or exploring layout variations, our AI-enhanced workflow speeds things up without compromising quality. Every site is still designed, coded, and reviewed by real professionals.
           </div>
         </div>
       </div>
