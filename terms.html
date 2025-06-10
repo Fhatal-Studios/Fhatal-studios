@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Service | Fhatal Studios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <style>
+    :root {
+      --brand-bg: #E0DEFF;
+      --dark-bg: #191921;
+      --card-bg: #232046;
+      --accent: #8f94fb;
+      --headline: #232046;
+      --text: #232046;
+      --muted: #58558b;
+      --white: #e6e9f5;
+      --border: #bbb7ee;
+    }
+    html, body {
+      min-height: 100vh;
+      background: var(--dark-bg);
+      font-family: 'Inter', sans-serif;
+      color: #E0DEFF;
+      letter-spacing: -0.01em;
+    }
+    /* NAVIGATION BAR */
+    .navbar {
+      background: var(--brand-bg) !important;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.20rem;
+      padding: 0.9rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      box-shadow: 0 2px 12px 0 rgba(150,150,190,0.04);
+    }
+    .navbar-brand img {
+      height: 55px;
+      margin-right: 18px;
+      vertical-align: middle;
+      transition: height 0.15s;
+    }
+    .navbar-brand {
+      font-weight: 900;
+      color: var(--headline) !important;
+      font-size: 1.45rem;
+      letter-spacing: 0.7px;
+    }
+    .nav-link {
+      color: var(--headline) !important;
+      margin-right: 1.15rem;
+      font-weight: 500;
+      transition: color 0.12s;
+    }
+    .nav-link.active, .nav-link:hover {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+    .lang-switcher {
+      margin-left: 2.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--headline);
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.15rem;
+      padding: 3px 10px;
+      letter-spacing: 0.5px;
+      border-radius: 7px;
+      transition: color 0.13s;
+    }
+    .lang-btn.active, .lang-btn:focus {
+      color: var(--accent);
+      outline: none;
+    }
+    /* POLICY CONTAINER */
+    .container-policy {
+      max-width: 820px;
+      margin: 48px auto 32px auto;
+      background: var(--card-bg);
+      border-radius: 24px;
+      box-shadow: 0 6px 32px 0 rgba(50,60,100,0.13);
+      padding: 48px 34px;
+      border: 1.5px solid rgba(143, 148, 251, 0.09);
+    }
+    h1, h2, h3 {
+      color: #E0DEFF;
+      font-weight: 800;
+    }
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 36px;
+      letter-spacing: -0.01em;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 34px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    p, ul {
+      font-size: 1.07rem;
+      color: #E0DEFF;
+      margin-bottom: 18px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .footer-bg {
+      color: var(--headline);
+      background: var(--brand-bg) !important;
+      font-size: 1rem;
+      letter-spacing: 0.2px;
+      border-top: 1px solid #bbb7ee;
+      font-family: 'Inter', sans-serif;
+    }
+    @media (max-width: 700px) {
+      .container-policy { padding: 28px 7vw; }
+      h1 { font-size: 2rem; }
+      .navbar-brand img { height: 38px; }
+      .container-policy { margin: 24px auto; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/logo.png" alt="Fhatal Studios Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html#team" data-en="Team" data-fi="Tiimi">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services" data-en="Services" data-fi="Palvelut">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact" data-en="Contact" data-fi="Ota Yhteyttä">Contact</a></li>
+        </ul>
+        <div class="lang-switcher d-flex align-items-center">
+          <button id="lang-en" class="lang-btn active" aria-label="Switch to English">EN</button>
+          <button id="lang-fi" class="lang-btn" aria-label="Vaihda suomeksi">FI</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Terms Content -->
+  <div class="container-policy">
+    <h1 data-en="Terms of Service" data-fi="Käyttöehdot">Terms of Service</h1>
+    <p data-en="Last updated: June 2025" data-fi="Päivitetty: Kesäkuu 2025">Last updated: June 2025</p>
+    <p data-en="By using the Fhatal Studios website or services, you agree to these Terms of Service. Please read them carefully."
+       data-fi="Käyttämällä Fhatal Studiosin sivustoa tai palveluita hyväksyt nämä käyttöehdot. Lue ehdot huolellisesti.">
+      By using the Fhatal Studios website or services, you agree to these Terms of Service. Please read them carefully.
+    </p>
+    <h2 data-en="1. Acceptance of Terms" data-fi="1. Ehtojen hyväksyminen">1. Acceptance of Terms</h2>
+    <p data-en="Your use of our website and services constitutes your agreement to comply with these terms and any applicable laws."
+       data-fi="Sivustomme ja palveluidemme käyttö tarkoittaa, että sitoudut noudattamaan näitä ehtoja ja soveltuvia lakeja.">
+      Your use of our website and services constitutes your agreement to comply with these terms and any applicable laws.
+    </p>
+    <h2 data-en="2. Services" data-fi="2. Palvelut">2. Services</h2>
+    <p data-en="Fhatal Studios provides web design, development, and related services as described on our site. We may modify, suspend, or discontinue services at any time."
+       data-fi="Fhatal Studios tarjoaa verkkosivujen suunnittelu-, kehitys- ja muita palveluita, kuten sivuillamme kuvataan. Voimme muuttaa, keskeyttää tai lopettaa palvelut milloin tahansa.">
+      Fhatal Studios provides web design, development, and related services as described on our site. We may modify, suspend, or discontinue services at any time.
+    </p>
+    <h2 data-en="3. User Responsibilities" data-fi="3. Käyttäjän vastuut">3. User Responsibilities</h2>
+    <ul>
+      <li data-en="Provide accurate and current information when contacting us."
+          data-fi="Anna oikeat ja ajantasaiset tiedot, kun otat meihin yhteyttä.">Provide accurate and current information when contacting us.</li>
+      <li data-en="Use our website and services for lawful purposes only."
+          data-fi="Käytä sivustoamme ja palveluitamme vain laillisiin tarkoituksiin.">Use our website and services for lawful purposes only.</li>
+      <li data-en="Do not attempt to access restricted areas or interfere with site functionality."
+          data-fi="Älä yritä päästä rajoitetuille alueille tai häiritä sivuston toimintaa.">Do not attempt to access restricted areas or interfere with site functionality.</li>
+    </ul>
+    <h2 data-en="4. Intellectual Property" data-fi="4. Immateriaalioikeudet">4. Intellectual Property</h2>
+    <p data-en="All content, trademarks, and code on this site are the property of Fhatal Studios or its licensors. You may not use or reproduce them without written permission."
+       data-fi="Kaikki tämän sivuston sisältö, tavaramerkit ja koodi ovat Fhatal Studiosin tai sen lisenssinantajien omaisuutta. Et saa käyttää tai kopioida niitä ilman kirjallista lupaa.">
+      All content, trademarks, and code on this site are the property of Fhatal Studios or its licensors. You may not use or reproduce them without written permission.
+    </p>
+    <h2 data-en="5. Limitation of Liability" data-fi="5. Vastuunrajoitus">5. Limitation of Liability</h2>
+    <p data-en="Fhatal Studios is not liable for any direct or indirect damages resulting from your use of our website or services."
+       data-fi="Fhatal Studios ei vastaa mistään suorista tai epäsuorista vahingoista, jotka aiheutuvat sivustomme tai palveluidemme käytöstä.">
+      Fhatal Studios is not liable for any direct or indirect damages resulting from your use of our website or services.
+    </p>
+    <h2 data-en="6. Changes to Terms" data-fi="6. Ehtojen muutokset">6. Changes to Terms</h2>
+    <p data-en="We reserve the right to update these Terms of Service at any time. Updates will be posted on this page with a new “Last updated” date."
+       data-fi="Pidätämme oikeuden muuttaa näitä käyttöehtoja milloin tahansa. Muutokset julkaistaan tällä sivulla uudella 'Päivitetty' -päivämäärällä.">
+      We reserve the right to update these Terms of Service at any time. Updates will be posted on this page with a new “Last updated” date.
+    </p>
+    <h2 data-en="7. Contact" data-fi="7. Yhteystiedot">7. Contact</h2>
+    <p data-en="If you have any questions about these terms, please contact us at <a href='mailto:support@fhatal.com'>support@fhatal.com</a>."
+       data-fi="Jos sinulla on kysyttävää näistä ehdoista, ota yhteyttä osoitteeseen <a href='mailto:support@fhatal.com'>support@fhatal.com</a>.">
+      If you have any questions about these terms, please contact us at <a href="mailto:support@fhatal.com">support@fhatal.com</a>.
+    </p>
+  </div>
+  <footer class="footer-bg text-center py-3">
+    <div class="container">
+      &copy; 2025 Fhatal Studios. All rights reserved.
+      <br>
+      <a href="privacy.html" class="footer-link" data-en="Privacy Policy" data-fi="Tietosuojaseloste">Privacy Policy</a> |
+      <a href="terms.html" class="footer-link" data-en="Terms of Service" data-fi="Käyttöehdot">Terms of Service</a>
+    </div>
+  </footer>
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-en]').forEach(function(el) {
+        el.innerHTML = el.getAttribute(lang === 'fi' ? 'data-fi' : 'data-en');
+      });
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+      document.getElementById('lang-fi').classList.toggle('active', lang === 'fi');
+      document.documentElement.lang = lang;
+    }
+    document.getElementById('lang-en').addEventListener('click', function(){ setLang('en'); });
+    document.getElementById('lang-fi').addEventListener('click', function(){ setLang('fi'); });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

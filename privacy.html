@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy | Fhatal Studios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <style>
+    :root {
+      --brand-bg: #E0DEFF;
+      --dark-bg: #191921;
+      --card-bg: #232046;
+      --accent: #8f94fb;
+      --headline: #232046;
+      --text: #232046;
+      --muted: #58558b;
+      --white: #e6e9f5;
+      --border: #bbb7ee;
+    }
+    html, body {
+      min-height: 100vh;
+      background: var(--dark-bg);
+      font-family: 'Inter', sans-serif;
+      color: #E0DEFF;
+      letter-spacing: -0.01em;
+    }
+    /* NAVIGATION BAR */
+    .navbar {
+      background: var(--brand-bg) !important;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.20rem;
+      padding: 0.9rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      box-shadow: 0 2px 12px 0 rgba(150,150,190,0.04);
+    }
+    .navbar-brand img {
+      height: 55px;
+      margin-right: 18px;
+      vertical-align: middle;
+      transition: height 0.15s;
+    }
+    .navbar-brand {
+      font-weight: 900;
+      color: var(--headline) !important;
+      font-size: 1.45rem;
+      letter-spacing: 0.7px;
+    }
+    .nav-link {
+      color: var(--headline) !important;
+      margin-right: 1.15rem;
+      font-weight: 500;
+      transition: color 0.12s;
+    }
+    .nav-link.active, .nav-link:hover {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+    .lang-switcher {
+      margin-left: 2.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--headline);
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.15rem;
+      padding: 3px 10px;
+      letter-spacing: 0.5px;
+      border-radius: 7px;
+      transition: color 0.13s;
+    }
+    .lang-btn.active, .lang-btn:focus {
+      color: var(--accent);
+      outline: none;
+    }
+    /* POLICY CONTAINER */
+    .container-policy {
+      max-width: 820px;
+      margin: 48px auto 32px auto;
+      background: var(--card-bg);
+      border-radius: 24px;
+      box-shadow: 0 6px 32px 0 rgba(50,60,100,0.13);
+      padding: 48px 34px;
+      border: 1.5px solid rgba(143, 148, 251, 0.09);
+    }
+    h1, h2, h3 {
+      color: #E0DEFF;
+      font-weight: 800;
+    }
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 36px;
+      letter-spacing: -0.01em;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 34px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    p, ul {
+      font-size: 1.07rem;
+      color: #E0DEFF;
+      margin-bottom: 18px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .footer-bg {
+      color: var(--headline);
+      background: var(--brand-bg) !important;
+      font-size: 1rem;
+      letter-spacing: 0.2px;
+      border-top: 1px solid #bbb7ee;
+      font-family: 'Inter', sans-serif;
+    }
+    @media (max-width: 700px) {
+      .container-policy { padding: 28px 7vw; }
+      h1 { font-size: 2rem; }
+      .navbar-brand img { height: 38px; }
+      .container-policy { margin: 24px auto; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/logo.png" alt="Fhatal Studios Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html#team" data-en="Team" data-fi="Tiimi">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services" data-en="Services" data-fi="Palvelut">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact" data-en="Contact" data-fi="Ota Yhteyttä">Contact</a></li>
+        </ul>
+        <div class="lang-switcher d-flex align-items-center">
+          <button id="lang-en" class="lang-btn active" aria-label="Switch to English">EN</button>
+          <button id="lang-fi" class="lang-btn" aria-label="Vaihda suomeksi">FI</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Policy Content -->
+  <div class="container-policy">
+    <h1 data-en="Privacy Policy" data-fi="Tietosuojaseloste">Privacy Policy</h1>
+    <p data-en="Last updated: June 2025" data-fi="Päivitetty: kesäkuu 2025">Last updated: June 2025</p>
+    <p data-en="At Fhatal Studios, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services."
+       data-fi="Fhatal Studios sitoutuu suojaamaan yksityisyytesi. Tämä tietosuojaseloste kertoo, miten keräämme, käytämme ja suojaamme tietojasi, kun vierailet sivustollamme tai käytät palveluitamme.">
+      At Fhatal Studios, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.
+    </p>
+    <h2 data-en="1. Information We Collect" data-fi="1. Keräämämme tiedot">1. Information We Collect</h2>
+    <ul>
+      <li data-en="<strong>Personal Information:</strong> Name, email address, and any other details you provide through our contact forms."
+          data-fi="<strong>Henkilötiedot:</strong> Nimi, sähköpostiosoite ja muut tiedot, jotka annat lomakkeiden kautta.">
+        <strong>Personal Information:</strong> Name, email address, and any other details you provide through our contact forms.
+      </li>
+      <li data-en="<strong>Usage Data:</strong> Information about how you interact with our site (e.g., page views, time on page, browser type)."
+          data-fi="<strong>Käyttötiedot:</strong> Tiedot siitä, miten käytät sivustoamme (esim. sivukatselut, vierailun kesto, selaintyyppi).">
+        <strong>Usage Data:</strong> Information about how you interact with our site (e.g., page views, time on page, browser type).
+      </li>
+      <li data-en="<strong>Cookies:</strong> We use cookies to enhance user experience and analyze site traffic."
+          data-fi="<strong>Evästeet:</strong> Käytämme evästeitä käyttökokemuksen parantamiseksi ja liikenteen analysoimiseksi.">
+        <strong>Cookies:</strong> We use cookies to enhance user experience and analyze site traffic.
+      </li>
+    </ul>
+    <h2 data-en="2. How We Use Your Information" data-fi="2. Miten käytämme tietojasi">2. How We Use Your Information</h2>
+    <ul>
+      <li data-en="To respond to your inquiries and provide services."
+          data-fi="Vastataksemme yhteydenottoihin ja tarjotaksemme palveluitamme.">To respond to your inquiries and provide services.</li>
+      <li data-en="To improve our website and services."
+          data-fi="Kehittääksemme sivustoamme ja palveluitamme.">To improve our website and services.</li>
+      <li data-en="To communicate updates, offers, or information you requested."
+          data-fi="Viestittääksemme päivityksiä, tarjouksia tai pyytämääsi tietoa.">To communicate updates, offers, or information you requested.</li>
+      <li data-en="To comply with legal obligations."
+          data-fi="Noudattaaksemme lakisääteisiä velvoitteita.">To comply with legal obligations.</li>
+    </ul>
+    <h2 data-en="3. Data Sharing" data-fi="3. Tietojen jakaminen">3. Data Sharing</h2>
+    <p data-en="We do not sell or rent your personal information. We may share your data with trusted partners who help us operate our website and business, provided they agree to keep your information confidential."
+       data-fi="Emme myy tai vuokraa henkilötietojasi. Voimme jakaa tietojasi luotettujen yhteistyökumppaneiden kanssa, jotka auttavat meitä toiminnan pyörittämisessä ja sitoutuvat luottamuksellisuuteen.">
+      We do not sell or rent your personal information. We may share your data with trusted partners who help us operate our website and business, provided they agree to keep your information confidential.
+    </p>
+    <h2 data-en="4. Data Security" data-fi="4. Tietoturva">4. Data Security</h2>
+    <p data-en="We take reasonable measures to protect your information from unauthorized access, disclosure, or destruction."
+       data-fi="Suojaamme tietojasi asianmukaisin keinoin luvattomalta käytöltä, paljastamiselta tai tuhoutumiselta.">
+      We take reasonable measures to protect your information from unauthorized access, disclosure, or destruction.
+    </p>
+    <h2 data-en="5. Your Rights" data-fi="5. Oikeutesi">5. Your Rights</h2>
+    <ul>
+      <li data-en="You may request access to your personal data."
+          data-fi="Voit pyytää pääsyä omiin tietoihisi.">You may request access to your personal data.</li>
+      <li data-en="You may request correction or deletion of your data."
+          data-fi="Voit pyytää tietojesi oikaisua tai poistamista.">You may request correction or deletion of your data.</li>
+      <li data-en="You may opt out of marketing emails at any time."
+          data-fi="Voit kieltäytyä markkinointiviesteistä milloin tahansa.">You may opt out of marketing emails at any time.</li>
+    </ul>
+    <h2 data-en="6. Changes to This Policy" data-fi="6. Tietosuojaselosteen muutokset">6. Changes to This Policy</h2>
+    <p data-en="We may update this Privacy Policy occasionally. Any changes will be posted on this page with a new “Last updated” date."
+       data-fi="Voimme päivittää tätä tietosuojaselostetta ajoittain. Mahdolliset muutokset julkaistaan tällä sivulla uudella 'Päivitetty' -päivämäärällä.">
+      We may update this Privacy Policy occasionally. Any changes will be posted on this page with a new “Last updated” date.
+    </p>
+    <h2 data-en="7. Contact Us" data-fi="7. Yhteystiedot">7. Contact Us</h2>
+    <p data-en="For any questions about this Privacy Policy, please contact us at <a href='mailto:support@fhatal.com'>support@fhatal.com</a>."
+       data-fi="Jos sinulla on kysyttävää tästä tietosuojaselosteesta, ota yhteyttä osoitteeseen <a href='mailto:support@fhatal.com'>support@fhatal.com</a>.">
+      For any questions about this Privacy Policy, please contact us at <a href="mailto:support@fhatal.com">support@fhatal.com</a>.
+    </p>
+  </div>
+  <footer class="footer-bg text-center py-3">
+    <div class="container">
+      &copy; 2025 Fhatal Studios. All rights reserved.
+      <br>
+      <a href="privacy.html" class="footer-link" data-en="Privacy Policy" data-fi="Tietosuojaseloste">Privacy Policy</a> |
+      <a href="terms.html" class="footer-link" data-en="Terms of Service" data-fi="Käyttöehdot">Terms of Service</a>
+    </div>
+  </footer>
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-en]').forEach(function(el) {
+        el.innerHTML = el.getAttribute(lang === 'fi' ? 'data-fi' : 'data-en');
+      });
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+      document.getElementById('lang-fi').classList.toggle('active', lang === 'fi');
+      document.documentElement.lang = lang;
+    }
+    document.getElementById('lang-en').addEventListener('click', function(){ setLang('en'); });
+    document.getElementById('lang-fi').addEventListener('click', function(){ setLang('fi'); });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

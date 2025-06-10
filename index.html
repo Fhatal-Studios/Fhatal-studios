@@ -430,6 +430,25 @@
       border-top: 1px solid #bbb7ee;
       font-family: 'Inter', sans-serif;
     }
+    .footer-links .footer-link {
+  color: var(--headline);
+  text-decoration: underline;
+  font-size: 1rem;
+  margin: 0 2px;
+  transition: color 0.18s;
+}
+.footer-links .footer-link:hover {
+    color: #fff;
+  text-decoration: underline;
+}
+    .footer-bg {
+      color: var(--headline);
+      background: var(--brand-bg) !important;
+      font-size: 1rem;
+      letter-spacing: 0.2px;
+      border-top: 1px solid #bbb7ee;
+      font-family: 'Inter', sans-serif;
+    }
   </style>
 </head>
 <body>
@@ -589,8 +608,12 @@
   <footer class="footer-bg text-center py-3">
     <div class="container">
       &copy; 2025 Fhatal Studios. All rights reserved.
+      <br>
+      <a href="privacy.html" class="footer-link" data-en="Privacy Policy" data-fi="Tietosuojaseloste">Privacy Policy</a> |
+      <a href="terms.html" class="footer-link" data-en="Terms of Service" data-fi="Käyttöehdot">Terms of Service</a>
     </div>
   </footer>
+
   <!-- JS + Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
