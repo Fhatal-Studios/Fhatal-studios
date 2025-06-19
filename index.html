@@ -449,6 +449,94 @@
       border-top: 1px solid #bbb7ee;
       font-family: 'Inter', sans-serif;
     }
+.story-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 7vw 0 6vw 0;
+  /* Sulava gradientti, jatkaa samaa värimaailmaa kuin muut sectionit */
+  background: linear-gradient(
+    to bottom,
+    #232046 0%,       /* alkupiste (team) */
+    #23223a 55%,      /* sama kuin team-sectionin loppu */
+    #191921 100%      /* sama kuin contact-sectionin alku */
+  );
+  z-index: 2;
+}
+
+.story-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  width: 100%;
+}
+
+.story-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(36,36,60,0.92);
+  border-radius: 30px;
+  padding: 70px 60px;
+  box-shadow: 0 10px 50px 0 rgba(130,130,210,0.16);
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
+  transition: box-shadow 0.18s;
+}
+
+.story-content:hover {
+  box-shadow: 0 16px 64px 0 rgba(143,148,251,0.19);
+}
+
+.story-title {
+  color: #E0DEFF;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 38px;
+  letter-spacing: -0.01em;
+}
+
+.story-text {
+  color: #E0DEFF;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.7;
+  max-width: 880px;
+  margin: 0 auto;
+  letter-spacing: -0.005em;
+}
+
+@media (max-width: 1200px) {
+  .story-content { max-width: 96vw; padding: 42px 3vw; }
+  .story-text { font-size: 1.11rem; }
+}
+@media (max-width: 700px) {
+  .story-content { padding: 28px 2vw 24px 2vw; border-radius: 18px; }
+  .story-title { font-size: 1.55rem; }
+  .story-text { font-size: 1.03rem; max-width: 96vw; }
+}
+.team-email {
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--accent);
+}
+.team-email a {
+  color: var(--accent);
+  text-decoration: underline;
+  word-break: break-all;
+  transition: color 0.17s;
+}
+.team-email a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+
   </style>
 </head>
 <body>
@@ -464,6 +552,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-center">
           <li class="nav-item"><a class="nav-link" href="#team" data-en="Team" data-fi="Tiimi">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#story" data-en="Story" data-fi="Tarinamme">Story</a></li>
           <li class="nav-item"><a class="nav-link" href="#services" data-en="Services" data-fi="Palvelut">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact" data-en="Contact" data-fi="Ota Yhteyttä">Contact</a></li>
         </ul>
@@ -489,6 +578,29 @@
       Get your free prototype now
     </a>
   </section>
+<!-- Founders Story Section -->
+<section class="story-section" id="story">
+  <div class="container story-container">
+    <div class="story-content text-center">
+      <h2 class="story-title" data-en="The Story of Fhatal Studios" data-fi="Fhatal Studiosin tarina">The Story of Fhatal Studios</h2>
+      <div class="story-text"
+        data-en="It all began with a thought: what if artificial intelligence could be used in website production in a completely new way – more efficiently, intelligently, and with high visual quality?
+        The idea was born from shared conversations and experiments between two engineering students, Kimi and Veeti. With backgrounds in software development, a clear vision soon began to take shape – a workflow powered by AI that could enhance the creation of digital services.
+        At some point, it became clear that marketing insight and business understanding were also needed. That’s when Arttu joined the team – a former collaborator from earlier projects – and soon, the team was complete.
+        <strong>This is how Fhatal Studios was born. A company where technology, AI, and creative vision come together.</strong>"
+        data-fi="Kaikki sai alkunsa ajatuksesta: entä jos tekoälyä voitaisiin hyödyntää verkkosivujen tuotannossa uudella tavalla – tehokkaammin, älykkäämmin ja visuaalisesti laadukkaammin?
+                Idea syntyi kahden insinööriopiskelijan, Kimin ja Veetin, yhteisistä keskusteluista ja kokeiluista. Molemmilla oli taustaa ohjelmistokehityksestä, ja yhteinen visio alkoi nopeasti hahmottua koneistosta, joka tehostaisi verkkopalvelujen luomista tekoälyn avulla.
+                Tässä vaiheessa ymmärrettiin, että mukaan tarvittaisiin myös markkinointiajattelua ja liiketoimintaosaamista, jolloin mukaan liittyi Arttu – yhteistyökumppani aiemmista projekteista – ja pian tiimi olikin koossa.<br>
+                <strong>Näin sai alkunsa Fhatal Studios. Yritys, jossa teknologia, tekoäly ja luova näkemys kohtaavat.</strong>">
+        It all began with a thought: what if artificial intelligence could be used in website production in a completely new way – more efficiently, intelligently, and with high visual quality?
+        The idea was born from shared conversations and experiments between two engineering students, Kimi and Veeti. With backgrounds in software development, a clear vision soon began to take shape – a workflow powered by AI that could enhance the creation of digital services.
+        At some point, it became clear that marketing insight and business understanding were also needed. That’s when Arttu joined the team – a former collaborator from earlier projects – and soon, the team was complete.
+        <strong>This is how Fhatal Studios was born. A company where technology, AI, and creative vision come together.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!-- Team Section -->
   <section class="team-section" id="team">
     <div class="container">
@@ -497,32 +609,47 @@
         <div class="team-member">
           <img src="img/kimi.jpg" alt="Kimi Huhtala - Web Developer & AI Specialist" class="team-photo" />
           <div class="team-name" data-en="Kimi Huhtala" data-fi="Kimi Huhtala">Kimi Huhtala</div>
-          <div class="team-role" data-en="Founder" data-fi="Perustaja">Founder</div>
+          <div class="team-role" data-en="CEO" data-fi="Toimitusjohtaja">CEO</div>
           <div class="team-desc"
-            data-en="Founder of Fhatal Studios and an ICT - Engineer with extensive experience in web and software development. I'm responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery."
-            data-fi=" Fhatal Studiosin perustaja sekä ICT - insinööri. Minulla on laaja useiden vuosien kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuiden hyödyntämiseen kehityksen tehostamiseksi.">
-            Founder of Fhatal Studios and an ICT - Engineer with extensive experience in web and software development. I'm responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery.
+            data-en="CEO of Fhatal Studios and an ICT - Engineer with extensive experience in web and software development. I'm responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery."
+            data-fi=" Fhatal Studiosin Toimitusjohtaja sekä ICT - insinööri. Minulla on laaja useiden vuosien kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuiden hyödyntämiseen kehityksen tehostamiseksi.">
+            CEO of Fhatal Studios and an ICT - Engineer with extensive experience in web and software development. I'm responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery.
           </div>
+         <div class="team-email" 
+            data-en="<a href='mailto:kimi.huhtala@fhatal.com'>kimi.huhtala@fhatal.com</a>" 
+            data-fi="<a href='mailto:kimi.huhtala@fhatal.com'>kimi.huhtala@fhatal.com</a>">
+          <a href="mailto:kimi.huhtala@fhatal.com">kimi.huhtala@fhatal.com</a>
+        </div>
         </div>
         <div class="team-member">
           <img src="img/veeti.jpg" alt="Veeti Pere - UX Designer & Lead Developer" class="team-photo" />
           <div class="team-name" data-en="Veeti Pere" data-fi="Veeti Pere">Veeti Pere</div>
-          <div class="team-role" data-en="Consultant - Lead Developer" data-fi="Konsultti - Pääkehittäjä">Consultant - Lead Developer</div>
+          <div class="team-role" data-en="CTO" data-fi="Teknologiapäällikkö">CTO</div>
           <div class="team-desc"
             data-en="Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions."
             data-fi="Yli seitsemän vuoden kokemuksella ohjelmisto- ja verkkokehityksestä olen erikoistunut UX-suunnitteluun, infrastruktuuriin ja kokonaisvaltaisiin ohjelmistoratkaisuihin. Tällä hetkellä keskityn hyödyntämään tekoälyä työprosessien nopeuttamiseksi ja kehittämiseksi asiakkaillemme.">
             Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions.
           </div>
+          <div class="team-email" 
+            data-en="<a href='mailto:veeti.pere@fhatal.com'>veeti.pere@fhatal.com</a>" 
+            data-fi="<a href='mailto:veeti.pere@fhatal.com'>veeti.pere@fhatal.com</a>">
+          <a href="mailto:veeti.pere@fhatal.com">veeti.pere@fhatal.com</a>
+        </div>
         </div>
         <div class="team-member">
           <img src="img/arttu.jpg" alt="Arttu Aarnio-Wihuri - Business Development Lead" class="team-photo" />
           <div class="team-name" data-en="Arttu Aarnio-Wihuri" data-fi="Arttu Aarnio-Wihuri">Arttu Aarnio-Wihuri</div>
-          <div class="team-role" data-en="Consultant - Business Development Lead" data-fi="Konsultti – liiketoiminnan kehityspäällikkö">Consultant - Business Development Lead</div>
+          <div class="team-role" data-en="CMO & Chairman of the Board" data-fi="Markkinointipäällikkö ja Hallituksen puheenjohtaja">CMO & Chairman of the Board</div>
           <div class="team-desc"
             data-en="Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results."
             data-fi="Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.">
             Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results.
           </div>
+          <div class="team-email" 
+            data-en="<a href='mailto:arttu.aarniowihuri@fhatal.com'>arttu.aarniowihuri@fhatal.com</a>" 
+            data-fi="<a href='mailto:arttu.aarniowihuri@fhatal.com'>arttu.aarniowihuri@fhatal.com</a>">
+          <a href="mailto:arttu.aarniowihuri@fhatal.com">arttu.aarniowihuri@fhatal.com</a>
+        </div>
         </div>
       </div>
     </div>
