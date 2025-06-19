@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /hidden/
+Allow: /
+
+Sitemap: https://www.fhatal.com/sitemap.xml
