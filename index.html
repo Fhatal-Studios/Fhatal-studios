@@ -535,7 +535,64 @@
   color: #fff;
   text-decoration: underline;
 }
+/* Trusted by (hero) */
+.trusted-by {
+  margin-top: 40px;
+  text-align: center;
+}
 
+.trusted-title {
+  color: #E0DEFF; /* sama sävy kuin hero-teksteissä */
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 18px;
+}
+
+.trusted-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  opacity: 0.95;
+}
+
+.trusted-logos img {
+  height: 68px;               /* maltillinen korkeus desktopilla */
+  max-width: 160px;           /* estää liian leveät logot */
+  object-fit: contain;
+  filter: grayscale(0%) brightness(1.2);
+  opacity: 0.85;
+  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+}
+
+.trusted-logos img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-2px) scale(1.03);
+}
+
+@media (max-width: 992px) {
+  .trusted-logos img {
+    height: 34px;
+  }
+}
+
+@media (max-width: 700px) {
+  .trusted-title {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.95;
+  }
+  .trusted-logos {
+    gap: 22px;
+  }
+  .trusted-logos img {
+    height: 48px;  /* napakka mobiilissa */
+    max-width: 120px;
+  }
+}
 
   </style>
 </head>
@@ -577,7 +634,21 @@
       data-fi="Pyydä ilmainen prototyyppi nyt">
       Get your free prototype now
     </a>
+    <!-- Trusted by Section -->
+    <div class="trusted-by mt-5">
+      <p class="trusted-title"
+        data-en="Trusted By"
+        data-fi="Meihin Luottaneet Yritykset">
+        Trusted By
+      </p>
+
+      <div class="trusted-logos">
+        <!-- Vaihda omiin logoihisi (suositus: SVG tai läpinäkyvä PNG) -->
+        <img src="img/MN_Kuljetus.png" alt="MN Kuljetus" loading="lazy">
+      </div>
+    </div>
   </section>
+
 <!-- Founders Story Section -->
 <section class="story-section" id="story">
   <div class="container story-container">
