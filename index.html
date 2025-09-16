@@ -373,6 +373,7 @@
       color: #232046;
       border: none;
       margin-top: 18px;
+      margin-bottom: 32px;
       transition: background 0.15s, color 0.15s;
     }
     .contact-section button[type="submit"]:hover, .contact-section button#contact-btn:hover {
@@ -522,20 +523,51 @@
 .team-email {
   margin-top: 12px;
   font-weight: 600;
-  font-size: 1.02rem;
+  font-size: 1.22rem;
   color: var(--accent);
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.team-email-label {
+  color: var(--accent);
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-right: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  transition: color 0.18s;
 }
 .team-email a {
   color: var(--accent);
-  text-decoration: underline;
-  word-break: break-all;
-  transition: color 0.17s;
+  text-decoration: none;
+  transition: color 0.18s;
+  font-size: 2.1rem;
+  background: none;
+  padding: 0 2px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
 }
-.team-email a:hover {
+.team-email a i {
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin-right: 0;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: 2px;
+  transition: color 0.18s;
+}
+.team-email a:hover i {
   color: #fff;
-  text-decoration: underline;
 }
-/* Trusted by (hero) */
+.team-email a:hover .team-email-label {
+  color: #fff;
+}
+  /* Trusted by (hero) */
 .trusted-by {
   margin-top: 40px;
   text-align: center;
@@ -556,6 +588,7 @@
   align-items: center;
   gap: 28px;
   opacity: 0.95;
+  margin-bottom: 48px;
 }
 
 .trusted-logos img {
@@ -673,11 +706,12 @@
             data-fi=" Fhatal Studiosin Toimitusjohtaja sekä ICT - insinööri. Minulla on laaja useiden vuosien kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuiden hyödyntämiseen kehityksen tehostamiseksi.">
             CEO of Fhatal Studios and an Software Engineer with extensive experience in web and software development. I'm responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery.
           </div>
-         <div class="team-email" 
-            data-en="<a href='mailto:kimi.huhtala@fhatal.com'>kimi.huhtala@fhatal.com</a>" 
-            data-fi="<a href='mailto:kimi.huhtala@fhatal.com'>kimi.huhtala@fhatal.com</a>">
-          <a href="mailto:kimi.huhtala@fhatal.com">kimi.huhtala@fhatal.com</a>
-        </div>
+          <div class="team-email">
+            <a href="mailto:kimi.huhtala@fhatal.com" aria-label="Email Kimi Huhtala">
+              <span class="team-email-label">Contact me</span>
+              <i class="ri-mail-line"></i>
+            </a>
+          </div>
         </div>
         <div class="team-member">
           <img src="img/veeti.jpg" alt="Veeti Pere - UX Designer & Lead Developer" class="team-photo" />
@@ -688,11 +722,12 @@
             data-fi="Yli seitsemän vuoden kokemuksella ohjelmisto- ja verkkokehityksestä olen erikoistunut UX-suunnitteluun, infrastruktuuriin ja kokonaisvaltaisiin ohjelmistoratkaisuihin. Tällä hetkellä keskityn hyödyntämään tekoälyä työprosessien nopeuttamiseksi ja kehittämiseksi asiakkaillemme.">
             Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions.
           </div>
-          <div class="team-email" 
-            data-en="<a href='mailto:veeti.pere@fhatal.com'>veeti.pere@fhatal.com</a>" 
-            data-fi="<a href='mailto:veeti.pere@fhatal.com'>veeti.pere@fhatal.com</a>">
-          <a href="mailto:veeti.pere@fhatal.com">veeti.pere@fhatal.com</a>
-        </div>
+          <div class="team-email">
+            <a href="mailto:veeti.pere@fhatal.com" aria-label="Email Veeti Pere">
+              <span class="team-email-label">Contact me</span>
+              <i class="ri-mail-line"></i>
+            </a>
+          </div>
         </div>
         <div class="team-member">
           <img src="img/arttu.jpg" alt="Arttu Aarnio-Wihuri - Business Development Lead" class="team-photo" />
@@ -703,11 +738,12 @@
             data-fi="Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.">
             Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results.
           </div>
-          <div class="team-email" 
-            data-en="<a href='mailto:arttu.aarniowihuri@fhatal.com'>arttu.aarniowihuri@fhatal.com</a>" 
-            data-fi="<a href='mailto:arttu.aarniowihuri@fhatal.com'>arttu.aarniowihuri@fhatal.com</a>">
-          <a href="mailto:arttu.aarniowihuri@fhatal.com">arttu.aarniowihuri@fhatal.com</a>
-        </div>
+          <div class="team-email">
+            <a href="mailto:arttu.aarniowihuri@fhatal.com" aria-label="Email Arttu Aarnio-Wihuri">
+              <span class="team-email-label">Contact me</span>
+              <i class="ri-mail-line"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -723,7 +759,7 @@
           <div class="service-title" data-en="Web App Development" data-fi="Verkkosovellukset">Web Applications</div>
           <div class="service-desc"
             data-en="We design and develop modern web applications using the latest technologies, such as JavaScript, React.js, and other contemporary development tools. We build applications that are secure, scalable, and easily expandable to support your business growth. All our solutions are responsive, user-friendly, and optimized for search engines."
-            data-fi="Suunnittelemme ja kehitämme moderneja web-sovelluksia hyödyntäen uusimpia teknologioita, kuten JavaScriptiä, React.js:ää ja muita nykyaikaisia kehitystyökaluja. Rakennamme sovelluksia, jotka ovat turvallisia, skaalautuvia ja helposti laajennettavia yrityksesi kasvun tueksi. Kaikki toteutuksemme ovat responsiivisia, käyttäjäystävällisiä ja hakukoneystävällisiä.">
+            data-fi="Suunnittelemme ja kehitämme moderneja web-sovelluksia hyödyntäen uusimpia teknologioita, kuten JavaScriptiä, React.js:ää ja muita nykyaikaisia kehitystyökaluja. Rakennamme sovelluksia, jotka ovat turvallisia, skaalautuvia ja helposti laajennettavia yrityksesi kasvun tueksi. Kaikki toteutuksemsemme ovat responsiivisia, käyttäjäystävällisiä ja hakukoneystävällisiä.">
             We design and develop modern web applications using the latest technologies, such as JavaScript, React.js, and other contemporary development tools. We build applications that are secure, scalable, and easily expandable to support your business growth. All our solutions are responsive, user-friendly, and optimized for search engines.
           </div>
         </div>
