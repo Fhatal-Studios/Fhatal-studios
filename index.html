@@ -200,6 +200,20 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 0; /* gap between rows, not members */
+      margin-bottom: 0;
+    }
+    .team-row-top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 38px;
+    }
+    .team-row-bottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
       gap: 38px;
     }
     .team-member, .service-card {
@@ -304,16 +318,102 @@
     }
     .services-row {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
+      align-items: stretch;
       gap: 38px;
+    }
+    .service-card {
+      background: rgba(36, 36, 60, 0.80);
+      border-radius: 24px;
+      box-shadow: 0 6px 34px 0 rgba(50,60,100,0.09);
+      border: 1.5px solid rgba(143, 148, 251, 0.09);
+      margin-bottom: 0;
+      width: 48%;
+      min-width: 300px;
+      max-width: 540px;
+      text-align: left;
+      transition: transform 0.13s, box-shadow 0.13s, border-color 0.13s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 36px 48px;
     }
     .service-icon {
       font-size: 2.4rem;
       margin-bottom: 18px;
-      color: var(--accent);
+      color: var(--accent); /* always visible */
       transition: color 0.14s;
+    }
+    @media (max-width: 900px) {
+      .service-card {
+        width: 98vw;
+        min-width: 0;
+        max-width: 98vw;
+      }
+      .services-row {
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+      }
+    }
+    @media (max-width: 700px) {
+      .hero-title { font-size: 2.0rem; }
+      .hero-logo { width: 70px; }
+      .services-row, .team-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+      .team-member, .service-card { width: 94vw; min-width: 0; max-width: 98vw; padding: 28px 8vw 24px 8vw; }
+    }
+    .team-member:hover,
+    .service-card:hover {
+      transform: translateY(-8px) scale(1.028);
+      box-shadow: 0 16px 36px 0 rgba(130,130,210,0.16);
+      border-color: var(--accent);
+      background: rgba(50,52,96,0.97);
+    }
+    .team-member:hover .team-photo {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px 0 rgba(120,110,190,0.12);
+    }
+    .service-card:hover .service-icon {
+      color: #fff;
+    }
+    .team-photo {
+      width: 116px;
+      height: 116px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 28px;
+      border: 2.5px solid rgba(143,148,251,0.36);
+      background: var(--card-bg);
+      box-shadow: 0 6px 30px 0 rgba(50,50,100,0.13);
+      transition: border-color 0.18s, box-shadow 0.16s;
+    }
+    .team-name, .service-title {
+      font-weight: 800;
+      color: #E0DEFF;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+      font-size: clamp(1.3rem, 2.2vw, 2.2rem);
+    }
+    .team-role {
+      color: #807ABE;
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-size: clamp(1.05rem, 1.4vw, 1.15rem);
+    }
+    .team-desc, .service-desc {
+      color: #E0DEFF;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 0;
+      max-width: 90%;
+      font-size: clamp(1rem, 1.25vw, 1.14rem);
+      padding-bottom: 20px;
     }
     /* CONTACT SECTION */
     .contact-section {
@@ -569,16 +669,17 @@
 }
   /* Trusted by (hero) */
 .trusted-by {
-  margin-top: 40px;
+  margin-top: 18px; /* reduced gap */
   text-align: center;
 }
 
 .trusted-title {
-  color: #E0DEFF; /* sama sävy kuin hero-teksteissä */
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  margin-bottom: 18px;
+  /* sama sävy kuin hero-teksteissä */
+  font-weight: 800;
+  color: #E0DEFF;
+  margin-bottom: 50px;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
 }
 
 .trusted-logos {
@@ -586,14 +687,14 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 28px;
+  gap: 38px; /* keep gap between logos */
   opacity: 0.95;
   margin-bottom: 48px;
 }
 
 .trusted-logos img {
-  height: 68px;               
-  max-width: 160px;          
+  height: 110px;      /* larger logos */
+  max-width: 240px;   /* larger max width */
   object-fit: contain;
   filter: grayscale(0%) brightness(1.2);
   opacity: 0.85;
@@ -608,26 +709,19 @@
 
 @media (max-width: 992px) {
   .trusted-logos img {
-    height: 34px;
+    height: 70px;     /* larger for tablet */
+    max-width: 160px;
   }
 }
 
 @media (max-width: 700px) {
-  .trusted-title {
-    font-size: 1rem;
-    font-weight: 600;
-    opacity: 0.95;
-  }
-  .trusted-logos {
-    gap: 22px;
-  }
   .trusted-logos img {
-    height: 48px;
-    max-width: 120px;
+    height: 54px;     /* slightly larger for mobile */
+    max-width: 140px;
   }
 }
 
-  </style>
+    </style>
 </head>
 <body>
   <!-- Navigation -->
@@ -735,52 +829,61 @@
     <div class="container">
       <h2 class="team-title" data-en="The Fhatal Crew" data-fi="Fhatalin Tiimi">Fhatalin Tiimi</h2>
       <div class="team-row">
-        <div class="team-member">
-          <img src="img/kimi.jpg" alt="Kimi Huhtala - Web Developer & AI Specialist" class="team-photo" />
-          <div class="team-name" data-en="Kimi Huhtala" data-fi="Kimi Huhtala">Kimi Huhtala</div>
-          <div class="team-role" data-en="CEO" data-fi="Toimitusjohtaja">Toimitusjohtaja</div>
-          <div class="team-desc"
-            data-en="CEO of Fhatal Studios and an Software Engineer with extensive experience in web and software development. I'm responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery."
-            data-fi="Fhatal Studiosin Toimitusjohtaja sekä ICT - insinööri. Minulla on laaja useiden vuosien kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuiden hyödyntämiseen kehityksen tehostamiseksi.">
-            Fhatal Studiosin Toimitusjohtaja sekä ICT - insinööri. Minulla on useiden vuosien laaja kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuiden hyödyntämiseen kehityksen tehostamiseksi.
-          </div>
-          <div class="team-email">
-            <a href="mailto:kimi.huhtala@fhatal.com" aria-label="Email Kimi Huhtala">
-              <span class="team-email-label">Ota yhteyttä</span>
-               <i class="ri-mail-line"></i>
-            </a>
-          </div>
-        </div>
-        <div class="team-member">
-          <img src="img/veeti.jpg" alt="Veeti Pere - UX Designer & Lead Developer" class="team-photo" />
-          <div class="team-name" data-en="Veeti Pere" data-fi="Veeti Pere">Veeti Pere</div>
-          <div class="team-role" data-en="CTO" data-fi="Teknologiapäällikkö">Teknologiapäällikkö</div>
-          <div class="team-desc"
-            data-en="Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions."
-            data-fi="Yli seitsemän vuoden kokemuksella ohjelmisto- ja verkkokehityksestä olen erikoistunut UX-suunnitteluun, infrastruktuuriin ja kokonaisvaltaisiin ohjelmistoratkaisuihin. Tällä hetkellä keskityn hyödyntämään tekoälyä työprosessien nopeuttamiseksi ja kehittämiseksi asiakkaillemme.">
-            Yli seitsemän vuoden kokemuksella ohjelmisto- ja verkkokehityksestä olen erikoistunut UX-suunnitteluun, infrastruktuuriin ja kokonaisvaltaisiin ohjelmistoratkaisuihin. Tällä hetkellä keskityn hyödyntämään tekoälyä työprosessien nopeuttamiseksi ja kehittämiseksi asiakkaillemme.
-          </div>
-          <div class="team-email">
-            <a href="mailto:veeti.pere@fhatal.com" aria-label="Email Veeti Pere">
-              <span class="team-email-label">Ota yhteyttä</span>
-              <i class="ri-mail-line"></i>
-            </a>
+        <div class="team-row-top">
+          <!-- Top of triangle: Kimi -->
+          <div class="team-member">
+            <img src="img/kimi.jpg" alt="Kimi Huhtala - Web Developer & AI Specialist" class="team-photo" />
+            <div class="team-name" data-en="Kimi Huhtala" data-fi="Kimi Huhtala">Kimi Huhtala</div>
+            <div class="team-role" data-en="CEO" data-fi="Toimitusjohtaja">Toimitusjohtaja</div>
+            <div class="team-desc"
+              data-en="CEO of Fhatal Studios and an Software Engineer with extensive experience in web and software development. I'm responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery."
+              data-fi="Fhatal Studiosin Toimitusjohtaja sekä ICT - insinööri. Minulla on laaja useiden vuosien kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuiden hyödyntämiseen kehityksen tehostamiseksi.">
+              Fhatal Studiosin Toimitusjohtaja sekä ICT - insinööri. Minulla on useiden vuosien laaja kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuiden hyödyntämiseen kehityksen tehostamiseksi.
+            </div>
+            <div style="font-size:0.85rem; color:#8f94fb; margin-bottom:8px;">kimi.huhtala@fhatal.com</div>
+            <div class="team-email">
+              <a href="mailto:kimi.huhtala@fhatal.com" aria-label="Email Kimi Huhtala">
+                <span class="team-email-label">Ota yhteyttä</span>
+                 <i class="ri-mail-line"></i>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="team-member">
-          <img src="img/arttu.jpg" alt="Arttu Aarnio-Wihuri - Business Development Lead" class="team-photo" />
-          <div class="team-name" data-en="Arttu Aarnio-Wihuri" data-fi="Arttu Aarnio-Wihuri">Arttu Aarnio-Wihuri</div>
-          <div class="team-role" data-en="CMO & Chairman of the Board" data-fi="Markkinointipäällikkö ja Hallituksen puheenjohtaja">Markkinointipäällikkö ja Hallituksen puheenjohtaja</div>
-          <div class="team-desc"
-            data-en="Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results."
-            data-fi="Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.">
-            Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.
+        <div class="team-row-bottom">
+          <!-- Bottom of triangle: Veeti and Arttu -->
+          <div class="team-member">
+            <img src="img/veeti.jpg" alt="Veeti Pere - UX Designer & Lead Developer" class="team-photo" />
+            <div class="team-name" data-en="Veeti Pere" data-fi="Veeti Pere">Veeti Pere</div>
+            <div class="team-role" data-en="CTO" data-fi="Teknologiapäällikkö">Teknologiapäällikkö</div>
+            <div class="team-desc"
+              data-en="Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions."
+              data-fi="Yli seitsemän vuoden kokemuksella ohjelmisto- ja verkkokehityksestä olen erikoistunut UX-suunnitteluun, infrastruktuuriin ja kokonaisvaltaisiin ohjelmistoratkaisuihin. Tällä hetkellä keskityn hyödyntämään tekoälyä työprosessien nopeuttamiseksi ja kehittämiseksi asiakkaillemme.">
+              Yli seitsemän vuoden kokemuksella ohjelmisto- ja verkkokehityksestä olen erikoistunut UX-suunnitteluun, infrastruktuuriin ja kokonaisvaltaisiin ohjelmistoratkaisuihin. Tällä hetkellä keskityn hyödyntämään tekoälyä työprosessien nopeuttamiseksi ja kehittämiseksi asiakkaillemme.
+            </div>
+            <div style="font-size:0.85rem; color:#8f94fb; margin-bottom:8px;">veeti.pere@fhatal.com</div>
+            <div class="team-email">
+              <a href="mailto:veeti.pere@fhatal.com" aria-label="Email Veeti Pere">
+                <span class="team-email-label">Ota yhteyttä</span>
+                <i class="ri-mail-line"></i>
+              </a>
+            </div>
           </div>
-          <div class="team-email">
-            <a href="mailto:arttu.aarniowihuri@fhatal.com" aria-label="Email Arttu Aarnio-Wihuri">
-              <span class="team-email-label">Ota yhteyttä</span>
-              <i class="ri-mail-line"></i>
-            </a>
+          <div class="team-member">
+            <img src="img/arttu.jpg" alt="Arttu Aarnio-Wihuri - Business Development Lead" class="team-photo" />
+            <div class="team-name" data-en="Arttu Aarnio-Wihuri" data-fi="Arttu Aarnio-Wihuri">Arttu Aarnio-Wihuri</div>
+            <div class="team-role" data-en="CMO & Chairman of the Board" data-fi="Markkinointipäällikkö ja Hallituksen puheenjohtaja">Markkinointipäällikkö ja Hallituksen puheenjohtaja</div>
+            <div class="team-desc"
+              data-en="Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results."
+              data-fi="Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.">
+              Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.
+            </div>
+            <div style="font-size:0.85rem; color:#8f94fb; margin-bottom:8px;">arttu.aarniowihuri@fhatal.com</div>
+            <div class="team-email">
+              <a href="mailto:arttu.aarniowihuri@fhatal.com" aria-label="Email Arttu Aarnio-Wihuri">
+                <span class="team-email-label">Ota yhteyttä</span>
+                <i class="ri-mail-line"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -837,13 +940,13 @@
   <!-- Trusted By Section (now above contact) -->
   <section class="trusted-by trusted-by-section">
     <div class="container">
-      <p class="trusted-title"
+      <h2 class="trusted-title"
         data-en="Trusted By"
         data-fi="Meihin Luottaneet Yritykset">
-        Trusted By
-      </p>
+        Meihin Luottaneet Yritykset
+      </h2>
       <div class="trusted-logos">
-        <img src="img/MN_Kuljetus.png" alt="MN Kuljetus" loading="lazy">
+        <img src="img/path2.png" alt="MN Kuljetus" loading="lazy">
         <!-- Add more company logos here as needed -->
       </div>
     </div>
@@ -853,29 +956,32 @@
   <section class="contact-section section-bg-dark" id="contact">
     <div class="contact-container">
       <h2 class="contact-title" data-en="Let’s work together" data-fi="Ota Yhteyttä">Ota Yhteyttä</h2>
-<form action="https://formspree.io/f/xpwdgwdr" method="POST" onsubmit="return validateRecaptcha();">
-  <div class="mb-4">
-    <label for="contact-name" class="form-label" data-en="Your Name" data-fi="Nimesi">Nimesi</label>
-    <input type="text" name="name" id="contact-name" class="form-control"
-           placeholder="Nimesi" data-en="Your Name" data-fi="Nimesi" required />
-  </div>
-  <div class="mb-4">
-    <label for="contact-email" class="form-label" data-en="Your Email" data-fi="Sähköposti">Sähköposti</label>
-    <input type="email" name="_replyto" id="contact-email" class="form-control"
-           placeholder="Sähköposti@esimerkki.com" data-en="you@example.com" data-fi="Sähköposti@esimerkki.com" required />
-  </div>
-  <div class="mb-4">
-    <label for="contact-message" class="form-label" data-en="Message" data-fi="Viesti">Viesti</label>
-    <textarea name="message" id="contact-message" rows="4" class="form-control"
-              placeholder="Kerro, miten voimme auttaa..." data-en="Tell us what you need..." data-fi="Kerro, miten voimme auttaa..." required></textarea>
-  </div>
-  <div class="mb-4">
-    <div class="g-recaptcha" data-sitekey="6LezslMrAAAAAIf39D1hiKx8BZFqnbSbbTRPHq5t"></div>
-  </div>
-  <button class="btn" id="contact-btn" type="submit"
-    data-en="Send Message"
-    data-fi="Lähetä viesti">Lähetä viesti</button>
-</form>
+      <!-- Add team emails here -->
+      <div style="font-size:0.92rem; color:#8f94fb; text-align:center; margin-bottom:12px;">
+      </div>
+      <form action="https://formspree.io/f/xpwdgwdr" method="POST" onsubmit="return validateRecaptcha();">
+        <div class="mb-4">
+          <label for="contact-name" class="form-label" data-en="Your Name" data-fi="Nimesi">Nimesi</label>
+          <input type="text" name="name" id="contact-name" class="form-control"
+                 placeholder="Nimesi" data-en="Your Name" data-fi="Nimesi" required />
+        </div>
+        <div class="mb-4">
+          <label for="contact-email" class="form-label" data-en="Your Email" data-fi="Sähköposti">Sähköposti</label>
+          <input type="email" name="_replyto" id="contact-email" class="form-control"
+                 placeholder="Sähköposti@esimerkki.com" data-en="you@example.com" data-fi="Sähköposti@esimerkki.com" required />
+        </div>
+        <div class="mb-4">
+          <label for="contact-message" class="form-label" data-en="Message" data-fi="Viesti">Viesti</label>
+          <textarea name="message" id="contact-message" rows="4" class="form-control"
+                    placeholder="Kerro, miten voimme auttaa..." data-en="Tell us what you need..." data-fi="Kerro, miten voimme auttaa..." required></textarea>
+        </div>
+        <div class="mb-4">
+          <div class="g-recaptcha" data-sitekey="6LezslMrAAAAAIf39D1hiKx8BZFqnbSbbTRPHq5t"></div>
+        </div>
+        <button class="btn" id="contact-btn" type="submit"
+          data-en="Send Message"
+          data-fi="Lähetä viesti">Lähetä viesti</button>
+      </form>
     </div>
   </section>
   <!-- Footer -->
