@@ -497,12 +497,24 @@
     margin-bottom: 16px !important;
   }
   .team-row-top,
-  .team-row-bottom,
-  .team-triangle {
-    margin-bottom: 0 !important;
+  .team-row-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
     gap: 0 !important;
+    margin-bottom: 0 !important;
   }
-  .services-row {
+  .team-row-bottom > .team-member,
+  .team-row-top > .team-member {
+    width: 94vw !important;
+    max-width: 98vw !important;
+    min-width: 0 !important;
+    margin-bottom: 24px !important;
+    box-sizing: border-box !important;
+  }
+  .team-row-bottom {
     gap: 0 !important;
   }
 }
@@ -804,8 +816,8 @@
           </a>
           <p style="color:#E0DEFF; font-size:1.22rem; font-weight:500; margin-bottom:18px;"
              data-en="Plan your EV charging - energy, time, and cost made simple."
-             data-fi="Suunnittele sähköauton lataus – energia, aika ja kustannukset helposti.">
-            Suunnittele sähköauton lataus – energia, aika ja kustannukset helposti.
+             data-fi="Suunnittele sähköauton lataus  energia, aika ja kustannukset helposti.">
+            Suunnittele sähköauton lataus  energia, aika ja kustannukset helposti.
           </p>  
           <p style="color:#E0DEFF; font-size:1.07rem; font-weight:400; margin-bottom:18px;"
              data-en="Wattrix is a lightweight EV charge planner that makes range, time, and cost simple. Enter your battery size, efficiency, charger power, energy price, and (optionally) trip distance. We calculate how much energy you need, how long charging will take, and what it will cost."
@@ -876,7 +888,9 @@
               data-en="Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results."
               data-fi="Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.">
               Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.
-            </div>
+            <br>
+          <br>
+        </div>
             <div style="font-size:0.85rem; color:#8f94fb; margin-bottom:8px;">arttu.aarniowihuri@fhatal.com</div>
             <div class="team-email">
               <a href="mailto:arttu.aarniowihuri@fhatal.com" aria-label="Email Arttu Aarnio-Wihuri">
