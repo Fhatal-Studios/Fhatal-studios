@@ -15,6 +15,11 @@
   <meta name="description" content="Fhatal Studios is a prototype-first digital studio specializing in web development, AI-powered websites, and scalable web applications. Get your free prototype!" />
   <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Organization", "name": "Fhatal Studios", "url": "https://fhatal.com", "logo": "https://fhatal.com/img/logo.png", "sameAs": [] } </script>
   <style>
+
+    #wattrix-link, #fhatalx-link {
+      text-decoration: none;
+    }
+
     :root {
       --brand-bg: #E0DEFF;
       --dark-bg: #191921;
@@ -811,9 +816,8 @@
     <div class="container" style="text-align:center; margin-top:48px;">
       <div class="services-row" style="justify-content:center;align-items:stretch;gap:38px;">
         <div class="service-card app-card" style="margin: 0 auto;">
-          <a href="https://wattrix.app" target="_blank" rel="noopener">
-            <img src="img/wattrix.png" alt="Wattrix Logo" style="max-width:180px; width:100%; margin-bottom:18px;" />
-          </a>
+        <a id="wattrix-link" href="https://wattrix.app" target="_blank" rel="noopener">
+          <img src="img/wattrix.png" alt="Wattrix Logo" style="max-width:180px; width:100%; margin-bottom:18px;" />
           <p style="color:#E0DEFF; font-size:1.22rem; font-weight:700; margin-bottom:18px; letter-spacing:0.5px;">
             <span style="font-weight:900;">WATTRIX</span>
           </p>
@@ -827,11 +831,11 @@
              data-fi="Wattrix on kevyt sähköauton latauksen suunnittelija, joka tekee kantaman, ajan ja kustannukset helpoksi. Syötä akun koko, kulutus, lataustehot, energian hinta ja (halutessasi) matkan pituus. Laskemme, kuinka paljon energiaa tarvitset, kauanko lataus kestää ja mitä se maksaa.">
             Wattrix on kevyt sähköauton latauksen suunnittelija, joka tekee kantaman, ajan ja kustannukset helpoksi. Syötä akun koko, kulutus, lataustehot, energian hinta ja (halutessasi) matkan pituus. Laskemme, kuinka paljon energiaa tarvitset, kauanko lataus kestää ja mitä se maksaa.
           </p>
-        </div>
-        <div class="service-card app-card" style="margin: 0 auto;">
-          <a href="https://fhatalx.com" target="_blank" rel="noopener">
-            <img src="img/fhatalx.png" alt="FhatalX Logo" style="max-width:180px; width:100%; margin-bottom:18px;" />
-          </a>
+        </a>
+      </div>
+      <div class="service-card app-card" style="margin: 0 auto;">
+        <a id="fhatalx-link" href="https://fhatalx.com" target="_blank" rel="noopener">
+          <img src="img/fhatalx.png" alt="FhatalX Logo" style="max-width:180px; width:100%; margin-bottom:18px;" />
           <p style="color:#E0DEFF; font-size:1.22rem; font-weight:700; margin-bottom:18px; letter-spacing:0.5px;">
             <span style="font-weight:900;">FHATALX</span>
           </p>
@@ -845,11 +849,12 @@
              data-fi="FhatalX on seuraavan sukupolven kryptovaluuttojen analyysialusta, joka on suunniteltu kauppiaille, analyytikoille ja harrastajille, jotka tarvitsevat reaaliaikaisia ja tarkkoja näkemyksiä. Kvantitatiivisiin heuristiikkoihin perustuva FhatalX auttaa tunnistamaan markkinoiden momentit, käännekohdat ja ostopaikat – kaikki selkeässä, dataohjatussa käyttöliittymässä.">
             FhatalX on seuraavan sukupolven kryptovaluuttojen analyysialusta, joka on suunniteltu kauppiaille, analyytikoille ja harrastajille, jotka tarvitsevat reaaliaikaisia ja tarkkoja näkemyksiä. Kvantitatiivisiin heuristiikkoihin perustuva FhatalX auttaa tunnistamaan markkinoiden momentit, käännekohdat ja ostopaikat – kaikki selkeässä, dataohjatussa käyttöliittymässä.
           </p>
-        </div>
-        <!-- Future apps: add more <div class="service-card">...</div> here -->
+        </a>
       </div>
+      <!-- Future apps: add more <div class="service-card">...</div> here -->
     </div>
-  </section>
+  </div>
+</section>
   <!-- Team Section -->
   <section class="team-section" id="team">
     <div class="container">
