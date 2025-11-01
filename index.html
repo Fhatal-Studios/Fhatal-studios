@@ -1,1126 +1,658 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Web Development | Fhatal Studios</title>
-  <!-- Bootstrap 5 CSS -->
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>FHATAL Verkkosivut ja web-sovellukset | Verkkokehitys yrityksille</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="FHATAL tarjoaa verkkosivut, web-sovellukset ja verkkokehityksen yrityksille. Prototyyppi ensin, nopea toimitus ja AI-tehostettu työnkulku. Verkkosuunnittelu, ohjelmistokehitys ja modernit verkkosivut.">
+  <meta name="keywords" content="verkkosivut, web-sovellukset, verkkokehitys, verkkosuunnittelu, ohjelmistokehitys, yrityksen verkkosivut, modernit verkkosivut, AI-tehostettu kehitys, prototyyppi ensin, nopea toimitus, luotettavat verkkosivut, web-kehitys yrityksille, responsiiviset verkkosivut">
+  <meta name="author" content="FHATAL Studios">
+
+  <!-- Minimal deps -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Inter Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <!-- Remixicon for icons -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-  <meta name="description" content="Fhatal Studios is a prototype-first digital studio specializing in web development, AI-powered websites, and scalable web applications. Get your free prototype!" />
-  <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Organization", "name": "Fhatal Studios", "url": "https://fhatal.com", "logo": "https://fhatal.com/img/logo.png", "sameAs": [] } </script>
+  <meta name="description" content="FHATAL rakentaa luotettavia verkkosivuja ja web-sovelluksia - prototyyppi ensin, nopea toimitus ja AI-tehostettu työnkulku.">
+
   <style>
-
-    #wattrix-link, #fhatalx-link {
-      text-decoration: none;
+    :root{
+      --ink:#e6e9f5; --muted:#a8aed6;
+      --brand:#8f94fb; --brand2:#64d7ff;
+      --ring:rgba(143,148,251,.35);
+      --radius-xl:28px; --radius-lg:20px; --radius-md:14px;
+      --mx:50vw; --my:50vh;
     }
 
-    :root {
-      --brand-bg: #E0DEFF;
-      --dark-bg: #191921;
-      --hero-bg: #191921;
-      --card-bg: #232046;
-      --accent: #8f94fb;
-      --headline: #232046;
-      --text: #232046;
-      --muted: #58558b;
-      --white: #e6e9f5;
-      --border: #bbb7ee;
-      --light-bg: #23223a;
-      --lighter-bg: #222236;
-      --gradient-dark: linear-gradient(160deg, #212134 60%, #232046 100%);
-      --gradient-light: linear-gradient(160deg, #232046 55%, #302f53 100%);
-      --gradient-lighter: linear-gradient(180deg, #23223a 55%, #272752 100%);
+    /* Saumaton, jatkuva tausta */
+    html,body{height:100%}
+    body{
+      font-family:"Inter",system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink); letter-spacing:-.01em; overflow-x:hidden;
+      background:
+        radial-gradient(580px 580px at var(--mx) var(--my), rgba(143,148,251,.10), transparent 60%),
+        radial-gradient(1400px 900px at 0% -10%, #171c33 20%, rgba(23,28,51,0) 70%),
+        radial-gradient(1200px 800px at 100% 0%, #12162a 15%, rgba(18,22,42,0) 70%),
+        linear-gradient(180deg, #0b0f1a 0%, #101528 40%, #0b0f1a 100%);
+      background-attachment: fixed,fixed,fixed,fixed;
     }
-    html, body {
-      height: 100%;
-      background: var(--dark-bg);
+    body::before{
+      content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+      background: repeating-linear-gradient(90deg, rgba(255,255,255,.004) 0 1px, transparent 1px 2px),
+                  repeating-linear-gradient(0deg, rgba(255,255,255,.004) 0 1px, transparent 1px 2px);
+      mix-blend-mode:overlay;
     }
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      letter-spacing: -0.01em;
-      font-size: 18px;
-      background: var(--dark-bg);
-      min-height: 100vh;
+    a{color:var(--ink); text-decoration:none}
+    .container{max-width:1140px}
+
+    /* Navigaatio (läpinäkyvä, ei reunoja) */
+    .navbar{
+      background:rgba(252, 252, 252, 0.06); backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(99,109,236,.15);
     }
-    /* NAVIGATION */
-    .navbar {
-      background: var(--brand-bg) !important;
-      border-bottom: 1px solid var(--border);
-      font-size: 1.20rem;
-      padding: 0.9rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      box-shadow: 0 2px 12px 0 rgba(150,150,190,0.04);
+    .navbar-brand img{height:64px}
+    .nav-link{
+      color:var(--ink)!important; font-weight:600; margin-right:14px;
+      border-radius:10px; padding:8px 12px; transition:transform .15s, background .15s
     }
-    .navbar-brand img {
-      height: 55px;
-      margin-right: 18px;
-      vertical-align: middle;
-      transition: height 0.15s;
+    .nav-link:hover{background:rgba(143,148,251,.14); transform:translateY(-1px)}
+
+    /* Hero */
+    .hero{position:relative; min-height:100svh; display:grid; place-items:center; padding:120px 16px 80px; text-align:center}
+    #particles-js{position:absolute; inset:0; z-index:0; pointer-events:none}
+    .hero-inner{z-index:1; width:min(1100px,94vw)}
+    .hero-badge{
+      display:inline-flex; gap:10px; align-items:center; padding:8px 14px; border-radius:999px;
+      border:1px solid rgba(143,148,251,.35);
+      background:linear-gradient(180deg, rgba(35,32,70,.85), rgba(35,34,58,.65));
+      box-shadow:0 12px 40px rgba(20,24,60,.28);
     }
-    .navbar-brand {
-      font-weight: 900;
-      color: var(--headline) !important;
-      font-size: 1.45rem;
-      letter-spacing: 0.7px;
+    .hero-badge img{height:28px; width:28px; border-radius:8px}
+    .hero-title{font-weight:900; letter-spacing:-.03em; line-height:1.05; font-size:clamp(32px,6.5vw,64px); text-shadow:0 6px 30px rgba(143,148,251,.22)}
+    .hero-sub{max-width:760px; margin:12px auto 0; color:var(--muted); font-size:clamp(16px,2.6vw,20px)}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:18px}
+    .btn-cta{
+      font-weight:800; border:none; border-radius:999px; padding:12px 22px; font-size:1.05rem;
+      background:linear-gradient(135deg, var(--brand) 0%, var(--brand2) 100%); color:#14182a;
+      box-shadow:0 10px 24px rgba(143,148,251,.25)
     }
-    .nav-link {
-      color: var(--headline) !important;
-      margin-right: 1.15rem;
-      font-weight: 500;
-      transition: color 0.12s;
+    .btn-cta:hover{transform:translateY(-2px)}
+    .btn-ghost{font-weight:800; border-radius:999px; padding:12px 22px; font-size:1.05rem; border:1px solid rgba(143,148,251,.35); background:rgba(35,34,58,.6); color:var(--ink)}
+
+    /* Yleiskortit */
+    .section{padding:72px 0}
+    .glass{
+      background:linear-gradient(160deg, rgba(35,34,58,.92), rgba(32,35,59,.86));
+      border:1px solid rgba(143,148,251,.15); border-radius:var(--radius-xl);
+      box-shadow:0 12px 40px rgba(20,24,60,.28);
+      padding:clamp(22px,4vw,56px);
     }
-    .nav-link.active, .nav-link:hover {
-      color: var(--accent) !important;
-      text-decoration: underline;
-      text-underline-offset: 0.18em;
-    }
-    .lang-switcher {
-      margin-left: 2.2rem;
-    }
-    .lang-btn {
-      background: transparent;
-      border: none;
-      color: var(--headline);
-      font-weight: 700;
-      font-family: 'Inter', sans-serif;
-      font-size: 1.30rem;
-      padding: 3px 10px;
-      letter-spacing: 0.5px;
-      border-radius: 7px;
-      transition: color 0.13s;
-    }
-    .lang-btn.active, .lang-btn:focus {
-      color: var(--accent);
-      outline: none;
+    .card-lite{
+      border:1px solid rgba(143,148,251,.12); border-radius:var(--radius-lg);
+      background:linear-gradient(160deg, rgba(35,34,58,.88), rgba(35,32,70,.75));
+      padding:22px; box-shadow:0 12px 40px rgba(20,24,60,.28);
     }
 
-    /* HERO SECTION */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      background: var(--hero-bg);
+    /* Arvolupaukset + Statit */
+    .pill{
+      display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px;
+      border:1px solid rgba(143,148,251,.25); background:rgba(35,34,58,.6); font-weight:700; font-size:.95rem
+    }
+    .stats{display:grid; grid-template-columns:repeat( auto-fit, minmax(220px,1fr) ); gap:14px; margin-top:14px}
+    .stat{border:1px solid rgba(143,148,251,.12); border-radius:var(--radius-md); padding:16px; text-align:center; background:rgba(35,34,58,.6)}
+    .stat .n{font-weight:900; font-size:clamp(22px,4.5vw,34px)}
+    .stat .t{color:var(--muted); font-weight:600}
+
+    /* Projektinostot */
+    .project{
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:22px; align-items:center;
+    }
+    .project:nth-child(even){ grid-template-columns: .9fr 1.1fr; }
+    .shot{
+      position:relative; border-radius:18px; overflow:hidden; border:1px solid rgba(143,148,251,.15);
+      box-shadow:0 14px 40px rgba(20,24,60,.32)
+    }
+    .shot img{display:block; width:100%; height:auto}
+    .badge-link{display:inline-flex; align-items:center; gap:8px; font-weight:800}
+    .badge-link i{color:var(--brand)}
+
+    /* Prosessi */
+    .steps{display:grid; grid-template-columns:repeat( auto-fit, minmax(220px,1fr) ); gap:14px}
+    .step{border-left:3px solid var(--brand); padding:14px 16px; background:rgba(35,34,58,.6); border-radius:12px; border:1px solid rgba(143,148,251,.12)}
+
+    .steps-vertical {
       display: flex;
       flex-direction: column;
+      gap: 24px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .step-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(143, 148, 251, 0.4);
+    }
+    .step-content {
+      flex-grow: 1;
+    }
+
+    /* Tech-stack */
+    .logos{display:flex; flex-wrap:wrap; gap:18px; align-items:center}
+    .logos .logo{height:36px; opacity:.92; filter:grayscale(0%) brightness(1.1); transition:transform .2s, opacity .2s}
+    .logos .logo:hover{opacity:1; transform:translateY(-2px) scale(1.03)}
+
+    /* Tiimi (sama visuaali kuin aiemmin) */
+    .member{
+      text-align:center; border:1px solid rgba(143,148,251,.12);
+      background: linear-gradient(160deg, rgba(35,34,58,.9), rgba(35,32,70,.78));
+      border-radius:var(--radius-lg); padding:24px;
+      box-shadow:0 12px 40px rgba(20,24,60,.28); transition:transform .12s, border-color .12s
+    }
+    .member:hover{transform:translateY(-6px) scale(1.02); border-color:var(--brand)}
+    .avatar{height:112px; width:112px; border-radius:50%; object-fit:cover;
+      border:2px solid rgba(143,148,251,.36); box-shadow:0 8px 30px rgba(50,50,100,.14); margin-bottom:14px}
+    .role{color:#807ABE; font-weight:700}
+    .contact-mini{font-size:.9rem; color:var(--brand); font-weight:700}
+
+    /* Testimonials */
+    .quote{position:relative; padding-left:42px}
+    .quote:before{content:"“"; position:absolute; left:0; top:-10px; font-size:42px; color:var(--brand); font-weight:900}
+
+    /* UKK */
+    .accordion-button, .accordion-body {
+      background: linear-gradient(160deg, rgba(45,45,70,.95), rgba(40,40,60,.85)); /* Tummempi tausta */
+      color: #e6e9f5; /* Vaaleampi teksti */
+    }
+    .accordion-item {
+      border: 1px solid rgba(143,148,251,.25); /* Selkeämpi reunus */
+      border-radius: 12px;
       overflow: hidden;
-      padding-top: 0px;
     }
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0; top: 0;
-      z-index: 1;
-      pointer-events: none;
+    .accordion-button:not(.collapsed) {
+      box-shadow: none;
+      color: #ffffff; /* Valkoinen teksti aktiivisessa tilassa */
     }
-    .hero > *:not(#particles-js) {
-      position: relative;
-      z-index: 2;
-    }
-    .hero-logo {
-      width: 160px;
-      max-width: 30vw;
-      margin-bottom: 30px;
-      border-radius: 18px;
-      background: rgba(25,25,33,0.55);
-      box-shadow: 0 2px 18px 0 rgba(0,0,0,0.08);
-      transition: filter 0.15s;
-    }
-    .hero-title {
-      font-weight: 900;
-      color: #E0DEFF;
-      font-size: 3.3rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 26px;
-      line-height: 1.1;
-    }
-    .hero-desc {
-      color: #E0DEFF;
-      font-size: 1.23rem;
-      font-weight: 500;
-      max-width: 540px;
-      margin: 0 auto 38px auto;
-      line-height: 1.6;
-    }
-    .get-proto-btn {
-      font-weight: 800;
-      font-size: 1.23rem;
-      background: rgba(36, 36, 60, 0.80);
-      color:  #E0DEFF;
-      border: none;
-      border-radius: 100px;
-      padding: 14px 44px;
-      margin-top: 12px;
-      transition: background 0.16s, color 0.16s;
-      box-shadow: 0 2px 20px 0 rgba(120,110,190,0.09);
-      display: inline-block;
-      text-decoration: none;
-    }
-    .get-proto-btn:hover {
-      background: rgba(50,52,96,0.97);
-      color: #E0DEFF;
-      text-decoration: none;
-      box-shadow: 0 10px 20px 0 rgba(130,130,210,0.16);
-      border-color: var(--accent);
-    }
-    @media (max-width: 700px) {
-      .hero {
-        padding-bottom: 60px;
-      }
+    .accordion-button::after {
+      filter: brightness(0) invert(1); /* Muuttaa nuolen valkoiseksi */
     }
 
-    /* TEAM SECTION GRADIENT FADE */
-    .team-section {
-      background: linear-gradient(
-        to bottom,
-        rgba(25,25,33,1) 0%,
-        rgba(25,25,33,0.84) 12%,
-        #232046 55%,
-        #23223a 100%
-      );
-      padding: 7vw 0 6vw 0;
-      text-align: center;
+    /* CTA-banneri */
+    .cta Banner{}
+    .cta-band{
+      border:1px solid rgba(143,148,251,.18); border-radius:20px;
+      background:linear-gradient(160deg, rgba(35,34,58,.92), rgba(35,32,70,.8));
+      padding:24px; text-align:center; box-shadow:0 12px 40px rgba(20,24,60,.28)
     }
-    .team-title {
-      font-weight: 800;
-      color: #E0DEFF;
-      margin-bottom: 50px;
-      letter-spacing: -0.02em;
-      font-size: clamp(1.5rem, 3vw, 2.4rem);
-    }
-    /* Team row is now column flex, like services */
-    .team-row {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 0; /* gap between rows, not members */
-      margin-bottom: 0;
-    }
-    .team-row-top {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 38px;
-    }
-    .team-row-bottom {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 38px;
-    }
-    .team-member, .service-card {
-      background: rgba(36, 36, 60, 0.80);
-      border-radius: 24px;
-      box-shadow: 0 6px 34px 0 rgba(50,60,100,0.09);
-      border: 1.5px solid rgba(143, 148, 251, 0.09);
-      margin-bottom: 0;
-      min-width: 600px;
-      max-width: 700px;
-      width: 100%;
-      text-align: left;
-      transition: transform 0.13s, box-shadow 0.13s, border-color 0.13s;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 36px 48px;
-    }
-    .team-member {
-      align-items: center;
-      text-align: center;
-    }
-    @media (max-width: 1200px) {
-      .team-member, .service-card { min-width: 300px; max-width: 96vw; }
-      .services-row, .team-row { gap: 24px; }
-    }
-    @media (max-width: 700px) {
-      .hero-title { font-size: 2.0rem; }
-      .hero-logo { width: 70px; }
-      .services-row, .team-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-      }
-      .team-member, .service-card { width: 94vw; min-width: 0; max-width: 98vw; padding: 28px 8vw 24px 8vw; }
-    }
-    .team-member:hover,
-    .service-card:hover {
-      transform: translateY(-8px) scale(1.028);
-      box-shadow: 0 16px 36px 0 rgba(130,130,210,0.16);
-      border-color: var(--accent);
-      background: rgba(50,52,96,0.97);
-    }
-    .team-member:hover .team-photo {
-      border-color: var(--accent);
-      box-shadow: 0 4px 24px 0 rgba(120,110,190,0.12);
-    }
-    .service-card:hover .service-icon {
-      color: #fff;
-    }
-    .team-photo {
-      width: 116px;
-      height: 116px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 28px;
-      border: 2.5px solid rgba(143,148,251,0.36);
-      background: var(--card-bg);
-      box-shadow: 0 6px 30px 0 rgba(50,50,100,0.13);
-      transition: border-color 0.18s, box-shadow 0.16s;
-    }
-    .team-name, .service-title {
-      font-weight: 800;
-      color: #E0DEFF;
-      letter-spacing: -0.01em;
-      margin-bottom: 4px;
-      font-size: clamp(1.3rem, 2.2vw, 2.2rem);
-    }
-    .team-role {
-      color: #807ABE;
-      font-weight: 600;
-      margin-bottom: 12px;
-      font-size: clamp(1.05rem, 1.4vw, 1.15rem);
-    }
-    .team-desc, .service-desc {
-      color: #E0DEFF;
-      font-weight: 400;
-      line-height: 1.5;
-      margin-bottom: 0;
-      max-width: 90%;
-      font-size: clamp(1rem, 1.25vw, 1.14rem);
-      padding-bottom: 20px;
-    }
-    /* SERVICES SECTION */
-    .services-section {
-      padding: 7vw 0 6vw 0;
-      text-align: center;
-      background: linear-gradient(
-        to bottom,
-        #23223a 0%,
-        #232046 46%,
-        #232046 80%,
-        #191921 100%
-      );
-    }
-    .services-title {
-      font-weight: 800;
-      color: #E0DEFF;
-      margin-bottom: 50px;
-      letter-spacing: -0.01em;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-    }
-    .services-row {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: stretch;
-      gap: 38px;
-    }
-    .service-card {
-      background: rgba(36, 36, 60, 0.80);
-      border-radius: 24px;
-      box-shadow: 0 6px 34px 0 rgba(50,60,100,0.09);
-      border: 1.5px solid rgba(143, 148, 251, 0.09);
-      margin-bottom: 0;
-      width: 48%;
-      min-width: 300px;
-      max-width: 540px;
-      text-align: left;
-      transition: transform 0.13s, box-shadow 0.13s, border-color 0.13s;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 36px 48px;
-    }
-    .service-icon {
-      font-size: 2.4rem;
-      margin-bottom: 18px;
-      color: var(--accent); /* always visible */
-      transition: color 0.14s;
-    }
-    @media (max-width: 900px) {
-      .service-card {
-        width: 98vw;
-        min-width: 0;
-        max-width: 98vw;
-      }
-      .services-row {
-        flex-direction: column;
-        gap: 24px;
-        align-items: center;
-      }
-    }
-    @media (max-width: 700px) {
-      .hero-title { font-size: 2.0rem; }
-      .hero-logo { width: 70px; }
-      .services-row, .team-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-      }
-      .team-member, .service-card { width: 94vw; min-width: 0; max-width: 98vw; padding: 28px 8vw 24px 8vw; }
-    }
-    .team-member:hover,
-    .service-card:hover {
-      transform: translateY(-8px) scale(1.028);
-      box-shadow: 0 16px 36px 0 rgba(130,130,210,0.16);
-      border-color: var(--accent);
-      background: rgba(50,52,96,0.97);
-    }
-    .team-member:hover .team-photo {
-      border-color: var(--accent);
-      box-shadow: 0 4px 24px 0 rgba(120,110,190,0.12);
-    }
-    .service-card:hover .service-icon {
-      color: #fff;
-    }
-    .team-photo {
-      width: 116px;
-      height: 116px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 28px;
-      border: 2.5px solid rgba(143,148,251,0.36);
-      background: var(--card-bg);
-      box-shadow: 0 6px 30px 0 rgba(50,50,100,0.13);
-      transition: border-color 0.18s, box-shadow 0.16s;
-    }
-    .team-name, .service-title {
-      font-weight: 800;
-      color: #E0DEFF;
-      letter-spacing: -0.01em;
-      margin-bottom: 4px;
-      font-size: clamp(1.3rem, 2.2vw, 2.2rem);
-    }
-    .team-role {
-      color: #807ABE;
-      font-weight: 600;
-      margin-bottom: 12px;
-      font-size: clamp(1.05rem, 1.4vw, 1.15rem);
-    }
-    .team-desc, .service-desc {
-      color: #E0DEFF;
-      font-weight: 400;
-      line-height: 1.5;
-      margin-bottom: 0;
-      max-width: 90%;
-      font-size: clamp(1rem, 1.25vw, 1.14rem);
-      padding-bottom: 20px;
-    }
-    /* CONTACT SECTION */
-    .contact-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-    }
-    .contact-container {
-      max-width: 540px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .contact-title {
-      font-weight: 800;
-      color: #E0DEFF;
-      margin-bottom: 36px;
-      text-align: center;
-      font-size: 2rem;
-      letter-spacing: -0.01em;
-    }
-    .form-label {
-      color: #E0DEFF;
-      font-weight: 600;
-      font-size: 1.07rem;
-    }
-    .form-control {
-      background: transparent !important;
-      border: none !important;
-      border-bottom: 2px solid var(--accent) !important;
-      border-radius: 0 !important;
-      color: #E0DEFF !important;
-      box-shadow: none !important;
-      font-size: 1.07rem;
-      font-family: 'Inter', sans-serif;
-      padding-left: 0;
-      margin-bottom: 18px;
-    }
-    .form-control:focus {
-      border-bottom: 2.5px solid #232046 !important;
-      background: transparent !important;
-      color: var(--white) !important;
-      box-shadow: none !important;
-    }
-    ::placeholder {
-      color: #b5b5d2 !important;
-      opacity: 1;
-      font-family: 'Inter', sans-serif;
-    }
-    .contact-section button[type="submit"], .contact-section button#contact-btn {
-      font-weight: 700;
-      border-radius: 30px;
-      padding: 12px 30px;
-      font-size: 1.08rem;
-      background: var(--accent);
-      color: #232046;
-      border: none;
-      margin-top: 18px;
-      margin-bottom: 32px;
-      transition: background 0.15s, color 0.15s;
-    }
-    .contact-section button[type="submit"]:hover, .contact-section button#contact-btn:hover {
-      background: #fff;
-      color: #232046;
-    }
-  /* MOBILE - MAKE TEAM & SERVICES CARDS IDENTICAL */
-@media (max-width: 700px) {
-  .team-member,
-  .service-card {
-    width: 94vw;
-    min-width: 0;
-    max-width: 98vw;
-    padding: 28px 8vw 24px 8vw !important;
-    margin-bottom: 24px !important;
-    border-radius: 18px !important;
-  }
-  /* Unify inside spacing for both cards */
-  .team-member > *:not(:last-child),
-  .service-card > *:not(:last-child) {
-    margin-bottom: 16px !important;
-  }
-  .team-row-top,
-  .team-row-bottom {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    width: 100% !important;
-    gap: 0 !important;
-    margin-bottom: 0 !important;
-  }
-  .team-row-bottom > .team-member,
-  .team-row-top > .team-member {
-    width: 94vw !important;
-    max-width: 98vw !important;
-    min-width: 0 !important;
-    margin-bottom: 24px !important;
-    box-sizing: border-box !important;
-  }
-  .team-row-bottom {
-    gap: 0 !important;
-  }
-}
-@media (max-width: 700px) {
-  /* ...your other styles... */
-  .hero-title,
-  .team-title,
-  .services-title,
-  .contact-title {
-    font-size: 2.1rem !important;
-  }
 
-@media (max-width: 600px) {
-  .contact-container {
-    padding: 0 5vw;
-  }
-}
-}
+    /* Footer */
+    footer{border-top:1px solid rgba(143,148,251,.18); background:rgba(224,222,255,.06); backdrop-filter:blur(8px); color:var(--ink); padding:18px 0; text-align:center}
+    .footer-link{color:var(--ink); text-decoration:underline}
+    .footer-link:hover{color:#fff}
 
-    /* FOOTER */
-    .footer-bg {
-      color: var(--headline);
-      background: var(--brand-bg) !important;
-      font-size: 1rem;
-      letter-spacing: 0.2px;
-      border-top: 1px solid #bbb7ee;
-      font-family: 'Inter', sans-serif;
+    /* Reveal fade-up */
+    .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s, transform .5s}
+    .reveal.is-in{opacity:1; transform:none}
+
+    @media (max-width: 992px){
+      .project, .project:nth-child(even){ grid-template-columns:1fr; }
     }
-    .footer-links .footer-link {
-  color: var(--headline);
-  text-decoration: underline;
-  font-size: 1rem;
-  margin: 0 2px;
-  transition: color 0.18s;
-}
-.footer-links .footer-link:hover {
-    color: #fff;
-  text-decoration: underline;
-}
-    .footer-bg {
-      color: var(--headline);
-      background: var(--brand-bg) !important;
-      font-size: 1rem;
-      letter-spacing: 0.2px;
-      border-top: 1px solid #bbb7ee;
-      font-family: 'Inter', sans-serif;
+    @media (prefers-reduced-motion: reduce){
+      .reveal{transition:none}
     }
-.story-section {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 7vw 0 6vw 0;
-  /* Sulava gradientti, jatkaa samaa värimaailmaa kuin muut sectionit */
-  background: linear-gradient(
-    to bottom,
-    #232046 0%,       /* alkupiste (team) */
-    #23223a 55%,      /* sama kuin team-sectionin loppu */
-    #191921 100%      /* sama kuin contact-sectionin alku */
-  );
-  z-index: 2;
-}
 
-.story-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 70vh;
-  width: 100%;
-}
+    /* Hampurilaisvalikon ikonit */
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+    .navbar-toggler:hover .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
 
-.story-content {
-  position: relative;
-  z-index: 2;
-  background: rgba(36,36,60,0.92);
-  border-radius: 30px;
-  padding: 70px 60px;
-  box-shadow: 0 10px 50px 0 rgba(130,130,210,0.16);
-  margin: 0 auto;
-  max-width: 1000px;
-  width: 100%;
-  transition: box-shadow 0.18s;
+    .navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: white var(--bs-navbar-toggler-focus-width);
 }
-
-.story-content:hover {
-  box-shadow: 0 16px 64px 0 rgba(143,148,251,0.19);
-}
-
-.story-title {
-  color: #E0DEFF;
-  font-size: clamp(2.5rem, 5vw, 3rem);
-  font-weight: 900;
-  margin-bottom: 38px;
-  letter-spacing: -0.01em;
-}
-
-.story-text {
-  color: #E0DEFF;
-  font-size: 1.35rem;
-  font-weight: 500;
-  line-height: 1.7;
-  max-width: 880px;
-  margin: 0 auto;
-  letter-spacing: -0.005em;
-}
-
-@media (max-width: 1200px) {
-  .story-content { max-width: 96vw; padding: 42px 3vw; }
-  .story-text { font-size: 1.11rem; }
-}
-@media (max-width: 700px) {
-  .story-content { padding: 28px 2vw 24px 2vw; border-radius: 18px; }
-  .story-title { font-size: 1.55rem; }
-  .story-text { font-size: 1.03rem; max-width: 96vw; }
-}
-.team-email {
-  margin-top: 12px;
-  font-weight: 600;
-  font-size: 1.22rem;
-  color: var(--accent);
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-.team-email-label {
-  color: var(--accent);
-  font-size: 1.08rem;
-  font-weight: 600;
-  margin-right: 2px;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1;
-  transition: color 0.18s;
-}
-.team-email a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 0.18s;
-  font-size: 2.1rem;
-  background: none;
-  padding: 0 2px;
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-}
-.team-email a i {
-  color: var(--accent);
-  font-size: 1.2rem;
-  margin-right: 0;
-  vertical-align: middle;
-  display: inline-block;
-  margin-top: 2px;
-  transition: color 0.18s;
-}
-.team-email a:hover i {
-  color: #fff;
-}
-.team-email a:hover .team-email-label {
-  color: #fff;
-}
-  /* Trusted by (hero) */
-.trusted-by {
-  margin-top: 18px; /* reduced gap */
-  text-align: center;
-}
-
-.trusted-title {
-  /* sama sävy kuin hero-teksteissä */
-  font-weight: 800;
-  color: #E0DEFF;
-  margin-bottom: 50px;
-  letter-spacing: -0.01em;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-}
-
-.trusted-logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 38px; /* keep gap between logos */
-  opacity: 0.95;
-  margin-bottom: 48px;
-}
-
-.trusted-logos img {
-  height: 110px;      /* larger logos */
-  max-width: 240px;   /* larger max width */
-  object-fit: contain;
-  filter: grayscale(0%) brightness(1.2);
-  opacity: 0.85;
-  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
-}
-
-.trusted-logos img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: translateY(-2px) scale(1.03);
-}
-
-@media (max-width: 992px) {
-  .trusted-logos img {
-    height: 70px;     /* larger for tablet */
-    max-width: 160px;
-  }
-}
-
-@media (max-width: 700px) {
-  .trusted-logos img {
-    height: 54px;     /* slightly larger for mobile */
-    max-width: 140px;
-  }
-}
-
-    </style>
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg">
+  <!-- Navigaatio -->
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="img/logo.png" alt="Fhatal Studios Logo - Web Development & AI Websites" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <a class="navbar-brand d-flex align-items-center" href="#"><img src="img/logof.png" alt="FHATAL"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div id="nav" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item"><a class="nav-link" href="#team" data-en="Team" data-fi="Tiimi">Tiimi</a></li>
-          <li class="nav-item"><a class="nav-link" href="#story" data-en="Story" data-fi="Tarinamme">Tarinamme</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services" data-en="Services" data-fi="Palvelut">Palvelut</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact" data-en="Contact" data-fi="Ota Yhteyttä">Ota Yhteyttä</a></li>
+          <li class="nav-item"><a class="nav-link" href="#apps">Sovellukset</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projektit</a></li>
+          <li class="nav-item"><a class="nav-link" href="#process">Prosessi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Tiimi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">UKK</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Yhteys</a></li>
         </ul>
-        <div class="lang-switcher d-flex align-items-center">
-          <button id="lang-en" class="lang-btn active" aria-label="Switch to English">EN</button>
-          <button id="lang-fi" class="lang-btn" aria-label="Vaihda suomeksi">FI</button>
-        </div>
       </div>
     </div>
   </nav>
-  <!-- Hero Section -->
-  <section class="hero" id="about">
+
+  <!-- Hero -->
+  <header class="hero" id="home">
     <div id="particles-js"></div>
-    <h1 class="hero-title" data-en="Websites That Build Trust." data-fi="Verkkosivut joihin voit luottaa.">Verkkosivut joihin voit luottaa.</h1>
-    <div class="hero-desc"
-      data-en="Fhatal Studios is a Prototype-first digital studio helping brands grow with AI and precision. We design and build Websites and Web Applications reliably and fast."
-      data-fi="Toimimme prototyyppi ensin -periaatteella ja autamme brändejä kasvamaan yhdistämällä tekoälyn, tehokkuuden ja teknisen ammattitaidon. Rakennamme verkkosivustoja ja web-sovelluksia, jotka toimivat – nopeasti ja luotettavasti.">
-      Toimimme prototyyppi ensin -periaatteella ja autamme brändejä kasvamaan yhdistämällä tekoälyn, tehokkuuden ja teknisen ammattitaidon. Rakennamme verkkosivustoja ja web-sovelluksia, jotka toimivat – nopeasti ja luotettavasti.
-    </div>
-    <a href="#contact" class="get-proto-btn"
-      data-en="Get your free prototype now"
-      data-fi="Pyydä ilmainen prototyyppi nyt">
-      Pyydä ilmainen prototyyppi nyt
-    </a>
-  </section>
+    <div class="hero-inner reveal">
+      <h1 class="hero-title">Verkkosivut joihin voit luottaa.</h1>
+      <p class="hero-sub">FHATAL rakentaa verkkosivut ja web-sovellukset yrityksille prototyyppi ensin -periaatteella. Nopeasti, luotettavasti ja AI-tehostetulla työnkululla. Verkkokehitys, verkkosuunnittelu ja ohjelmistokehitys yhdestä paikasta.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn-cta">Pyydä ilmainen prototyyppi</a>
+        <a href="#projects" class="btn-ghost">Katso toteutuksia</a>
+      </div>
 
-  <!-- Founders Story Section -->
-  <section class="story-section" id="story">
-  <div class="container story-container">
-    <div class="story-content text-center">
-      <h2 class="story-title" data-en="The Story of Fhatal Studios" data-fi="Fhatal Studiosin tarina">Fhatal Studiosin tarina</h2>
-      <div class="story-text"
-        data-en="It all began with a thought: what if artificial intelligence could be used in website production in a completely new way. More efficiently, intelligently, and with high visual quality?
-        The idea was born from shared conversations and experiments between two engineering students, Kimi and Veeti. With backgrounds in software development, a clear vision soon began to take shape a workflow powered by AI that could enhance the creation of digital services.
-        At some point, it became clear that marketing insight and business understanding were also needed. That’s when Arttu joined the team. As a former collaborator from earlier projects, the team was complete.<br><br>
-        <strong>This is how Fhatal Studios was born.<br> A company where technology, AI, and creative vision come together.</strong>"
-        data-fi="Kaikki sai alkunsa ajatuksesta: entä jos tekoälyä voitaisiin hyödyntää verkkosivujen tuotannossa uudella tavalla. Tehokkaammin, älykkäämmin ja visuaalisemmin?
-                Idea syntyi kahden insinööriopiskelijan, Kimin ja Veetin, yhteisistä keskusteluista ja kokeiluista. Molemmilla oli taustaa ohjelmistokehityksestä, ja yhteinen visio alkoi nopeasti hahmottua koneistosta, joka tehostaisi verkkopalvelujen luomista tekoälyn avulla.
-                Tässä vaiheessa ymmärrettiin, että mukaan tarvittaisiin myös markkinointiajattelua ja liiketoimintaosaamista, jolloin mukaan liittyi Arttu yhteistyökumppani aiemmista projekteista ja pian tiimi olikin koossa.<br><br>
-                <strong>Näin sai alkunsa Fhatal Studios.<br> Yritys, jossa teknologia, tekoäly ja luova näkemys kohtaavat.</strong>">
-          Kaikki sai alkunsa ajatuksesta: entä jos tekoälyä voitaisiin hyödyntää verkkosivujen tuotannossa uudella tavalla. Tehokkaammin, älykkäämmin ja visuaalisemmin?
-          Idea syntyi kahden insinööriopiskelijan, Kimin ja Veetin, yhteisistä keskusteluista ja kokeiluista. Molemmilla oli taustaa ohjelmistokehityksestä, ja yhteinen visio alkoi nopeasti hahmottua koneistosta, joka tehostaisi verkkopalvelujen luomista tekoälyn avulla.          Tässä vaiheessa ymmärrettiin, että mukaan tarvittaisiin myös markkinointiajattelua ja liiketoimintaosaamista, jolloin mukaan liittyi Arttu yhteistyökumppani aiemmista projekteista ja pian tiimi olikin koossa.<br><br>
-          <strong>Näin sai alkunsa Fhatal Studios.<br> Yritys, jossa teknologia, tekoäly ja luova näkemys kohtaavat.</strong>
+      <!-- Arvolupaukset & statit -->
+      <div class="glass mt-4">
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          <span class="pill"><i class="ri-flashlight-line"></i> Nopea toimitus</span>
+          <span class="pill"><i class="ri-shield-check-line"></i> Luotettava laatu</span>
+          <span class="pill"><i class="ri-cpu-line"></i> AI-tehostettu</span>
+          <span class="pill"><i class="ri-layout-5-line"></i> Prototyyppi ensin</span>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="n">10+ </div><div class="t">Toteutettua projektia</div></div>
+          <div class="stat"><div class="n">2 </div><div class="t">Omaa tuotetta</div></div>
+          <div class="stat"><div class="n">100% </div><div class="t">Asiakastyytyväisyys</div></div>
+          <div class="stat"><div class="n">1 vko </div><div class="t">Valmis prototyyppi</div></div>
+        </div>
+        <div class="text-muted small mt-2" style="opacity:.75">* Palaute sisäisten ja julkisten projektien perusteella.</div>
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-  <!-- Web Apps Heading -->
-  <div class="container" style="text-align:center; margin-top:32px;">
-    <h2 style="color:#E0DEFF; font-weight:900; font-size:2.2rem; margin-bottom:38px;"
-        data-en="Web Apps We Developed"
-        data-fi="Kehittämämme Web-sovellukset">
-      Kehittämämme Web-sovellukset
-    </h2>
-  </div>
-
-  <!-- App Section: Wattrix -->
-  <section class="app-section" id="wattrix">
-    <div class="container" style="text-align:center; margin-top:48px;">
-      <div class="services-row" style="justify-content:center;align-items:stretch;gap:38px;">
-        <div class="service-card app-card" style="margin: 0 auto;">
-        <a id="wattrix-link" href="https://wattrix.app" target="_blank" rel="noopener">
-          <img src="img/wattrix.png" alt="Wattrix Logo" style="max-width:180px; width:100%; margin-bottom:18px;" />
-          <p style="color:#E0DEFF; font-size:1.22rem; font-weight:700; margin-bottom:18px; letter-spacing:0.5px;">
-            <span style="font-weight:900;">WATTRIX</span>
-          </p>
-          <p style="color:#E0DEFF; font-size:1.13rem; font-weight:600; margin-bottom:18px;"
-             data-en="Plan your EV charging - energy, time, and cost made simple."
-             data-fi="Suunnittele sähköauton lataus energia, aika ja kustannukset helposti.">
-            Suunnittele sähköauton lataus energia, aika ja kustannukset helposti.
-          </p>
-          <p style="color:#E0DEFF; font-size:1.07rem; font-weight:400; margin-bottom:0;"
-             data-en="Wattrix is a lightweight EV charge planner that makes range, time, and cost simple. Enter your battery size, efficiency, charger power, energy price, and (optionally) trip distance. We calculate how much energy you need, how long charging will take, and what it will cost."
-             data-fi="Wattrix on kevyt sähköauton latauksen suunnittelija, joka tekee kantaman, ajan ja kustannukset helpoksi. Syötä akun koko, kulutus, lataustehot, energian hinta ja (halutessasi) matkan pituus. Laskemme, kuinka paljon energiaa tarvitset, kauanko lataus kestää ja mitä se maksaa.">
-            Wattrix on kevyt sähköauton latauksen suunnittelija, joka tekee kantaman, ajan ja kustannukset helpoksi. Syötä akun koko, kulutus, lataustehot, energian hinta ja (halutessasi) matkan pituus. Laskemme, kuinka paljon energiaa tarvitset, kauanko lataus kestää ja mitä se maksaa.
-          </p>
-        </a>
-      </div>
-      <div class="service-card app-card" style="margin: 0 auto;">
-        <a id="fhatalx-link" href="https://fhatalx.com" target="_blank" rel="noopener">
-          <img src="img/fhatalx.png" alt="FhatalX Logo" style="max-width:180px; width:100%; margin-bottom:18px;" />
-          <p style="color:#E0DEFF; font-size:1.22rem; font-weight:700; margin-bottom:18px; letter-spacing:0.5px;">
-            <span style="font-weight:900;">FHATALX</span>
-          </p>
-          <p style="color:#E0DEFF; font-size:1.13rem; font-weight:600; margin-bottom:18px;"
-             data-en="FhatalX – Next-generation crypto intelligence dashboard for real-time trading insights."
-             data-fi="FhatalX – Uuden sukupolven kryptomarkkinoiden analyysityökalu reaaliaikaisiin kaupankäyntinäkymiin.">
-            FhatalX – Uuden sukupolven kryptomarkkinoiden analyysityökalu reaaliaikaisiin kaupankäyntinäkymiin.
-          </p>
-          <p style="color:#E0DEFF; font-size:1.07rem; font-weight:400; margin-bottom:0;"
-             data-en="FhatalX is a next-generation crypto intelligence dashboard designed for traders, analysts, and enthusiasts who need real-time insights with precision. Powered by quant heuristics and built for speed, FhatalX helps identify momentum, reversal, and dip-buy opportunities across the market – all within a minimalist, data-driven interface."
-             data-fi="FhatalX on seuraavan sukupolven kryptovaluuttojen analyysialusta, joka on suunniteltu kauppiaille, analyytikoille ja harrastajille, jotka tarvitsevat reaaliaikaisia ja tarkkoja näkemyksiä. Kvantitatiivisiin heuristiikkoihin perustuva FhatalX auttaa tunnistamaan markkinoiden momentit, käännekohdat ja ostopaikat – kaikki selkeässä, dataohjatussa käyttöliittymässä.">
-            FhatalX on seuraavan sukupolven kryptovaluuttojen analyysialusta, joka on suunniteltu kauppiaille, analyytikoille ja harrastajille, jotka tarvitsevat reaaliaikaisia ja tarkkoja näkemyksiä. Kvantitatiivisiin heuristiikkoihin perustuva FhatalX auttaa tunnistamaan markkinoiden momentit, käännekohdat ja ostopaikat – kaikki selkeässä, dataohjatussa käyttöliittymässä.
-          </p>
-        </a>
-      </div>
-      <!-- Future apps: add more <div class="service-card">...</div> here -->
-    </div>
-  </div>
-</section>
-  <!-- Team Section -->
-  <section class="team-section" id="team">
+  <!-- Sovellukset -->
+  <section class="section" id="apps">
     <div class="container">
-      <h2 class="team-title" data-en="The Fhatal Crew" data-fi="Fhatalin Tiimi">Fhatalin Tiimi</h2>
-      <div class="team-row">
-        <div class="team-row-top">
-          <div class="team-member">
-            <img src="img/kimi.jpg" alt="Kimi Huhtala - Web Developer & AI Specialist" class="team-photo" />
-            <div class="team-name" data-en="Kimi Huhtala" data-fi="Kimi Huhtala">Kimi Huhtala</div>
-            <div class="team-role" data-en="CEO" data-fi="Toimitusjohtaja">Toimitusjohtaja</div>
-            <div class="team-desc"
-              data-en="CEO of Fhatal Studios and an Software Engineer with extensive experience in web and software development. I'm responsible for overseeing operations, contributing to development efforts, and leveraging AI solutions to optimize project delivery."
-              data-fi="Fhatal Studiosin Toimitusjohtaja sekä ICT - insinööri. Minulla on laaja useiden vuosien kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuiden hyödyntämiseen kehityksen tehostamiseksi.">
-              Fhatal Studiosin Toimitusjohtaja sekä ICT - insinööri. Minulla on useiden vuosien laaja kokemus web- ja ohjelmistokehityksestä. Vastaan yrityksen toiminnan johtamisesta, osallistun kehitystyöhön sekä olen erikoistunut tekoälyratkaisuiden hyödyntämiseen kehityksen tehostamiseksi.
-            </div>
-            <div style="font-size:0.85rem; color:#8f94fb; margin-bottom:8px;">kimi.huhtala@fhatal.com</div>
-            <div class="team-email">
-              <a href="mailto:kimi.huhtala@fhatal.com" aria-label="Email Kimi Huhtala">
-                <span class="team-email-label">Ota yhteyttä</span>
-                 <i class="ri-mail-line"></i>
-              </a>
-            </div>
+      <div class="glass reveal">
+        <h2 class="h3 fw-900 text-center mb-2">Kehittämämme web-sovellukset</h2>
+        <p class="text-center mb-4" style="color:#a8aed6">Innovatiivisia ja monipuolisia web-sovelluksia eri tarpeisiin.</p>
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <a class="card-lite h-100 d-block" href="https://wattrix.app" target="_blank" rel="noopener">
+              <img class="d-block mb-2" src="img/wattrix.png" alt="Wattrix logo" style="height:64px">
+              <div class="fw-900">WATTRIX</div>
+              <p class="mb-2">Suunnittele sähköauton lataus energia, aika ja kustannus selkeästi.</p>
+              <span class="badge-link"><i class="ri-external-link-line"></i> wattrix.app</span>
+            </a>
+          </div>
+          <div class="col-12 col-md-6">
+            <a class="card-lite h-100 d-block" href="https://fhatalx.com" target="_blank" rel="noopener">
+              <img class="d-block mb-2" src="img/fhatalx.png" alt="FhatalX logo" style="height:64px">
+              <div class="fw-900">FHATALX</div>
+              <p class="mb-2">Kryptomarkkinoiden analyysialusta reaaliaikaisiin näkymiin.</p>
+              <span class="badge-link"><i class="ri-external-link-line"></i> fhatalx.com</span>
+            </a>
           </div>
         </div>
-        <div class="team-row-bottom">
-          <div class="team-member">
-            <img src="img/veeti.jpg" alt="Veeti Pere - UX Designer & Lead Developer" class="team-photo" />
-            <div class="team-name" data-en="Veeti Pere" data-fi="Veeti Pere">Veeti Pere</div>
-            <div class="team-role" data-en="CTO" data-fi="Teknologiapäällikkö">Teknologiapäällikkö</div>
-            <div class="team-desc"
-              data-en="Extensive background in UX design, IT infrastructure, and full-stack development. Over 7 years of hands-on experience delivering software and web projects for clients across various industries. Currently focused on harnessing AI and automation to create faster, smarter, and more scalable digital solutions."
-              data-fi="Yli seitsemän vuoden kokemuksella ohjelmisto- ja verkkokehityksestä olen erikoistunut UX-suunnitteluun, infrastruktuuriin ja kokonaisvaltaisiin ohjelmistoratkaisuihin. Tällä hetkellä keskityn hyödyntämään tekoälyä työprosessien nopeuttamiseksi ja kehittämiseksi asiakkaillemme.">
-              Yli seitsemän vuoden kokemuksella ohjelmisto- ja verkkokehityksestä olen erikoistunut UX-suunnitteluun, infrastruktuuriin ja kokonaisvaltaisiin ohjelmistoratkaisuihin. Tällä hetkellä keskityn hyödyntämään tekoälyä työprosessien nopeuttamiseksi ja kehittämiseksi asiakkaillemme.
-            </div>
-            <div style="font-size:0.85rem; color:#8f94fb; margin-bottom:8px;">veeti.pere@fhatal.com</div>
-            <div class="team-email">
-              <a href="mailto:veeti.pere@fhatal.com" aria-label="Email Veeti Pere">
-                <span class="team-email-label">Ota yhteyttä</span>
-                <i class="ri-mail-line"></i>
-              </a>
-            </div>
-          </div>
-          <div class="team-member">
-            <img src="img/arttu.jpg" alt="Arttu Aarnio-Wihuri - Business Development Lead" class="team-photo" />
-            <div class="team-name" data-en="Arttu Aarnio-Wihuri" data-fi="Arttu Aarnio-Wihuri">Arttu Aarnio-Wihuri</div>
-            <div class="team-role" data-en="CMO & Chairman of the Board" data-fi="Markkinointipäällikkö ja Hallituksen puheenjohtaja">Markkinointipäällikkö ja Hallituksen puheenjohtaja</div>
-            <div class="team-desc"
-              data-en="Experienced in both IT and marketing, with a strong background in driving business growth. Over several years, has led and supported diverse digital projects, combining technical knowledge with strategic business development and marketing expertise to deliver impactful results."
-              data-fi="Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.">
-              Vankka kokemus sekä IT-alalta että markkinoinnista, painopisteenä liiketoiminnan kehittäminen. Usean vuoden ajan johtanut ja tukenut monipuolisia digitaalisia projekteja, yhdistäen teknisen osaamisen liiketoiminta- ja markkinointistrategioihin tuloksellisesti.
-            <br>
-          <br>
-        </div>
-            <div style="font-size:0.85rem; color:#8f94fb; margin-bottom:8px;">arttu.aarniowihuri@fhatal.com</div>
-            <div class="team-email">
-              <a href="mailto:arttu.aarniowihuri@fhatal.com" aria-label="Email Arttu Aarnio-Wihuri">
-                <span class="team-email-label">Ota yhteyttä</span>
-                <i class="ri-mail-line"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Services Section -->
-  <section class="services-section section-bg-lighter" id="services">
-    <div class="container">
-      <h2 class="services-title" data-en="What we offer" data-fi="Palvelumme">Palvelumme</h2>
-      <div class="services-row">
-        <!-- Service 1 -->
-        <div class="service-card">
-          <i class="service-icon ri-code-s-slash-line"></i>
-          <div class="service-title" data-en="Web App Development" data-fi="Verkkosovellukset">Verkkosovellukset</div>
-          <div class="service-desc"
-            data-en="We design and develop modern web applications using the latest technologies, such as JavaScript, React.js, and other contemporary development tools. We build applications that are secure, scalable, and easily expandable to support your business growth. All our solutions are responsive, user-friendly, and optimized for search engines."
-            data-fi="Suunnittelemme ja kehitämme moderneja web-sovelluksia hyödyntäen uusimpia teknologioita, kuten JavaScriptiä, React.js:ää ja muita nykyaikaisia kehitystyökaluja. Rakennamme sovelluksia, jotka ovat turvallisia, skaalautuvia ja helposti laajennettavia yrityksesi kasvun tueksi. Kaikki toteutuksemsemme ovat responsiivisia, käyttäjäystävällisiä ja hakukoneystävällisiä.">
-            Suunnittelemme ja kehitämme moderneja web-sovelluksia hyödyntäen uusimpia teknologioita, kuten JavaScriptiä, React.js:ää ja muita nykyaikaisia kehitystyökaluja. Rakennamme sovelluksia, jotka ovat turvallisia, skaalautuvia ja helposti laajennettavia yrityksesi kasvun tueksi. Kaikki toteutuksemsemme ovat responsiivisia, käyttäjäystävällisiä ja hakukoneystävällisiä.
-          </div>
-        </div>
-        <!-- Service 2 -->
-        <div class="service-card">
-          <i class="service-icon ri-smartphone-line"></i>
-          <div class="service-title" data-en="Responsive Websites" data-fi="Verkkosivut">Verkkosivut</div>
-          <div class="service-desc"
-            data-en="We build using modern web technologies such as HTML, CSS, JavaScript, and React.js. These tools let us create clean, scalable, and secure websites that load fast and adapt flawlessly to all screen sizes. Every build is responsive, SEO-ready, and crafted to evolve with your business not just serve you for the moment. Whether you need something simple or something more advanced, we deliver with future-proof structure and maintainable code."
-            data-fi="Rakennamme nykyaikaisilla teknologioilla kuten HTML, CSS, JavaScript ja React.js. Näillä syntyy selkeitä, skaalautuvia ja turvallisia sivustoja, jotka latautuvat nopeasti ja toimivat kaikilla laitteilla. Jokainen toteutus on responsiivinen, hakukoneystävällinen ja rakennettu kestämään yrityksesi kasvun mukana – ei vain tätä hetkeä varten.">
-            Rakennamme nykyaikaisilla teknologioilla kuten HTML, CSS, JavaScript ja React.js. Näillä syntyy selkeitä, skaalautuvia ja turvallisia sivustoja, jotka latautuvat nopeasti ja toimivat kaikilla laitteilla. Jokainen toteutus on responsiivinen, hakukoneystävällinen ja rakennettu kestämään yrityksesi kasvun mukana – ei vain tätä hetkeä varten.
-          </div>
-        </div>
-        <!-- Service 3 -->
-        <div class="service-card">
-          <i class="service-icon ri-brush-2-line"></i>
-          <div class="service-title" data-en="Startup Friendly" data-fi="Startup Ystävällinen">Startup Ystävällinen</div>
-          <div class="service-desc"
-            data-en="We understand what it’s like to start from zero. That’s why we offer free design prototypes up front before any commitments or invoices. You get a clear sense of direction, design style, and value before making a decision. We believe this approach builds trust, reduces friction, and makes collaboration smoother from day one."
-            data-fi="Ymmärrämme, miltä tuntuu aloittaa täysin nollasta. Siksi tarjoamme ilmaisen prototyypin, jo ennen sitoumuksia tai laskutusta. Saat heti selkeän käsityksen suunnan, tyylin ja arvon suhteen ennen päätöksen tekemistä. Uskomme, että tämä tapa rakentaa luottamusta ja tekee yhteistyöstä sujuvaa jo ensimmäisestä päivästä alkaen.">
-            Ymmärrämme, miltä tuntuu aloittaa täysin nollasta. Siksi tarjoamme ilmaisen prototyypin, jo ennen sitoumuksia tai laskutusta. Saat heti selkeän käsityksen suunnan, tyylin ja arvon suhteen ennen päätöksen tekemistä. Uskomme, että tämä tapa rakentaa luottamusta ja tekee yhteistyöstä sujuvaa jo ensimmäisestä päivästä alkaen.
-          </div>
-        </div>
-        <!-- Service 4 -->
-        <div class="service-card">
-          <i class="service-icon ri-cloud-line"></i>
-          <div class="service-title" data-en="AI-Enhanced Workflow" data-fi="Tekoälypohjainen kehitys">Tekoälypohjainen kehitys</div>
-          <div class="service-desc"
-            data-en="At Fhatal Studios, we integrate tools like ChatGPT into our workflow not your website. This means faster turnarounds, smarter edits, and a more efficient development process from start to finish. Whether it's generating code snippets, drafting content, or exploring layout variations, our AI-enhanced workflow speeds things up without compromising quality. Every site is still designed, coded, and reviewed by real professionals."
-            data-fi="Fhatal Studios hyödyntää ChatGPT:tä ja muita tekoälytyökaluja kehitysprosessissa. Tämä tarkoittaa nopeampaa toimitusta ja tehokkaampaa tekemistä alusta loppuun. Koodin generointi, sisällön luonnostelu ja layout-vaihtoehtojen ideointi sujuvat vikkelämmin, mutta jokainen sivu suunnitellaan ja tarkistetaan aina oikeiden ammattilaisten toimesta.">
-           Fhatal Studios hyödyntää ChatGPT:tä ja muita tekoälytyökaluja kehitysprosessissa. Tämä tarkoittaa nopeampaa toimitusta ja tehokkaampaa tekemistä alusta loppuun. Koodin generointi, sisällön luonnostelu ja layout-vaihtoehtojen ideointi sujuvat vikkelämmin, mutta jokainen sivu suunnitellaan ja tarkistetaan aina oikeiden ammattilaisten toimesta.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="trusted-by trusted-by-section">
-    <div class="container">
-      <h2 class="trusted-title"
-        data-en="Trusted By"
-        data-fi="Meihin Luottaneet Yritykset">
-        Meihin Luottaneet Yritykset
-      </h2>
-      <div class="trusted-logos">
-        <img src="img/path2.png" alt="MN Kuljetus" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="contact-section section-bg-dark" id="contact">
-    <div class="contact-container">
-      <h2 class="contact-title" data-en="Let’s work together" data-fi="Ota Yhteyttä">Ota Yhteyttä</h2>
-      <div style="font-size:0.92rem; color:#8f94fb; text-align:center; margin-bottom:12px;">
+  <!-- Projektinostot (visuaalinen “case study” -osio) -->
+  <section class="section" id="projects">
+    <div class="container">
+
+      <div class="project mb-4 reveal">
+        <div class="shot">
+          <img src="img/wattrix-mock.png" alt="Wattrix näkymä (mockup)">
+        </div>
+        <div>
+          <div class="pill mb-2"><i class="ri-rocket-line"></i> EV-työkalu</div>
+          <h3 class="h4 fw-900">Wattrix - Latauksen suunnittelu</h3>
+          <p>Kevyt suunnittelutyökalu, joka laskee energian tarpeen, latausajan ja kustannuksen. Toteutettu selkeällä UI:lla ja mobiili edellä.</p>
+          <ul class="mb-2">
+            <li>Syöte-/tuloste-logiikka yksiselitteiseksi</li>
+            <li>Nopeat laskurit, ei raskaita kirjastoja</li>
+            <li>Selkeä visuaalinen hierarkia</li>
+          </ul>
+          <a class="badge-link" href="https://wattrix.app" target="_blank"><i class="ri-external-link-line"></i> Avaa Wattrix</a>
+        </div>
       </div>
-      <form action="https://formspree.io/f/xpwdvkpy" method="POST" onsubmit="return validateRecaptcha();">
-        <div class="mb-4">
-          <label for="contact-name" class="form-label" data-en="Your Name" data-fi="Nimesi">Nimesi</label>
-          <input type="text" name="name" id="contact-name" class="form-control"
-                 placeholder="Nimesi" data-en="Your Name" data-fi="Nimesi" required />
+
+      <div class="project mb-4 reveal">
+        <div>
+          <div class="pill mb-2"><i class="ri-line-chart-line"></i> Analytiikka</div>
+          <h3 class="h4 fw-900">FhatalX - Kryptonäkymä</h3>
+          <p>Seuraavan sukupolven analyysialusta, joka auttaa löytämään momentin, käännekohdat ja ostopaikat. Minimalistinen ja dataohjattu.</p>
+          <ul class="mb-2">
+            <li>Nopea UI, painopiste luettavuudessa</li>
+            <li>Komponentit jatkokehitystä varten</li>
+            <li>Kevyet animaatiot suorituskyky edellä</li>
+          </ul>
+          <a class="badge-link" href="https://fhatalx.com" target="_blank"><i class="ri-external-link-line"></i> Avaa FhatalX</a>
         </div>
-        <div class="mb-4">
-          <label for="contact-email" class="form-label" data-en="Your Email" data-fi="Sähköposti">Sähköposti</label>
-          <input type="email" name="_replyto" id="contact-email" class="form-control"
-                 placeholder="Sähköposti@esimerkki.com" data-en="you@example.com" data-fi="Sähköposti@esimerkki.com" required />
+        <div class="shot">
+          <img src="img/fhatalx-mock.png" alt="FhatalX näkymä (mockup)">
         </div>
-        <div class="mb-4">
-          <label for="contact-message" class="form-label" data-en="Message" data-fi="Viesti">Viesti</label>
-          <textarea name="message" id="contact-message" rows="4" class="form-control"
-                    placeholder="Kerro, miten voimme auttaa..." data-en="Tell us what you need..." data-fi="Kerro, miten voimme auttaa..." required></textarea>
-        </div>
-        <div class="mb-4">
-          <div class="g-recaptcha" data-sitekey="6LezslMrAAAAAIf39D1hiKx8BZFqnbSbbTRPHq5t"></div>
-        </div>
-        <button class="btn" id="contact-btn" type="submit"
-          data-en="Send Message"
-          data-fi="Lähetä viesti">Lähetä viesti</button>
-      </form>
+      </div>
     </div>
   </section>
+
+  <!-- Prosessi -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="glass reveal">
+        <h2 class="h3 fw-900 text-center mb-3">Prosessi - selkeä ja nopea verkkokehitys yrityksille</h2>
+        <div class="steps-vertical">
+          <div class="step">
+            <div class="step-icon"><i class="ri-search-line"></i></div>
+            <div class="step-content">
+              <strong>1. Kuvaus</strong><br/>
+              Ymmärrämme projektisi tavoitteet, kohderyhmän ja vaatimukset. Keskustelemme sisällöstä, tyylistä ja teknisistä tarpeista varmistaaksemme, että verkkosivut ja web-sovellukset vastaavat yrityksesi tarpeita.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-icon"><i class="ri-pencil-ruler-2-line"></i></div>
+            <div class="step-content">
+              <strong>2. Prototyyppi</strong><br/>
+              Rakennamme klikattavan mallin, joka havainnollistaa suunnan, rakenteen ja käyttöliittymän. Näet, miltä lopputulos voisi näyttää, ennen kuin aloitamme varsinaisen kehityksen.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-icon"><i class="ri-refresh-line"></i></div>
+            <div class="step-content">
+              <strong>3. Iterointi</strong><br/>
+              Keräämme palautetta ja teemme tarvittavat muutokset prototyyppiin. Keskitymme tärkeimpiin parannuksiin ja varmistamme, että kaikki osapuolet ovat tyytyväisiä.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-icon"><i class="ri-code-line"></i></div>
+            <div class="step-content">
+              <strong>4. Toteutus</strong><br/>
+              Kehitämme projektin puhtaalla ja optimoidulla koodilla. Käytämme mobiili edellä -lähestymistapaa ja varmistamme, että sivusto on nopea, turvallinen ja SEO-ystävällinen.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-icon"><i class="ri-rocket-line"></i></div>
+            <div class="step-content">
+              <strong>5. Julkaisu</strong><br/>
+              Viimeistelemme projektin optimoinnilla, analytiikan integroinnilla ja tarvittavalla koulutuksella. Varmistamme, että kaikki toimii sujuvasti ja olet valmis käyttöönottoon.
+            </div>
+          </div>
+        </div><br>
+        <div class="text-center mt-3">
+          <a href="#contact" class="btn-cta">Aloita prototyypillä</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech-stack -->
+  <section class="section" id="stack">
+    <div class="container">
+      <div class="glass reveal">
+        <h2 class="h3 fw-900 text-center mb-3">Teknologiat</h2>
+        <p class="text-center" style="color:#a8aed6">Käytämme moderneja, ylläpidettäviä ja tuttuja työkaluja.</p>
+        <div class="logos justify-content-center mt-2">
+          <img class="logo" src="logos/html.svg" alt="HTML5">
+          <img class="logo" src="logos/css.svg" alt="CSS3">
+          <img class="logo" src="logos/js.svg" alt="JavaScript">
+          <img class="logo" src="logos/react.svg" alt="React">
+          <img class="logo" src="logos/nodejs.svg" alt="Node.js">
+          <img class="logo" src="logos/supabase.svg" alt="Supabase">
+          <img class="logo" src="logos/bootstrap.svg" alt="Bootstrap">
+          <img class="logo" src="logos/figma.svg" alt="Figma">
+          <img class="logo" src="logos/git.svg" alt="Git">
+          <img class="logo" src="logos/docker.svg" alt="Docker">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Miksi valita meidät -->
+  <section class="section" id="why-choose-us">
+    <div class="container">
+      <div class="glass reveal">
+        <h2 class="h3 fw-900 text-center mb-3">Miksi valita FHATAL verkkosivujen ja web-sovellusten kehittäjäksi?</h2>
+        <p>FHATAL syntyi yksinkertaisesta ajatuksesta: <strong>voisiko verkkosivujen ja web-sovellusten toteutuksen tehdä selkeämmin, nopeammin ja edullisemmin ilman että laatu kärsii?</strong></p>
+        <p>Ajatus lähti kahden insinööriopiskelijan, Veetin ja Kimin, keskusteluista ja projekteista. Molemmilla oli vahva tausta ohjelmistokehityksestä ja yhteinen tavoite: tehdä asioita järkevämmin, ei raskaammin. Pian mukaan tuli myös Arttu, joka toi tiimiin markkinoinnin ja liiketoiminnan näkökulman. Näin syntyi FHATAL Oy, joka yhdistää käytännönläheisen kehitystyön, modernit työkalut ja realistisen hinnoittelun.</p>
+        <p>Olemme uusi yritys, mutta emme kokemattomia. Meillä on taustalla useita toteutuksia eri toimialoilta, ja olemme nähneet läheltä, miten alalla tehdään usein liian monimutkaisesti ja kalliisti. Siksi halusimme rakentaa FHATAL:in eri tavalla suoraviivaisesti, avoimesti ja asiakkaan kannalta järkevämmin.</p>
+        <p>Me <strong>hyödynnämme tekoälyä työkaluna, emme korvikkeena.</strong> Emme anna ChatGPT:lle ohjeita ja kopioi valmista tekstiä tai koodia me rakennamme, suunnittelemme ja kehitämme itse. Tekoäly on meille osa prosessia, ei sen korvike. Käytämme sitä apuna nopeuttamaan vaiheita, tarkistamaan ratkaisuja ja tehostamaan työnkulkuja aivan kuten moderni kehitystiimi tekee.</p>
+        <p>Tavoitteemme on olla <strong>edelläkävijä</strong>, joka tekee verkkokehityksestä reilumpaa ja saavutettavampaa. Rakennamme verkkosivut ja web-sovellukset, jotka näyttävät hyvältä, toimivat kaikilla laitteilla ja valmistuvat silloin, kun on sovittu ilman yllätyksiä tai piilokuluja.</p>
+        <p>FHATAL:in tavoite on yksinkertainen: <strong>uudistaa verkkokehitys nopeammin, yksinkertaisemmin ja edullisemmin.</strong></p>
+        <p class="text-center fw-900"> </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tiimi -->
+  <section class="section" id="team">
+    <div class="container">
+      <h2 class="h3 fw-900 text-center mb-4 reveal">FHATAL tiimi</h2>
+      <div class="row g-3">
+        <div class="col-12 col-md-4">
+          <div class="member reveal">
+            <img src="img/kimi.jpg" alt="Kimi Huhtala" class="avatar">
+            <div class="h5 mb-1">Kimi Huhtala</div>
+            <div class="role mb-2">Toimitusjohtaja</div>
+            <p>Vastaa toiminnan johtamisesta ja kehityksen tehostamisesta AI-ratkaisuilla.</p>
+            <div class="contact-mini"><a href="mailto:kimi.huhtala@fhatal.com"><i class="ri-mail-line"></i> kimi.huhtala@fhatal.com</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="member reveal">
+            <img src="img/veeti.jpg" alt="Veeti Pere" class="avatar">
+            <div class="h5 mb-1">Veeti Pere</div>
+            <div class="role mb-2">Teknologiapäällikkö</div>
+            <p>UX, infrastruktuuri ja automaatio. Tavoitteena nopeampi toimitus ja parempi laatu.</p>
+            <div class="contact-mini"><a href="mailto:veeti.pere@fhatal.com"><i class="ri-mail-line"></i> veeti.pere@fhatal.com</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="member reveal">
+            <img src="img/arttu.jpg" alt="Arttu Aarnio-Wihuri" class="avatar">
+            <div class="h5 mb-1">Arttu Aarnio-Wihuri</div>
+            <div class="role mb-2">Markkinointipäällikkö & hallituksen pj</div>
+            <p>Liiketoiminnan kasvu, markkinointi ja hankkeiden läpivienti tuloksellisesti.</p>
+            <div class="contact-mini"><a href="mailto:arttu.aarniowihuri@fhatal.com"><i class="ri-mail-line"></i> arttu.aarniowihuri@fhatal.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+<!--  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="glass reveal">
+        <h2 class="h3 fw-900 text-center mb-3">Mitä meistä sanotaan</h2>
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <div class="card-lite h-100">
+              <div class="quote">“Nopea demo ja selkeä kommunikaatio. Prototyyppi näytti suunnan heti.”</div>
+              <div class="mt-2 fw-700">MN Kuljetus - Toimitusjohtaja</div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="card-lite h-100">
+              <div class="quote">“UI on kevyt ja nopea. Hyvä tekninen toteutus, helppo jatkaa.”</div>
+              <div class="mt-2 fw-700">- Creative Technologies - Toimitusjohtaja</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- UKK -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="glass reveal">
+        <h2 class="h3 fw-900 text-center mb-3">Usein kysyttyä</h2>
+        <div class="accordion" id="faqAcc">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">Mitä “prototyyppi ensin” tarkoittaa?</button>
+            </h2>
+            <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+              <div class="accordion-body">Rakennamme nopeasti klikattavan mallin, jotta suunta, rakenne ja tyyli varmistuvat ennen varsinaista kehitystä.</div>
+            </div>
+          </div>
+          <div class="accordion-item mt-2">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Mitä teknologioita käytätte?</button>
+            </h2>
+            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+              <div class="accordion-body">Tyypillisesti HTML, CSS, JavaScript, React ja tarvittaessa Supabase. Valitsemme pinon tarpeen mukaan.</div>
+            </div>
+          </div>
+          <div class="accordion-item mt-2">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Kuinka nopeasti saan prototyypin?</button>
+            </h2>
+            <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+              <div class="accordion-body">Yleensä alle viikossa projektin koosta riippuen.</div>
+            </div>
+          </div>
+          <div class="accordion-item mt-2">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Mitä maksaa aloittaa?</button>
+            </h2>
+            <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+              <div class="accordion-body">Prototyyppi on ilmainen eikä sido jatkamaan. Varsinainen toteutus hinnoitellaan laajuuden mukaan.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Yhteys -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="glass reveal">
+        <h2 class="h3 fw-900 text-center mb-3">Ota yhteyttä</h2>
+        <form action="https://formspree.io/f/xpwdvkpy" method="POST" onsubmit="return validateRecaptcha();">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="name" class="fw-700">Nimesi</label>
+              <input id="name" name="name" class="form-control" placeholder="Etunimi Sukunimi" required>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="email" class="fw-700">Sähköposti</label>
+              <input id="email" name="_replyto" type="email" class="form-control" placeholder="nimi@yritys.fi" required>
+            </div>
+            <div class="col-12">
+              <label for="msg" class="fw-700">Viesti</label>
+              <textarea id="msg" name="message" rows="4" class="form-control" placeholder="Kerro, miten voimme auttaa verkkosivujen tai web-sovellusten kehityksessä..." required></textarea>
+            </div>
+            <div class="col-12">
+              <div class="g-recaptcha" data-sitekey="6LezslMrAAAAAIf39D1hiKx8BZFqnbSbbTRPHq5t"></div>
+            </div>
+          </div>
+          <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn-cta">Lähetä viesti</button>
+            <a href="#home" class="btn-ghost">Takaisin ylös</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer class="footer-bg text-center py-3">
+  <footer>
     <div class="container">
-      &copy; 2025 Fhatal Oy.
-      <br>
-      <a href="privacy.html" class="footer-link" data-en="Privacy Policy" data-fi="Tietosuojaseloste">Tietosuojaseloste</a> |
-      <a href="terms.html" class="footer-link" data-en="Terms of Service" data-fi="Käyttöehdot">Käyttöehdot</a>
-      <br>
-      support@fhatal.com
+      © 2025 FHATAL Oy ·
+      <a class="footer-link" href="privacy.html">Tietosuojaseloste</a> |
+      <a class="footer-link" href="terms.html">Käyttöehdot</a><br/>support@fhatal.com
     </div>
   </footer>
 
-  <!-- JS + Particles.js -->
+  <!-- Eväste-ilmoitus -->
+  <div id="cookie-consent" style="display:none;position:fixed;bottom:20px;left:0;right:0;margin:auto;max-width:420px;background:#222;color:#fff;padding:22px;border-radius:16px;box-shadow:0 6px 32px rgba(0,0,0,.25);z-index:10000;text-align:center;">
+    <p class="mb-2">FHATAL käyttää evästeitä kokemuksen parantamiseksi ja liikenteen analysointiin. <a href="/privacy.html" style="color:#9fa6ff;text-decoration:underline;">Lue lisää</a></p>
+    <button id="cookie-accept" style="background:#E0DEFF;color:#222;border:none;padding:8px 16px;border-radius:9px;font-weight:800;">Hyväksy</button>
+  </div>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    // Minimal particles config, subtle
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 44, "density": { "enable": true, "value_area": 1200 } },
-        "color": { "value": "#8f94fb" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.22, "random": true },
-        "size": { "value": 2.8, "random": true },
-        "line_linked": {
-          "enable": true,
-          "distance": 170,
-          "color": "#8f94fb",
-          "opacity": 0.13,
-          "width": 1.1
-        },
-        "move": {
-          "enable": true,
-          "speed": 0.8,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out"
-        }
+    // Particles (sammuta poistamalla tämä koko lohko)
+    particlesJS("particles-js",{
+      particles:{ number:{ value:42, density:{ enable:true, value_area:1200 } },
+        color:{ value:"#8f94fb" }, shape:{ type:"circle" },
+        opacity:{ value:0.18, random:true },
+        size:{ value:2.6, random:true },
+        line_linked:{ enable:true, distance:170, color:"#8f94fb", opacity:0.10, width:1.0 },
+        move:{ enable:true, speed:0.7, out_mode:"out" }
       },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": true, "mode": "grab" },
-          "onclick": { "enable": false }
-        },
-        "modes": { "grab": { "distance": 160, "line_linked": { "opacity": 0.22 } } }
-      },
-      "retina_detect": true
+      interactivity:{ events:{ onhover:{ enable:true, mode:"grab" } }, modes:{ grab:{ distance:160, line_linked:{ opacity:0.18 } } } },
+      retina_detect:true
     });
 
-    // Language switcher
-    function setLang(lang) {
-      document.querySelectorAll('[data-en]').forEach(function(el) {
-        el.innerHTML = el.getAttribute(lang === 'fi' ? 'data-fi' : 'data-en');
+    // Cursor-spotlight (täysin kevyt)
+    let t=false;
+    window.addEventListener('mousemove', e=>{
+      if(t) return; t=true;
+      requestAnimationFrame(()=>{
+        document.documentElement.style.setProperty('--mx', e.clientX+'px');
+        document.documentElement.style.setProperty('--my', e.clientY+'px');
+        t=false;
       });
-      document.querySelectorAll('input[data-en], textarea[data-en]').forEach(function(el) {
-        el.placeholder = el.getAttribute(lang === 'fi' ? 'data-fi' : 'data-en');
-      });
-      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-      document.getElementById('lang-fi').classList.toggle('active', lang === 'fi');
-      document.documentElement.lang = lang;
-    }
-    document.getElementById('lang-en').addEventListener('click', function(){ setLang('en'); });
-    document.getElementById('lang-fi').addEventListener('click', function(){ setLang('fi'); });
+    }, {passive:true});
 
-    // Smooth nav scroll
-    document.querySelectorAll('a.nav-link, .get-proto-btn').forEach(link => {
-      link.addEventListener('click', function(e) {
-        if (this.hash && document.querySelector(this.hash)) {
+    // Reveal animation
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a.nav-link, .btn-cta, .btn-ghost').forEach(link=>{
+      link.addEventListener('click', function(e){
+        const href=this.getAttribute('href');
+        if(href && href.startsWith('#') && document.querySelector(href)){
           e.preventDefault();
-          document.querySelector(this.hash).scrollIntoView({ behavior: 'smooth' });
+          document.querySelector(href).scrollIntoView({ behavior:'smooth' });
         }
       });
     });
-  </script>
-  <div id="cookie-consent" style="display:none;position:fixed;bottom:20px;left:0;right:0;margin:auto;max-width:400px;background:#222;color:#fff;padding:24px 24px 16px 24px;border-radius:18px;box-shadow:0 6px 32px rgba(0,0,0,0.19);z-index:10000;text-align:center;">
-  <p style="margin-bottom:18px;">
-    FHATAL uses cookies to improve your experience and to analyze site traffic. <a href="/privacy.html" style="color:#8568bd;text-decoration:underline;">Read more</a>
-  </p>
-  <button id="cookie-accept" style="background:#E0DEFF;color:#222;border:none;padding:8px 24px;border-radius:9px;cursor:pointer;font-weight:bold;">Accept</button>
-</div>
-<script>
-  if (!localStorage.getItem('cookieAccepted')) {
-    document.getElementById('cookie-consent').style.display = 'block';
-  }
-  document.getElementById('cookie-accept').onclick = function() {
-    localStorage.setItem('cookieAccepted', 'yes');
-    document.getElementById('cookie-consent').style.display = 'none';
-  }
-</script> 
-<script>
-function validateRecaptcha() {
-  var response = grecaptcha.getResponse();
-  if (response.length === 0) {
-    alert('Please complete the reCAPTCHA.');
-    return false;
-  }
-  return true;
-}
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4DDZ42L1R1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-4DDZ42L1R1');
-</script>
+    // Cookie consent
+    if(!localStorage.getItem('cookieAccepted')){
+      document.getElementById('cookie-consent').style.display='block';
+    }
+    document.getElementById('cookie-accept').onclick=function(){
+      localStorage.setItem('cookieAccepted','yes');
+      document.getElementById('cookie-consent').style.display='none';
+    };
+
+    // reCAPTCHA
+    window.validateRecaptcha = function(){
+      if(typeof grecaptcha==='undefined'){ alert('Lataa sivu uudelleen.'); return false; }
+      var r = grecaptcha.getResponse();
+      if(r.length===0){ alert('Vahvista reCAPTCHA.'); return false; }
+      return true;
+    };
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DDZ42L1R1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-4DDZ42L1R1');
+  </script>
 </body>
 </html>
