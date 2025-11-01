@@ -644,6 +644,15 @@
       if(r.length===0){ alert('Vahvista reCAPTCHA.'); return false; }
       return true;
     };
+
+    function validateForm() {
+      const termsCheckbox = document.getElementById('terms');
+      if (!termsCheckbox.checked) {
+        alert('Sinun on hyväksyttävä käyttöehdot ennen lähettämistä.');
+        return false;
+      }
+      return validateRecaptcha();
+    }
   </script>
 
   <!-- Google tag (gtag.js) -->
