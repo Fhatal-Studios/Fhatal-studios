@@ -81,7 +81,7 @@
       box-shadow:0 10px 24px rgba(143,148,251,.25)
     }
     .btn-cta:hover{transform:translateY(-2px)}
-    .btn-ghost{font-weight:800; border-radius:999px; padding:12px 22px; font-size:1.05rem; border:1px solid rgba(143,148,251,.35); background:rgba(35,34,58,.6); color:var(--ink)}
+    .btn-ghost{font-weight:800; border-radius:999px; padding:12px 22px; font-size:1.05rem; border:1px polid rgba(143,148,251,.35); background:rgba(35,34,58,.6); color:var(--ink); border:1px solid rgba(143,148,251,.35)}
 
     /* Yleiskortit */
     .section{padding:72px 0}
@@ -124,39 +124,21 @@
     .steps{display:grid; grid-template-columns:repeat( auto-fit, minmax(220px,1fr) ); gap:14px}
     .step{border-left:3px solid var(--brand); padding:14px 16px; background:rgba(35,34,58,.6); border-radius:12px; border:1px solid rgba(143,148,251,.12)}
 
-    .steps-vertical {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .step {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
+    .steps-vertical { display:flex; flex-direction:column; gap:24px; }
+    .step { display:flex; align-items:flex-start; gap:16px; }
     .step-icon {
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--brand);
-      color: #fff;
-      border-radius: 50%;
-      font-size: 1.5rem;
+      flex-shrink: 0; width: 48px; height: 48px; display:flex; align-items:center; justify-content:center;
+      background: var(--brand); color: #fff; border-radius: 50%; font-size: 1.5rem;
       box-shadow: 0 4px 12px rgba(143, 148, 251, 0.4);
     }
-    .step-content {
-      flex-grow: 1;
-    }
+    .step-content { flex-grow:1; }
 
     /* Tech-stack */
     .logos{display:flex; flex-wrap:wrap; gap:18px; align-items:center}
     .logos .logo{height:36px; opacity:.92; filter:grayscale(0%) brightness(1.1); transition:transform .2s, opacity .2s}
     .logos .logo:hover{opacity:1; transform:translateY(-2px) scale(1.03)}
 
-    /* Tiimi (sama visuaali kuin aiemmin) */
+    /* Tiimi */
     .member{
       text-align:center; border:1px solid rgba(143,148,251,.12);
       background: linear-gradient(160deg, rgba(35,34,58,.9), rgba(35,32,70,.78));
@@ -169,30 +151,20 @@
     .role{color:#807ABE; font-weight:700}
     .contact-mini{font-size:.9rem; color:var(--brand); font-weight:700}
 
-    /* Testimonials */
+    /* Testimonials (optional) */
     .quote{position:relative; padding-left:42px}
     .quote:before{content:"“"; position:absolute; left:0; top:-10px; font-size:42px; color:var(--brand); font-weight:900}
 
     /* UKK */
     .accordion-button, .accordion-body {
-      background: linear-gradient(160deg, rgba(45,45,70,.95), rgba(40,40,60,.85)); /* Tummempi tausta */
-      color: #e6e9f5; /* Vaaleampi teksti */
+      background: linear-gradient(160deg, rgba(45,45,70,.95), rgba(40,40,60,.85));
+      color: #e6e9f5;
     }
-    .accordion-item {
-      border: 1px solid rgba(143,148,251,.25); /* Selkeämpi reunus */
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .accordion-button:not(.collapsed) {
-      box-shadow: none;
-      color: #ffffff; /* Valkoinen teksti aktiivisessa tilassa */
-    }
-    .accordion-button::after {
-      filter: brightness(0) invert(1); /* Muuttaa nuolen valkoiseksi */
-    }
+    .accordion-item { border: 1px solid rgba(143,148,251,.25); border-radius: 12px; overflow: hidden; }
+    .accordion-button:not(.collapsed) { box-shadow: none; color: #ffffff; }
+    .accordion-button::after { filter: brightness(0) invert(1); }
 
     /* CTA-banneri */
-    .cta Banner{}
     .cta-band{
       border:1px solid rgba(143,148,251,.18); border-radius:20px;
       background:linear-gradient(160deg, rgba(35,34,58,.92), rgba(35,32,70,.8));
@@ -222,12 +194,20 @@
     .navbar-toggler:hover .navbar-toggler-icon {
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
+    .navbar-toggler:focus { text-decoration:none; outline:0; box-shadow:white var(--bs-navbar-toggler-focus-width); }
 
-    .navbar-toggler:focus {
-    text-decoration: none;
-    outline: 0;
-    box-shadow: white var(--bs-navbar-toggler-focus-width);
-}
+    /* Evästebanneri */
+    .cookie-banner{
+      position:fixed; left:0; right:0; bottom:20px; margin:auto; max-width:720px; z-index:10000;
+      background:linear-gradient(160deg, rgba(35,34,58,.95), rgba(32,35,59,.90));
+      color:#e6e9f5; border:1px solid rgba(143,148,251,.25); border-radius:16px; padding:18px; box-shadow:0 12px 34px rgba(0,0,0,.35);
+    }
+    .cookie-btn{
+      border:none; border-radius:999px; padding:10px 16px; font-weight:800;
+    }
+    .cookie-accept{ background:linear-gradient(135deg, var(--brand), var(--brand2)); color:#14182a; }
+    .cookie-reject{ background:rgba(35,34,58,.6); color:#e6e9f5; border:1px solid rgba(143,148,251,.35); }
+    .cookie-link{ color:#9fa6ff; text-decoration:underline; }
   </style>
 </head>
 <body>
@@ -307,7 +287,7 @@
     </div>
   </section>
 
-  <!-- Projektinostot (visuaalinen “case study” -osio) -->
+  <!-- Projektinostot -->
   <section class="section" id="projects">
     <div class="container">
 
@@ -426,10 +406,9 @@
         <p>FHATAL syntyi yksinkertaisesta ajatuksesta: <strong>voisiko verkkosivujen ja web-sovellusten toteutuksen tehdä selkeämmin, nopeammin ja edullisemmin ilman että laatu kärsii?</strong></p>
         <p>Ajatus lähti kahden insinööriopiskelijan, Veetin ja Kimin, keskusteluista ja projekteista. Molemmilla oli vahva tausta ohjelmistokehityksestä ja yhteinen tavoite: tehdä asioita järkevämmin, ei raskaammin. Pian mukaan tuli myös Arttu, joka toi tiimiin markkinoinnin ja liiketoiminnan näkökulman. Näin syntyi FHATAL Oy, joka yhdistää käytännönläheisen kehitystyön, modernit työkalut ja realistisen hinnoittelun.</p>
         <p>Olemme uusi yritys, mutta emme kokemattomia. Meillä on taustalla useita toteutuksia eri toimialoilta, ja olemme nähneet läheltä, miten alalla tehdään usein liian monimutkaisesti ja kalliisti. Siksi halusimme rakentaa FHATAL:in eri tavalla suoraviivaisesti, avoimesti ja asiakkaan kannalta järkevämmin.</p>
-        <p>Me <strong>hyödynnämme tekoälyä työkaluna, emme korvikkeena.</strong> Emme anna ChatGPT:lle ohjeita ja kopioi valmista tekstiä tai koodia me rakennamme, suunnittelemme ja kehitämme itse. Tekoäly on meille osa prosessia, ei sen korvike. Käytämme sitä apuna nopeuttamaan vaiheita, tarkistamaan ratkaisuja ja tehostamaan työnkulkuja aivan kuten moderni kehitystiimi tekee.</p>
-        <p>Tavoitteemme on olla <strong>edelläkävijä</strong>, joka tekee verkkokehityksestä reilumpaa ja saavutettavampaa. Rakennamme verkkosivut ja web-sovellukset, jotka näyttävät hyvältä, toimivat kaikilla laitteilla ja valmistuvat silloin, kun on sovittu ilman yllätyksiä tai piilokuluja.</p>
+        <p>Me <strong>hyödynnämme tekoälyä työkaluna, emme korvikkeena.</strong> Emme anna ChatGPT:lle ohjeita ja kopioi valmista tekstiä tai koodia – me rakennamme, suunnittelemme ja kehitämme itse. Tekoäly on meille osa prosessia, ei sen korvike. Käytämme sitä apuna nopeuttamaan vaiheita, tarkistamaan ratkaisuja ja tehostamaan työnkulkuja aivan kuten moderni kehitystiimi tekee.</p>
+        <p>Tavoitteemme on olla <strong>edelläkävijä</strong>, joka tekee verkkokehityksestä reilumpaa ja saavutettavampaa. Rakennamme verkkosivut ja web-sovellukset, jotka näyttävät hyvältä, toimivat kaikilla laitteilla ja valmistuvat silloin, kun on sovittu – ilman yllätyksiä tai piilokuluja.</p>
         <p>FHATAL:in tavoite on yksinkertainen: <strong>uudistaa verkkokehitys nopeammin, yksinkertaisemmin ja edullisemmin.</strong></p>
-        <p class="text-center fw-900"> </p>
       </div>
     </div>
   </section>
@@ -469,30 +448,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Testimonials -->
-<!--  <section class="section" id="testimonials">
-    <div class="container">
-      <div class="glass reveal">
-        <h2 class="h3 fw-900 text-center mb-3">Mitä meistä sanotaan</h2>
-        <div class="row g-3">
-          <div class="col-12 col-md-6">
-            <div class="card-lite h-100">
-              <div class="quote">“Nopea demo ja selkeä kommunikaatio. Prototyyppi näytti suunnan heti.”</div>
-              <div class="mt-2 fw-700">MN Kuljetus - Toimitusjohtaja</div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="card-lite h-100">
-              <div class="quote">“UI on kevyt ja nopea. Hyvä tekninen toteutus, helppo jatkaa.”</div>
-              <div class="mt-2 fw-700">- Creative Technologies - Toimitusjohtaja</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  -->
 
   <!-- UKK -->
   <section class="section" id="faq">
@@ -557,6 +512,7 @@
               <textarea id="msg" name="message" rows="4" class="form-control" placeholder="Kerro, miten voimme auttaa verkkosivujen tai web-sovellusten kehityksessä..." required></textarea>
             </div>
             <div class="col-12">
+              <!-- reCAPTCHA v2 -->
               <div class="g-recaptcha" data-sitekey="6LezslMrAAAAAIf39D1hiKx8BZFqnbSbbTRPHq5t"></div>
             </div>
           </div>
@@ -574,19 +530,98 @@
     <div class="container">
       © 2025 FHATAL Oy ·
       <a class="footer-link" href="privacy.html">Tietosuojaseloste</a> |
-      <a class="footer-link" href="terms.html">Käyttöehdot</a><br/>support@fhatal.com
+      <a class="footer-link" href="terms.html">Käyttöehdot</a> ·
+      <button id="manageCookies" class="footer-link" style="background:none;border:none">Hallinnoi evästeitä</button><br/>support@fhatal.com
     </div>
   </footer>
 
-  <!-- Eväste-ilmoitus -->
-  <div id="cookie-consent" style="display:none;position:fixed;bottom:20px;left:0;right:0;margin:auto;max-width:420px;background:#222;color:#fff;padding:22px;border-radius:16px;box-shadow:0 6px 32px rgba(0,0,0,.25);z-index:10000;text-align:center;">
-    <p class="mb-2">FHATAL käyttää evästeitä kokemuksen parantamiseksi ja liikenteen analysointiin. <a href="/privacy.html" style="color:#9fa6ff;text-decoration:underline;">Lue lisää</a></p>
-    <button id="cookie-accept" style="background:#E0DEFF;color:#222;border:none;padding:8px 16px;border-radius:9px;font-weight:800;">Hyväksy</button>
-    <button id="cookie-decline" style="background:#E0DEFF;color:#222;border:none;padding:8px 16px;border-radius:9px;font-weight:800;">Hylkää</button>
+  <!-- Evästebanneri (GDPR) -->
+  <div id="cookieBanner" class="cookie-banner" style="display:none">
+    <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-2">
+      <div class="flex-grow-1">
+        <div class="fw-bold">Evästeet – valitse, mitä sallitaan</div>
+        <div class="small text-muted" style="color:#cfd3ff !important">
+          Sivuston toiminnan ja turvallisuuden kannalta välttämättömät evästeet ovat aina käytössä.
+          Voit sallia analytiikan parantamaan palvelua. <a class="cookie-link" href="privacy.html">Lue lisää</a>
+        </div>
+      </div>
+      <div class="d-flex gap-2 ms-md-3">
+        <button id="cookieReject" class="cookie-btn cookie-reject">Hylkää</button>
+        <button id="cookieAccept" class="cookie-btn cookie-accept">Hyväksy</button>
+      </div>
+    </div>
   </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- reCAPTCHA v2 (this fixes grecaptcha undefined) -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <!-- Consent Mode v2 + GA4 loader (G-4DDZ42L1R1) -->
+  <script>
+    (function(){
+      const KEY='fhatal_cookie_consent_v2';
+      const banner=document.getElementById('cookieBanner');
+      const accept=document.getElementById('cookieAccept');
+      const reject=document.getElementById('cookieReject');
+      const manage=document.getElementById('manageCookies');
+
+      function getConsent(){ try{return JSON.parse(localStorage.getItem(KEY))||null;}catch(e){return null;} }
+      function setConsent(obj){ localStorage.setItem(KEY, JSON.stringify({...obj, ts:new Date().toISOString()})); }
+
+      function showBanner(){ banner.style.display='block'; }
+      function hideBanner(){ banner.style.display='none'; }
+
+      // GA4 loader with Consent Mode v2
+      window.__loadGA = function(consent){
+        if(window.__gaLoaded){ // update only
+          window.gtag('consent', 'update', {
+            analytics_storage: consent.analytics ? 'granted':'denied',
+            functionality_storage:'granted',
+            security_storage:'granted'
+          });
+          return;
+        }
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+
+        const s=document.createElement('script');
+        s.async=true;
+        s.src='https://www.googletagmanager.com/gtag/js?id=G-4DDZ42L1R1';
+        document.head.appendChild(s);
+
+        gtag('js', new Date());
+        gtag('consent','default',{
+          analytics_storage: consent.analytics ? 'granted':'denied',
+          functionality_storage:'granted',
+          security_storage:'granted'
+        });
+        gtag('config','G-4DDZ42L1R1',{ anonymize_ip:true });
+        window.__gaLoaded = true;
+      };
+
+      const saved=getConsent();
+      if(!saved){ showBanner(); }
+      else{ window.__loadGA(saved); }
+
+      accept?.addEventListener('click', ()=>{
+        const c={necessary:true, analytics:true};
+        setConsent(c); hideBanner(); window.__loadGA(c);
+      });
+      reject?.addEventListener('click', ()=>{
+        const c={necessary:true, analytics:false};
+        setConsent(c); hideBanner(); window.__loadGA(c);
+      });
+      manage?.addEventListener('click', ()=>{
+        // simple toggle UI: re-open banner with current state
+        const c=getConsent()||{necessary:true,analytics:false};
+        showBanner();
+      });
+    })();
+  </script>
+
   <script>
     // Particles (sammuta poistamalla tämä koko lohko)
     particlesJS("particles-js",{
@@ -601,7 +636,7 @@
       retina_detect:true
     });
 
-    // Cursor-spotlight (täysin kevyt)
+    // Cursor-spotlight
     let t=false;
     window.addEventListener('mousemove', e=>{
       if(t) return; t=true;
@@ -629,40 +664,21 @@
       });
     });
 
-    // Cookie consent
-    if(!localStorage.getItem('cookieAccepted')){
-      document.getElementById('cookie-consent').style.display='block';
-    }
-    document.getElementById('cookie-accept').onclick=function(){
-      localStorage.setItem('cookieAccepted','yes');
-      document.getElementById('cookie-consent').style.display='none';
-    };
-
-    // reCAPTCHA
+    // reCAPTCHA guard (now works because api.js is included)
     window.validateRecaptcha = function(){
-      if(typeof grecaptcha==='undefined'){ alert('Lataa sivu uudelleen.'); return false; }
-      var r = grecaptcha.getResponse();
-      if(r.length===0){ alert('Vahvista reCAPTCHA.'); return false; }
-      return true;
-    };
-
-    function validateForm() {
-      const termsCheckbox = document.getElementById('terms');
-      if (!termsCheckbox.checked) {
-        alert('Sinun on hyväksyttävä käyttöehdot ennen lähettämistä.');
+      if(typeof grecaptcha==='undefined'){
+        alert('Lataa sivu uudelleen (reCAPTCHA-virhe).');
         return false;
       }
-      return validateRecaptcha();
-    }
+      const r = grecaptcha.getResponse();
+      if(!r || r.length===0){
+        alert('Vahvista reCAPTCHA ennen lähettämistä.');
+        return false;
+      }
+      return true;
+    };
   </script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DDZ42L1R1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-4DDZ42L1R1');
-  </script>
+  <!-- GA TAG WAS REMOVED; it now loads after consent via __loadGA -->
 </body>
 </html>
