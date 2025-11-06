@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Tietosuojaseloste | FHATAL</title>
 
+  <!-- Deps ja brändi -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
@@ -35,11 +36,10 @@
                   repeating-linear-gradient(0deg, rgba(255,255,255,.004) 0 1px, transparent 1px 2px);
       mix-blend-mode:overlay;
     }
-
     a{color:var(--ink); text-decoration:none}
     .container{max-width:1140px}
 
-    /* Navbar identical to main page */
+    /* Navbar */
     .navbar{
       background:rgba(252,252,252,0.06); backdrop-filter:blur(10px);
       border-bottom:1px solid rgba(99,109,236,.15);
@@ -50,7 +50,6 @@
       border-radius:10px; padding:8px 12px; transition:transform .15s, background .15s
     }
     .nav-link:hover{background:rgba(143,148,251,.14); transform:translateY(-1px)}
-
     .navbar-toggler-icon{
       background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")
     }
@@ -59,19 +58,33 @@
     }
     .navbar-toggler:focus{outline:0; box-shadow:white var(--bs-navbar-toggler-focus-width)}
 
-    /* Policy card (glass) */
+    /* Layout */
+    .page-wrap{padding:72px 0}
+    .page-header{max-width:1140px; margin:24px auto 12px; padding:0 16px; color:#bfc3ff}
     .glass{
       background:linear-gradient(160deg, rgba(35,34,58,.92), rgba(32,35,59,.86));
       border:1px solid rgba(143,148,251,.15); border-radius:var(--radius-xl);
       box-shadow:0 12px 40px rgba(20,24,60,.28);
       padding:clamp(22px,4vw,56px);
     }
-    .page-wrap{padding:72px 0}
-    .page-header{max-width:1140px; margin:24px auto 12px; padding:0 16px; color:#bfc3ff}
 
     h1{font-weight:900; letter-spacing:-.01em; font-size:clamp(28px,4.8vw,40px)}
     h2{color:var(--brand); font-weight:800; font-size:1.22rem; margin:26px 0 10px}
+    h3{color:#cfd3ff; font-weight:800; font-size:1.06rem; margin:18px 0 8px}
     p,li{font-size:1.06rem; color:var(--ink); line-height:1.6}
+    code{font-size:.95rem}
+
+    /* Taulukot */
+    .table-wrap{overflow-x:auto}
+    table{
+      width:100%; border-collapse:separate; border-spacing:0; margin:10px 0 22px;
+      border:1px solid rgba(143,148,251,.18); border-radius:14px; overflow:hidden;
+      background:linear-gradient(160deg, rgba(35,34,58,.88), rgba(35,32,70,.75));
+    }
+    th, td{padding:12px 14px; vertical-align:top}
+    th{background:rgba(143,148,251,.12); color:#E6E9F5; font-weight:800}
+    tr+tr td{border-top:1px solid rgba(143,148,251,.14)}
+    .smallnote{color:var(--muted); font-size:.95rem}
 
     footer{border-top:1px solid rgba(143,148,251,.18); background:rgba(224,222,255,.06); backdrop-filter:blur(8px); color:var(--ink); padding:18px 0; text-align:center}
     .footer-link{color:var(--ink); text-decoration:underline}
@@ -83,7 +96,7 @@
   </style>
 </head>
 <body>
-  <!-- NAV (same as main) -->
+  <!-- NAV -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -111,59 +124,228 @@
       <div class="page-header">FHATAL / Tietosuojaseloste</div>
       <div class="glass">
         <h1>Tietosuojaseloste</h1>
-        <p style="color: #ffffff;">Päivitetty: Kesäkuu 2025</p>
+        <p style="color:#ffffff">Päivitetty: <strong>Marraskuu 2025</strong></p>
 
-        <p>FHATAL kunnioittaa yksityisyyttäsi. Tämä seloste kertoo, miten keräämme, käytämme ja suojaamme tietojasi, kun vierailet sivustollamme tai käytät palveluitamme.</p>
-
-        <h2>1. Keräämämme tiedot</h2>
+        <h2>1. Rekisterinpitäjä ja yhteystiedot</h2>
+        <p><strong>FHATAL Oy</strong> (”me”)</p>
         <ul>
-          <li><strong>Henkilötiedot:</strong> Nimi, sähköposti ja muut tiedot, jotka annat lomakkeilla.</li>
-          <li><strong>Käyttötiedot:</strong> Sivujen katselut, vierailun kesto, selaintyyppi ja vastaavat.</li>
-          <li><strong>Evästeet:</strong> Käytämme evästeitä käyttökokemuksen parantamiseen ja liikenteen analysointiin.</li>
+          <li><strong>Sähköposti:</strong> <a href="mailto:support@fhatal.com">support@fhatal.com</a></li>
+          <!-- TODO: Lisää virallinen postiosoite -->
+          <li><strong>Osoite:</strong> Mikkolantie 12 G, 04300 Tuusula</li>
+          <!-- TODO: Lisää Y-tunnus -->
+          <li><strong>Y-tunnus:</strong> 3546336-3</li>
         </ul>
 
-        <h2>2. Miten käytämme tietojasi</h2>
+        <h2>2. Soveltamisala</h2>
+        <p>Tämä seloste koskee <strong>fhatal.com</strong>-sivustoa, sen lomakkeita ja mahdollisia tukikanavia, joissa keräämme henkilötietoja asiakassuhteen hoitoa, myyntiä, viestintää ja sivuston kehittämistä varten.</p>
+
+        <h2>3. Käsittelyn tarkoitukset ja oikeusperusteet (GDPR 6 art.)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tarkoitus</th><th>Esimerkkejä</th><th>Oikeusperuste</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Yhteydenottoihin vastaaminen ja asiakasviestintä</td>
+                <td>Yhteydenottolomakkeen viestit, tarjouspyynnöt, tukipyyntö</td>
+                <td>Sopimusta edeltävät toimet tai oikeutettu etu; jos markkinointisuostumus, silloin suostumus</td>
+              </tr>
+              <tr>
+                <td>Palveluiden tuottaminen ja kehittäminen</td>
+                <td>Käyttötilastot, virhelokit, suorituskyvyn parantaminen</td>
+                <td>Oikeutettu etu; tarvittaessa lakisääteinen velvoite</td>
+              </tr>
+              <tr>
+                <td>Markkinointiviestintä</td>
+                <td>Uutiset, päivitykset, kampanjat</td>
+                <td>Suostumus; voit perua milloin tahansa</td>
+              </tr>
+              <tr>
+                <td>Turvallisuus ja väärinkäytösten estäminen</td>
+                <td>reCAPTCHA-tarkistus, lokit, väärinkäytösten ehkäisy</td>
+                <td>Oikeutettu etu ja lakisääteiset velvoitteet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>4. Käsiteltävät tietoryhmät</h2>
         <ul>
-          <li>Vastataksemme yhteydenottoihin ja tuottaaksemme palveluita.</li>
-          <li>Parantaaksemme sivuston ja palveluiden laatua.</li>
-          <li>Viestittääksemme päivityksistä ja pyytämästäsi tiedosta.</li>
-          <li>Noudattaaksemme lakisääteisiä velvoitteita.</li>
+          <li><strong>Yhteystiedot:</strong> nimi, sähköposti, viestin sisältö (Formspree-lomake).</li>
+          <li><strong>Käyttötiedot:</strong> sivukatselut, tapahtumat, viittauslähteet, karkea sijainti (kaupunki/maa GA4:ssa IP-anonymisoinnilla), laite- ja selaintiedot.</li>
+          <li><strong>Tekniset tiedot:</strong> IP-osoite ja laitetunnisteet <em>teknisesti</em> voivat muodostua henkilötiedoiksi; GA4:ssa anonymisoidaan; reCAPTCHA arvioi riskisignaaleja.</li>
+          <li><strong>Evästetiedot ja vastaavat tunnisteet:</strong> välttämättömät ja analytiikkaevästeet, kuten <code>_ga</code> ja <code>_ga_*</code>.</li>
         </ul>
 
-        <h2>3. Tietojen jakaminen</h2>
-        <p>Emme myy tai vuokraa henkilötietojasi. Voimme jakaa tietoja luotettujen kumppaneiden kanssa, jotka auttavat sivuston ja liiketoiminnan ylläpidossa, edellyttäen että he sitoutuvat luottamuksellisuuteen.</p>
+        <h2>5. Evästeet ja suostumusten hallinta</h2>
+        <p>Käytämme vain välttämättömiä evästeitä oletuksena. Analytiikka käynnistyy <strong>vain, jos annat suostumuksen</strong> evästebannerissa. Voit muuttaa valintaa milloin tahansa sivun alatunnisteen <em>“Hallinnoi evästeitä”</em> -linkistä.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Kategoria</th><th>Kuvaus</th><th>Esimerkki</th><th>Säilytys</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Välttämättömät</td>
+                <td>Sivun perustoiminnot ja turvallisuus (esim. roskapostin esto reCAPTCHA:lla).</td>
+                <td><code>_GRECAPTCHA</code> (reCAPTCHA)</td>
+                <td>Sessio–pysyvä (Google voi asettaa molempia)</td>
+              </tr>
+              <tr>
+                <td>Analytiikka (suostumus)</td>
+                <td>Käytön mittaaminen ja palvelun kehittäminen. Latautuu vasta hyväksynnällä.</td>
+                <td><code>_ga</code> (2 v), <code>_ga_XXXX</code> (2 v)</td>
+                <td>Tyypillisesti 2 vuotta; voit poistaa selaimesta</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="smallnote">Huom: Tarkat nimet ja kestot voivat muuttua palveluntarjoajan päivitysten myötä. Päivitämme taulukon tarvittaessa.</p>
 
-        <h2>4. Tietoturva</h2>
-        <p>Suojaamme tietoja asianmukaisin teknisin ja organisatorisin keinoin luvattomalta käytöltä, paljastamiselta tai tuhoutumiselta.</p>
+        <h2>6. Vastaanottajat ja käsittelijät</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Palvelu</th><th>Rooli</th><th>Tarkoitus</th><th>Sijainti & siirtoperuste</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Formspree (formspree.io)</td>
+                <td>Käsittelijä</td>
+                <td>Välittää yhteydenottolomakkeen viestit sähköpostiimme</td>
+                <td>EU/USA; siirrot suojataan mm. SCC:illä palveluntarjoajan ehtojen mukaisesti</td>
+              </tr>
+              <tr>
+                <td>Google reCAPTCHA v2</td>
+                <td>Itsenäinen rekisterinpitäjä</td>
+                <td>Roskapostin ja väärinkäytösten esto lomakkeissa</td>
+                <td>Globaali; siirrot suojataan Googlen ehtojen ja SCC:ien perusteella</td>
+              </tr>
+              <tr>
+                <td>Google Analytics 4 (Consent Mode v2)</td>
+                <td>Käsittelijä</td>
+                <td>Käytön mittaus ja kehittäminen <em>vain suostumuksella</em>; IP anonymisoidaan</td>
+                <td>Globaali; SCC:t + asetukset EU-vaatimusten mukaisesti</td>
+              </tr>
+              <!-- Lisää mahdolliset muut vastaanottajat tänne -->
+            </tbody>
+          </table>
+        </div>
 
-        <h2>5. Oikeutesi</h2>
+        <h2>7. Kansainväliset siirrot</h2>
+        <p>Jos henkilötietoja siirretään EU/ETA-alueen ulkopuolelle, varmistamme suojan käyttämällä <strong>EU:n mallisopimuslausekkeita (SCC)</strong> ja tarvittaessa lisäsuojatoimia.</p>
+
+        <h2>8. Säilytysajat</h2>
         <ul>
-          <li>Voit pyytää pääsyn omiin tietoihisi.</li>
-          <li>Voit pyytää tietojen oikaisua tai poistamista soveltuvan lain puitteissa.</li>
-          <li>Voit kieltäytyä markkinointiviesteistä milloin tahansa.</li>
+          <li><strong>Lomakeviestit (Formspree):</strong> säilytetään niin kauan kuin asian hoito edellyttää ja kirjanpito/vaatimusten puolustaminen mahdollisesti edellyttää. <!-- TODO: määritä käytäntö, esim. 12 kk --> </li>
+          <li><strong>GA4-tapahtumadata:</strong> tyypillinen säilytys 14 kk tai vähemmän suostumuksesi puitteissa. <!-- TODO: määritä tarkka asetus Adminissa --> </li>
+          <li><strong>Tekniset lokit:</strong> lyhyt kierto turvallisuus- ja virheenkorjaustarpeisiin. <!-- TODO: esim. 90 päivää --></li>
         </ul>
 
-        <h2>6. Muutokset selosteeseen</h2>
-        <p>Voimme päivittää tätä selostetta. Muutokset julkaistaan tällä sivulla uuden päivityspäivän kanssa.</p>
+        <h2>9. Oikeutesi rekisteröitynä</h2>
+        <ul>
+          <li>Pääsy tietoihin ja jäljennös (GDPR 15 art.).</li>
+          <li>Tietojen oikaisu (16 art.) ja poistaminen (17 art.).</li>
+          <li>Käsittelyn rajoittaminen (18 art.) ja siirto-oikeus (20 art.).</li>
+          <li>Vastustamisoikeus, kun käsittelyn perusteena on oikeutettu etu (21 art.).</li>
+          <li>Suostumuksen peruuttaminen milloin tahansa (ei vaikuta ennen peruuttamista tehtyyn käsittelyyn).</li>
+          <li>Oikeus tehdä valitus valvontaviranomaiselle: <strong>Tietosuojavaltuutetun toimisto</strong>, <a href="https://tietosuoja.fi">tietosuoja.fi</a>.</li>
+        </ul>
+        <p><strong>Näin käytät oikeuksiasi:</strong> lähetä pyyntö osoitteeseen <a href="mailto:support@fhatal.com">support@fhatal.com</a>. Voimme pyytää kohtuullisen varmistuksen henkilöllisyydestäsi.</p>
 
-        <h2>7. Yhteystiedot</h2>
-        <p>Kysymykset: <a href="mailto:support@fhatal.com">support@fhatal.com</a></p>
+        <h2>10. Profilointi ja automatisoidut päätökset</h2>
+        <p>Emme tee automatisoituja päätöksiä tai sellaista profilointia, jolla olisi oikeusvaikutuksia sinuun. GA4-tason koontitilastot eivät kohdistu yksilöön.</p>
+
+        <h2>11. Turvallisuus</h2>
+        <ul>
+          <li>Salaus (HTTPS) siirrossa, rajattu pääsyoikeus ympäristöihin.</li>
+          <li>Minimointi: keräämme vain tarpeellisen.</li>
+          <li>Säännölliset päivitykset ja haavoittuvuuksien korjaukset.</li>
+        </ul>
+
+        <h2>12. Lasten tiedot</h2>
+        <p>Palvelut eivät ole suunnattu alle 13-vuotiaille. Emme tietoisesti kerää lasten henkilötietoja.</p>
+
+        <h2>13. Muutokset selosteeseen</h2>
+        <p>Voimme päivittää tätä selostetta. Ilmoitamme merkittävistä muutoksista sivustolla ja päivitämme tämän sivun yläosaan <em>“Päivitetty”</em>-päivän.</p>
+
+        <h2>14. Alustakohtaiset lisätiedot (käytössä sivustollasi)</h2>
+        <h3>Formspree-lomake</h3>
+        <ul>
+          <li><strong>Endpoint:</strong> <code>https://formspree.io/f/xpwdvkpy</code></li>
+          <li><strong>Käsittely:</strong> nimesi, sähköpostiosoitteesi ja viestisi välitetään meille.</li>
+          <li><strong>Oikeusperuste:</strong> sopimusta edeltävät toimet / oikeutettu etu; jos pyydät markkinointia, silloin suostumus.</li>
+        </ul>
+
+        <h3>Google reCAPTCHA v2</h3>
+        <ul>
+          <li><strong>Site key:</strong> <code>6LezslMrAAAAAIf39D1hiKx8BZFqnbSbbTRPHq5t</code></li>
+          <li><strong>Tarkoitus:</strong> väärinkäytösten ja roskapostin ehkäisy lomakkeissa (välttämätön).</li>
+          <li><strong>Rooli:</strong> Google toimii yleensä itsenäisenä rekisterinpitäjänä reCAPTCHA-palvelussa.</li>
+        </ul>
+
+        <h3>Google Analytics 4 + Consent Mode v2</h3>
+        <ul>
+          <li><strong>Mittaustunnus:</strong> <code>G-4DDZ42L1R1</code></li>
+          <li><strong>Latauslogiikka:</strong> skriptit latautuvat vasta, kun hyväksyt analytiikan evästebannerista.</li>
+          <li><strong>IP-anonymisointi:</strong> käytössä; raportointi tapahtumatasolla ilman suoraa tunnistamista.</li>
+        </ul>
+
+        <h2>15. Evästeiden hallinta (ohje)</h2>
+        <p>Voit muuttaa suostumustasi milloin tahansa painamalla alatunnisteessa linkkiä <strong>“Hallinnoi evästeitä”</strong>. Selainkohtaiset poistot:</p>
+        <ul>
+          <li>Chrome: Asetukset → Tietosuoja ja turvallisuus → Evästeet ja sivuston tiedot.</li>
+          <li>Firefox: Asetukset → Tietosuoja ja tietoturva → Evästeet ja sivustotiedot.</li>
+          <li>Safari: Asetukset → Yksityisyys → Evästeiden hallinta.</li>
+        </ul>
+
+        <h2>16. Yhteystiedot oikeuksien käyttöön</h2>
+        <p>Kaikki tietosuoja-asiat: <a href="mailto:support@fhatal.com">support@fhatal.com</a>.</p>
+
+        <hr/>
+
+        <h2>Liite A – Evästeluettelo (nykyinen kokoonpano)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nimi</th><th>Palvelu</th><th>Kuvaus</th><th>Kesto</th><th>Kategoria</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>_GRECAPTCHA</td>
+                <td>Google reCAPTCHA</td>
+                <td>Väärinkäytön eston riskianalyysi</td>
+                <td>Sessio / pysyvä</td>
+                <td>Välttämätön</td>
+              </tr>
+              <tr>
+                <td>_ga</td>
+                <td>Google Analytics 4</td>
+                <td>Käyttäjän erottaminen (analytiikka)</td>
+                <td>2 vuotta</td>
+                <td>Analytiikka (suostumus)</td>
+              </tr>
+              <tr>
+                <td>_ga_<em>XXXX</em></td>
+                <td>Google Analytics 4</td>
+                <td>Istunnon tilaseuranta</td>
+                <td>2 vuotta</td>
+                <td>Analytiikka (suostumus)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER (same as main) -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       © 2025 FHATAL Oy ·
       <a class="footer-link" href="privacy.html">Tietosuojaseloste</a> |
-      <a class="footer-link" href="terms.html">Käyttöehdot</a><br/>support@fhatal.com
+      <a class="footer-link" href="terms.html">Käyttöehdot</a> ·
+      <button id="manageCookies" class="footer-link" style="background:none;border:none">Hallinnoi evästeitä</button><br/>support@fhatal.com
     </div>
   </footer>
 
+  <!-- Deps -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Optional: keep background hotspot responsive like main -->
+  <!-- Hotspot-tausta (yhtenevä etusivun kanssa) -->
   <script>
     let throttle=false;
     window.addEventListener('mousemove', e=>{
@@ -174,6 +356,16 @@
         throttle=false;
       });
     }, {passive:true});
+  </script>
+
+  <!-- (Valinnainen) Pieni apu: avaa evästebannerin hallinta, jos etusivun koodi on ladattu samassa domainissa -->
+  <script>
+    document.getElementById('manageCookies')?.addEventListener('click', ()=>{
+      // Jos banneri on tällä sivulla (yleensä etusivulla), kokeillaan näyttää se
+      const banner = document.getElementById('cookieBanner');
+      if(banner){ banner.style.display='block'; }
+      // Muussa tapauksessa ohjaa etusivulle ankkurilla tai kerro käyttäjälle
+    });
   </script>
 </body>
 </html>
